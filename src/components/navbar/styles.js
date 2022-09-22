@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 export default makeStyles((theme) => ({
     container: {
         width: "100%",
-        background: "#000",
+        background: "#2C3333",
         display: "flex",
         color: "white",
         padding: "1.6rem",
