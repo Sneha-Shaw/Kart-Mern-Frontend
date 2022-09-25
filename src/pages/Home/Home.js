@@ -1,9 +1,11 @@
 import React from 'react'
-import useStyles from "./styles";
-
-import girl from '../../assets/girl-with-bags.png'
+import useStyles from "./styles"; import girl from '../../assets/girl-with-bags.png'
 import { HomeLogic } from './HomeLogic';
-import { Button } from '@mui/material';
+import { Button, Card, CardMedia, CardContent, CardActions, } from '@mui/material';
+
+import IconButton from '@mui/material/IconButton';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 const Home = () => {
     const classes = useStyles();
     const {
@@ -15,10 +17,13 @@ const Home = () => {
         type,
         setType,
         sizeOptions,
-        typeOptions
+        typeOptions,
+        products
     } = HomeLogic();
     return (
+        // mainContainer
         <div className={classes.container}>
+            {/* container with intro img and text */}
             <div className={classes.introContainer}>
                 <div className={classes.textPart}>
                     <span>Shop</span>
@@ -37,6 +42,7 @@ const Home = () => {
                 </div>
 
             </div>
+            {/* container with filter */}
             <div className={classes.filterContainer}>
                 <div className={classes.sort}>
                     <select>
@@ -67,7 +73,6 @@ const Home = () => {
                             <option
                                 key={sizeOption}
                                 value={sizeOption}
-                                style={{ color: sizeOption }}
                             >
                                 {sizeOption}
                             </option>
@@ -81,7 +86,6 @@ const Home = () => {
                             <option
                                 key={typeOption}
                                 value={typeOption}
-                                style={{ color: typeOption }}
                             >
                                 {typeOption}
                             </option>
@@ -89,6 +93,50 @@ const Home = () => {
                     </select>
                 </div>
                 <Button variant="contained" className={classes.filterBtn}>Filter</Button>
+            </div>
+            <div className={classes.products}>
+                {products &&
+                    products.map(
+                        (product, index) => {
+                            return (
+
+                                <Card key={index}
+                                    sx={{ margin: "4rem" }}
+                                // onClick={() => {
+                                //     redirectHandler(
+                                //         product.course.courseSlug
+                                //     )
+                                // }}
+                                >
+                                    {/* <div className={classes.imgContainer}>
+                                        <img src={product.img} alt="thumbnail" width="100%" height="100%" />
+                                    </div> */}
+
+                                    <CardMedia
+                                        component="img"
+                                        // height="194"
+                                        image={product.img}
+                                    />
+                                    <CardContent className={classes.details}>
+                                        <h3 className={classes.title}>{product.name}</h3>
+                                        <div className={classes.priceContainer}>
+                                        <p className={classes.price}>₹{product.price}</p>
+                                        <Button sx={{ fontSize: "1.6rem" }} variant="contained">Buy Now</Button>
+
+                                        </div>
+                                        <CardActions >
+                                            {/* <IconButton aria-label="add to favorites">
+                                                <FavoriteIcon />
+                                            </IconButton> */}
+
+                                        </CardActions>
+                                    </CardContent>
+
+
+                                </Card>
+
+                            );
+                        })}
             </div>
         </div>
     )
