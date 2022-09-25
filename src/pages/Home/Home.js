@@ -26,10 +26,13 @@ const Home = () => {
             {/* container with intro img and text */}
             <div className={classes.introContainer}>
                 <div className={classes.textPart}>
-                    <span>Shop</span>
-                    <h2>AnyTime</h2>
-                    <h2>AnyWhere</h2>
-                    <Button variant="contained" >Shop Now</Button>
+                    <div>
+                    <h5 style={{marginLeft: "2rem"}}>Shop</h5>
+                    <h2>Anytime</h2>
+                    <h2>Anywhere</h2>
+                    </div>
+
+                    <Button variant="contained" >Start Shopping &raquo;</Button>
                 </div>
                 <div className={classes.imgPart}>
                     <div className={classes.rectangle}>

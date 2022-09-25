@@ -17,7 +17,12 @@ export default makeStyles((theme) => ({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        textAlign: "left"
+        // textAlign: "left"
+        "&>Button":{
+            borderRadius: "10rem",
+            fontSize: "2rem",
+            marginTop: "2rem"
+        }
     },
     imgPart: {
         width: "40%",
@@ -40,13 +45,13 @@ export default makeStyles((theme) => ({
         width: "15%",
         color: "black",
         position: "absolute",
-        top: "12rem",
+        top: "10rem",
         left: "66rem"
     },
     img: {
-        width: "100rem",
+        width: "91rem",
         position: "absolute",
-        top: "1rem",
+        top: "7rem",
         right: "0"
     },
     filterContainer: {
