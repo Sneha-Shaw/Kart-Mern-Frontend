@@ -48,6 +48,41 @@ export default makeStyles((theme) => ({
         position: "absolute",
         top: "1rem",
         right: "0"
+    },
+    filterContainer:{
+        width: "50%",
+        display: "flex",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        padding: "2rem 0",
+        margin: "auto"
+    },
+    sort:{
+        width: "40%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        "&>select":{
+            width: "50%",
+            padding: "1rem",
+            borderRadius: ".5rem",
+            fontSize: "1.5rem",
+            border: "none"
+        }
+    },
+    filter:{
+        width: "30%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        "&>select":{
+            width: "50%",
+            padding: "1rem",
+            borderRadius: ".5rem",
+            fontSize: "1.5rem",
+            border: "none"
+
+        }
     }
 }
 )

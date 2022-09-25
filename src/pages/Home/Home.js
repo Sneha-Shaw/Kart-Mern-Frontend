@@ -46,7 +46,7 @@ const Home = () => {
                         <option>Newest Arrivals</option>
                     </select>
                 </div>
-                <div className={classes.colorFilter}>
+                <div className={classes.filter}>
                     <select>
                         <option>Color:</option>
                         {colorOptions.map((colorOption) => (
@@ -60,7 +60,7 @@ const Home = () => {
                         ))}
                     </select>
                 </div>
-                <div className={classes.sizeFilter}>
+                <div className={classes.filter}>
                     <select>
                         <option>Size:</option>
                         {sizeOptions.map((sizeOption) => (
@@ -74,7 +74,7 @@ const Home = () => {
                         ))}
                     </select>
                 </div>
-                <div className={classes.colorFilter}>
+                <div className={classes.filter}>
                     <select>
                         <option>Type:</option>
                         {typeOptions.map((typeOption) => (
@@ -88,6 +88,7 @@ const Home = () => {
                         ))}
                     </select>
                 </div>
+                <Button variant="contained" className={classes.filterBtn}>Filter</Button>
             </div>
         </div>
     )

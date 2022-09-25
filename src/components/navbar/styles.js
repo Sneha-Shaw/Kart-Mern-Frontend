@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
         background: "#395B64",
         display: "flex",
         color: "white",
-        padding: "1rem",
+        padding: "1rem 0",
         fontSize: "2rem",
         alignItems: "center"
 
