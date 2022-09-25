@@ -5,7 +5,7 @@ import Footer from './components/footer/footer'
 import Login from './pages/Login/Login'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
-
+import Home from './pages/Home/Home'
 
 const Router = () => {
 
@@ -15,7 +15,7 @@ const Router = () => {
                 <Navbar />
                 <Routes>
                     <Route exact path="/login" element={<Login />} />
-                    {/* <Route exact path="" element={<Navigate to ='/login'/>} /> */}
+                    <Route exact path="" element={<Home/>} />
                 </Routes>
                 <Footer />
             </BrowserRouter>

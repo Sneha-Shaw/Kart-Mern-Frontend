@@ -2,7 +2,7 @@ import React from 'react'
 import useStyles from "./styles";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import SearchIcon from '@mui/icons-material/Search';
 const Navbar = () => {
     const classes = useStyles();
 
@@ -10,6 +10,13 @@ const Navbar = () => {
         <div className={classes.container}>
             <div className={classes.logo}>
                 <span>KART</span>
+            </div>
+            <div className={classes.search}>
+                <SearchIcon fontSize='large'/>
+                <input type="search"
+                className={classes.searchInput}
+                placeholder="Search for products and more"
+                />
             </div>
             <div className={classes.nav}>
                 <ul className={classes.list}>
