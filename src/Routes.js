@@ -9,6 +9,7 @@ import Home from './pages/Home/Home'
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import Cart from "./pages/Cart/Cart";
 import Register from "./pages/Register/Register";
+import UserProfile from "./pages/UserProfile/UserProfile";
 
 const Router = () => {
 
@@ -21,6 +22,7 @@ const Router = () => {
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/your-cart" element={<Cart />} />
+                    <Route exact path="/profile" element={<UserProfile />} />
                     <Route exact path="/product/:id" element={<SingleProduct />} />
                 </Routes>
                 <Footer />
