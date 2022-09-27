@@ -1,9 +1,13 @@
 import React from 'react'
 import useStyles from "./styles";
+import SideBar from '../../components/SideBar/SideBar';
+
 const UserProfile = () => {
     const classes = useStyles();
   return (
-    <div>UserProfile</div>
+    <div>
+        <SideBar/>
+    </div>
   )
 }
 
