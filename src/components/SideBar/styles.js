@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
         // justifyContent: 'center',
         // alignItems: 'center',
         width: '20%',
-        // height: '90vh',
+        minHeight: '95vh',
         backgroundColor: '#2C3333',
         // padding: '1rem',
         "&>ul": {
