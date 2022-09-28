@@ -10,8 +10,7 @@ const UserProfile = () => {
     <div className={classes.container}>
       <SideBar />
       <div className={classes.settingsContainer}>
-        <h1>My Profile</h1>
-        <div style={{ width: "80%" }}>
+        {/* <h1>My Profile</h1> */}
           <div className={classes.profilePicture}>
             <img src="https://faces-img.xcdn.link/image-lorem-face-5919.jpg" alt="profile" />
             <div className={classes.profilePictureButton}>
@@ -64,7 +63,7 @@ const UserProfile = () => {
             <input type="text" placeholder="Password" />
           </div>
           <Button variant='contained' className={classes.button}>Save</Button>
-        </div>
+        
       </div>
     </div>
   )

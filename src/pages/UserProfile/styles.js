@@ -11,14 +11,9 @@ export default makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        '& h1': {
-            fontSize: '3rem',
-            fontWeight: '600',
-            marginBottom: '2rem',
-        },
     },
     inputContainer: {
-        width: '80%',
+        width: '70%',
         display: 'flex',
         flexDirection: 'column',
         // height: '4rem',
@@ -39,8 +34,8 @@ export default makeStyles((theme) => ({
         color: 'rgba(0,0,0,0.6)',
     },
     profilePicture: {
-        width: '20rem',
-        height: '20rem',
+        width: '15rem',
+        height: '15rem',
         position: 'relative',
         margin: 'auto',
         "&>img": {
@@ -63,6 +58,7 @@ export default makeStyles((theme) => ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            cursor: "pointer",
         },
     },
     button:{
