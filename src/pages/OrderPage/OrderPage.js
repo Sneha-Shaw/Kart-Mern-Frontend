@@ -46,7 +46,7 @@ const OrderPage = () => {
                 return (
 
                   <Card key={index}
-                    sx={{ margin: "4rem", display: "flex", alignItems: "center", width: "100%",background: "#395B64", color: "white" }}>
+                    sx={{ margin: "2rem 4rem", display: "flex", alignItems: "center", width: "100%",background: "#395B64", color: "white" }}>
 
                     <CardMedia
                       component="img"

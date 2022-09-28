@@ -11,6 +11,8 @@ export default makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        background: '#F5F5F5',
+
     },
     inputContainer: {
         width: '70%',

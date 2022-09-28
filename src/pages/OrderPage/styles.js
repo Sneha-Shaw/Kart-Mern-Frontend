@@ -10,6 +10,7 @@ export default makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        background: '#F5F5F5',
     },
     orderHeader: {
         width: '70%',
@@ -23,6 +24,7 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         border: '1px solid #ccc',
         borderRadius: '5px',
+        background: '#fff',
         padding: '0.5rem',
         '& input': {
             border: 'none',
@@ -35,6 +37,7 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         border: '1px solid #ccc',
         width: "10rem",
+        background: '#fff',
         // borderRadius: '5px',
         padding: '0.5rem',
         '& select': {
