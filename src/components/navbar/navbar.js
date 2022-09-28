@@ -5,6 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import { Fade } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
 const Navbar = () => {
     const classes = useStyles();
@@ -28,6 +29,7 @@ const Navbar = () => {
                     <li><a className={classes.listItem} href='/login'>Login</a></li>
                     <li><a className={classes.listItem} href='/register'>Sign Up</a></li>
                     <li><a className={classes.listItem} href='/cart'><ShoppingCartIcon fontSize='large' /></a></li>
+                    <li><a className={classes.listItem} href='/wishlist'><NotificationsActiveIcon fontSize='large' /></a></li>
                     <li><a className={classes.listItem} href='/wishlist'><FavoriteBorderIcon fontSize='large' /></a></li>
                     <li><a className={classes.listItem} href='/profile'><AccountCircleIcon fontSize='large' /></a></li>
                 </ul>
