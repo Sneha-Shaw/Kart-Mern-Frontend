@@ -29,7 +29,7 @@ const Navbar = () => {
                     <li><a className={classes.listItem} href='/login'>Login</a></li>
                     <li><a className={classes.listItem} href='/register'>Sign Up</a></li>
                     <li><a className={classes.listItem} href='/cart'><ShoppingCartIcon fontSize='large' /></a></li>
-                    <li><a className={classes.listItem} href='/wishlist'><NotificationsActiveIcon fontSize='large' /></a></li>
+                    <li><a className={classes.listItem} href='/notifications'><NotificationsActiveIcon fontSize='large' /></a></li>
                     <li><a className={classes.listItem} href='/wishlist'><FavoriteBorderIcon fontSize='large' /></a></li>
                     <li><a className={classes.listItem} href='/profile'><AccountCircleIcon fontSize='large' /></a></li>
                 </ul>
