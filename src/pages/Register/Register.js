@@ -11,7 +11,11 @@ const Register = () => {
                     <h1 className={classes.heading}>Create an account</h1>
                     {/* <div className={classes.form}> */}
                     <div className={classes.inputContainer}>
-                        <label className={classes.label}>Name</label>
+                        <label className={classes.label}>First Name</label>
+                        <input type="text" className={classes.input} />
+                    </div>
+                    <div className={classes.inputContainer}>
+                        <label className={classes.label}>Last Name</label>
                         <input type="text" className={classes.input} />
                     </div>
                     <div className={classes.inputContainer}>
