@@ -23,7 +23,7 @@ const Router = () => {
                     <Route exact path="" element={<Home />} />
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/register" element={<Register />} />
-                    <Route exact path="/your-cart" element={<Cart />} />
+                    <Route exact path="/cart" element={<Cart />} />
                     <Route exact path="/profile" element={<UserProfile />} />
                     <Route exact path="/wishlist" element={<Wishlist />} />
                     <Route exact path="/orders" element={<OrderPage />} />
