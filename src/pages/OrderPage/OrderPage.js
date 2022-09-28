@@ -26,7 +26,7 @@ const OrderPage = () => {
           </div>
           <div className={classes.filter}>
             <select>
-              <option>Type:</option>
+              <option>Order Type:</option>
               {orderFilter.map((orderFilter) => (
                 <option
                   key={orderFilter}

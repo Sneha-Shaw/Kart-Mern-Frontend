@@ -34,6 +34,7 @@ export default makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         border: '1px solid #ccc',
+        width: "10rem",
         // borderRadius: '5px',
         padding: '0.5rem',
         '& select': {
