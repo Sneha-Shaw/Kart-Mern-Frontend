@@ -1,5 +1,6 @@
 import React from 'react'
-import useStyles from "./styles"; import girl from '../../assets/girl-with-bags.png'
+import useStyles from "./styles"; 
+import girl from '../../assets/girl-with-bags.png'
 import { HomeLogic } from './HomeLogic';
 import { Button, Card, CardMedia, CardContent, CardActions, } from '@mui/material';
 
