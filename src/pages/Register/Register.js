@@ -23,6 +23,13 @@ const Register = () => {
                         <input type="email" className={classes.input} />
                     </div>
                     <div className={classes.inputContainer}>
+                        <label className={classes.label}>Mobile No.</label>
+                        <input type="text" name="country_code" className={classes.input} 
+                        // value={uniqueId}
+                        // onChange={(e)=>{setUniqueId(e.target.value)}} 
+                        required pattern="[1-9]{1}[0-9]{9}" />
+                    </div>
+                   <div className={classes.inputContainer}>
                         <label className={classes.label}>Password</label>
                         <input type="password" className={classes.input} />
                     </div>
