@@ -13,7 +13,7 @@ import UserProfile from "./pages/UserProfile/UserProfile";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import OrderPage from "./pages/OrderPage/OrderPage";
 import AddressPage from "./pages/AddressPage/AddressPage";
-import orderFinal from "./pages/orderFinal/orderFinal";
+import OrderFinal from "./pages/orderFinal/orderFinal";
 
 const Router = () => {
 
@@ -27,7 +27,7 @@ const Router = () => {
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/cart" element={<Cart />} />
                     <Route exact path="/address" element={<AddressPage />} />
-                    <Route exact path="/order-product" element={<orderFinal />} />
+                    <Route exact path="/order-product" element={<OrderFinal />} />
                     <Route exact path="/profile" element={<UserProfile />} />
                     <Route exact path="/wishlist" element={<Wishlist />} />
                     <Route exact path="/orders" element={<OrderPage />} />
