@@ -6,73 +6,92 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-       
+
     },
-    cart:{
-        "&>h1":{
-            fontSize: '3rem',
-            fontWeight: '600',
-            margin: '2rem',
-        },
+    cartTitle: {
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        color: '#395B64',
+        margin: '2rem 0'
     },
-    cartItem: {
-        width: "80%",
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        margin: "auto",
-        textAlign: 'left',
-       
-    },
-    details: {
-        width: "100%",
+    cart: {
+        width: '60%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        textAlign: 'center',
+    },
+    cartContainer: {
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        textAlign: 'center',
+    },
+    card: {
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        textAlign: 'center',
+        margin: '1rem',
         padding: '1rem',
-        '& h3': {
-            fontSize: '2rem',
-            fontWeight: '800',
-        },
+        backgroundColor: '#f5f5f5',
+        borderRadius: '1rem',
+        boxShadow: '0 0 1rem 0 rgba(0,0,0,0.1)',
+      
     },
-    price: {
-        fontSize: '2.5rem',
-        padding: "2rem 0"
+    media: {
+        height: '100%',
+        width: '100%',
+        objectFit: 'cover',
     },
-    description: {
-        fontSize: '1.5rem',
-        padding: "0 0 2rem 0"
+    cardContent: {
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        fontSize: "2.5rem"
     },
-    cartItemQuantity:{
+    quantity: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-around',
-        width: '100%',
-        margin: '1rem 0',
-        '& button':{
-            fontSize: '2rem',
-            padding: '0.5rem 1rem',
-            border: 'none',
-            background: 'transparent',
-            color: 'white',
-            cursor: 'pointer',
-            outline: 'none',
-        },
-        '& p':{
-            fontSize: '2rem',
-            padding: '0.5rem 1rem',
-            border: 'none',
-            background: 'transparent',
-            color: 'white',
-            cursor: 'pointer',
-            outline: 'none',
-        },
-    
+        justifyContent: 'space-between',
     },
-    cartItemRemoveBtn:{
-        fontSize: '1.5rem !important',
-        padding: '.5rem 4rem !important',
-        background: "rgba(0,0,0,0.75) !important"
+    margin: {
+        backgroundColor: '#e0e0e0',
+        padding: '0.5rem',
+        margin: '1.5rem',
+        cursor: "pointer",
+        "&:hover": {
+            boxShadow: '0 0 .3rem 0 rgba(0,0,0,0.2)',
+        },
+    },
+    cardTotal: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '30%',
+        margin: '1rem',
+        padding: '1rem',
+        "&>Button": {
+            margin: '2rem auto',
+            padding: '1rem',
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            backgroundColor: '#395B64',
+            width: '50%',
+            color: '#fff',
+            "&:hover": {
+                backgroundColor: '#395B64',
+            }
+        }
+
+    },
+    content: {
+        display: 'flex',
+        width: '60%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        margin: "auto",
+        fontSize: "1.5rem"
     }
+
 }))

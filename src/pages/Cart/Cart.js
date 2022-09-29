@@ -1,7 +1,10 @@
 import React from 'react'
 import useStyles from './styles'
-import { Card, CardMedia, CardContent, CardActions, Button } from '@mui/material';
+import { Card, CardMedia, CardContent, CardActions, Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
 
 const Cart = () => {
   const classes = useStyles()
@@ -14,43 +17,60 @@ const Cart = () => {
     <div className={classes.container}>
       {/* cart */}
       <div className={classes.cart}>
-        <h1 className={classes.cartTitle}>Your Cart</h1>
-          <div className={classes.cartItem}>
-            {orderproducts &&
-              orderproducts.map(
-                (product, index) => {
-                  return (
+        <h1 className={classes.cartTitle}>My Shopping Cart</h1>
+        {/* <div className={classes.cartItem}> */}
+        {orderproducts &&
+          orderproducts.map(
+            (product, index) => {
+              return (
 
-                    <Card key={index}
-                      sx={{ margin: "2rem 4rem", display: "flex", alignItems: "center", width: "100%", background: "#395B64", color: "white" }}>
+                <div className={classes.cartContainer}>
 
-                      <CardMedia
-                        component="img"
-                        // height="194"
-                        sx={{ width: "20rem" }}
-                        image={product.img}
-                      />
-                      <CardContent className={classes.details}>
-                        <h3 className={classes.title}>{product.name}</h3>
-                        <p className={classes.price}>₹{product.price}</p>
-                        <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                        <p style={{ fontSize: '1.5rem' }}>Product will be Delivered by Next Week</p>
-                      </CardContent>
-                      <CardActions>
-                        <div className={classes.cartItemQuantity}>
-                          <button className={classes.cartItemQuantityBtn}>-</button>
-                          <p className={classes.cartItemQuantityValue}>1</p>
-                          <button className={classes.cartItemQuantityBtn}>+</button>
-                        </div>
-                        <Button variant='contained' startIcon={<DeleteIcon />} className={classes.cartItemRemoveBtn}>Remove</Button>
-                      </CardActions>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.media}
+                      component="img"
+                      image={product.img}
+                      sx={{ width: "20rem" }}
+                    />
+                    <CardContent className={classes.cardContent}>
 
-                    </Card>
+                      <h3>{product.name}</h3>
 
-                  );
-                })}
-          </div>
+
+                      <div className={classes.quantity}>
+
+                        <AddIcon fontSize="large" className={classes.margin} />
+
+                        <p>1</p>
+                        <RemoveIcon fontSize="large" className={classes.margin} />
+
+                      </div>
+                      <h3>₹{product.price}</h3>
+                    </CardContent>
+                    <CardActions className={classes.cardActions}>
+                      <IconButton>
+                        <HighlightOffIcon fontSize='large' />
+                      </IconButton>
+                    </CardActions>
+                  </Card>
+                </div>
+
+              );
+            })}
+        {/* </div> */}
+
       </div>
+
+      <Card className={classes.cardTotal}>
+        <div className={classes.content}>
+          <h1>Subtotal</h1>
+          <h2>₹500</h2>
+        </div>
+        <Button variant="contained" color="primary" className={classes.button}>
+          Checkout
+        </Button>
+      </Card>
     </div>
   )
 }
