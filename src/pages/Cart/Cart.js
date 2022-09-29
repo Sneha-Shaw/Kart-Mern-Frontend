@@ -1,13 +1,14 @@
 import React from 'react'
 import useStyles from './styles'
 import { Card, CardMedia, CardContent, CardActions, Button, IconButton } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const classes = useStyles()
+  const navigate = useNavigate()
   const orderproducts = [
     { "name": "T-shirt", "price": "200", "img": "https://images.squarespace-cdn.com/content/v1/59d2bea58a02c78793a95114/1533744372275-89SQDE9JMMSO09CMNBOS/%28RED%29_Men%27s%2BINSPI%28RED%29%2BTshirt.jpg" },
     { "name": "T-shirt", "price": "300", "img": "https://images.squarespace-cdn.com/content/v1/59d2bea58a02c78793a95114/1533744372275-89SQDE9JMMSO09CMNBOS/%28RED%29_Men%27s%2BINSPI%28RED%29%2BTshirt.jpg" },
@@ -67,7 +68,7 @@ const Cart = () => {
           <h1>Subtotal</h1>
           <h2>₹500</h2>
         </div>
-        <Button variant="contained" color="primary" className={classes.button}>
+        <Button variant="contained" color="primary" className={classes.button} onClick={()=>{navigate('/address')}} >
           Checkout
         </Button>
       </Card>
