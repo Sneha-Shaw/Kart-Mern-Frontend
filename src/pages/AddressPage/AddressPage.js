@@ -1,9 +1,11 @@
 import { Button } from '@mui/material'
 import React from 'react'
 import useStyles from './styles'
+import { useNavigate } from 'react-router-dom'
 
 const AddressPage = () => {
     const classes = useStyles()
+    const navigate = useNavigate()
   return (
     <div className={classes.container}>
         <h1>Select your delivery Address</h1>
@@ -12,7 +14,7 @@ const AddressPage = () => {
             <p>Santoshpur, lalabagan</p>
             <p>Kolkata-700066, West Bengal</p>
             <p>Mobile: 9876543210</p>
-            <Button variant="contained" color="primary">Deliver here</Button>
+            <Button variant="contained" color="primary" onClick={()=>{navigate('/order-product')}}>Deliver here</Button>
             <div>
                 <Button variant="contained" color="primary">Edit</Button>
                 <Button variant="contained" color="primary">Delete</Button>
@@ -56,7 +58,7 @@ const AddressPage = () => {
                         <option>Work</option>
                     </select>
                 </div>
-                <Button variant="contained" color="primary">Add Address</Button>
+                <Button variant="contained" color="primary" onClick={()=>{navigate('/order-product')}}>Add Address</Button>
               
             </div>
         </div>
