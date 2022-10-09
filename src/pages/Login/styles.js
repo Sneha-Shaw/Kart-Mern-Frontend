@@ -3,7 +3,7 @@ export default makeStyles((theme) => ({
     container:{
         width:"100%",
         height: "100vh",
-        background:"rgba(0,0,0,0.25)",
+        background:"#f5f5f5",
         display:"flex",
         color:"white",
         padding:"1rem 0",
@@ -18,32 +18,30 @@ export default makeStyles((theme) => ({
         
     },
     formContainer:{
-        width:"50%",
+        width:"45%",
+        height:"60%",
         display:"flex",
         justifyContent:"center",
         background: "#395B64",
         alignItems:"center",
-        padding:"2rem",
+        padding:"1rem",
         borderRadius:"1rem",
         flexDirection:"column",
-
-
     },
     form:{
         width:"100%",
+        height:"80%",
         display:"flex",
         flexDirection:"column",
         alignItems:"center",
         justifyContent:"space-around",
-        padding:"2rem",
      
     
     },
     inputContainer:{
         width:"80%",
         display:"flex",
-        // flexDirection:"column",
-        alignItems:"flex-start",
+        alignItems:"center",
         justifyContent:"space-around",
         padding:"1rem",
         "& label":{
@@ -58,7 +56,7 @@ export default makeStyles((theme) => ({
             borderRadius:".5rem",
             border:"none",
             outline:"none",
-            padding:".5rem",
+            padding:"1rem .5rem",
             fontSize:"1.5rem"
         },
        
@@ -66,14 +64,8 @@ export default makeStyles((theme) => ({
     },
     button:{
         width:"20%",
-        borderRadius:".5rem",
-        // padding:"5rem",
-        fontSize:"1.8rem !important",
+        fontSize:"2rem !important",
         background:"#395B64",
-        color:"white",
-        "&:hover":{
-            background:"#395B64",
-            color:"white",
-        }
+        color:"white"
     },
 }))
