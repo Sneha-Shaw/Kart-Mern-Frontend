@@ -9,13 +9,8 @@ const Register = () => {
             <div className={classes.formContainer}>
                 <div className={classes.form}>
                     <h1 className={classes.heading}>Create an account</h1>
-                    {/* <div className={classes.form}> */}
                     <div className={classes.inputContainer}>
-                        <label className={classes.label}>First Name</label>
-                        <input type="text" className={classes.input} />
-                    </div>
-                    <div className={classes.inputContainer}>
-                        <label className={classes.label}>Last Name</label>
+                        <label className={classes.label}>Username</label>
                         <input type="text" className={classes.input} />
                     </div>
                     <div className={classes.inputContainer}>
@@ -38,7 +33,6 @@ const Register = () => {
                         <input type="password" className={classes.input} />
                     </div>
                     <Button variant="contained" color="primary" className={classes.button}>Register</Button>
-                    {/* </div> */}
                     <div style={{ color: "black", marginTop: "1rem" }}>
                         Already have an account? <a href='/login'>Login</a>
                     </div>
