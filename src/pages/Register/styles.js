@@ -3,7 +3,7 @@ export default makeStyles((theme) => ({
     container:{
         width:"100%",
         height: "100vh",
-        background:"rgba(0,0,0,0.25)",
+        background:"#f5f5f5",
         display:"flex",
         color:"white",
         padding:"1rem 0",
@@ -13,12 +13,12 @@ export default makeStyles((theme) => ({
         justifyContent:"center",
         "& a":{
             color:"black",
-            // textDecoration:"none"
         }
         
     },
     formContainer:{
         width:"50%",
+        height:"70%",
         display:"flex",
         justifyContent:"center",
         background: "#395B64",
@@ -31,6 +31,7 @@ export default makeStyles((theme) => ({
     },
     form:{
         width:"100%",
+        height:"100%",
         display:"flex",
         flexDirection:"column",
         alignItems:"center",
@@ -43,7 +44,7 @@ export default makeStyles((theme) => ({
         width:"80%",
         display:"flex",
         // flexDirection:"column",
-        alignItems:"flex-start",
+        alignItems:"center",
         justifyContent:"space-around",
         padding:"1rem",
         "& label":{
@@ -58,7 +59,7 @@ export default makeStyles((theme) => ({
             borderRadius:".5rem",
             border:"none",
             outline:"none",
-            padding:".5rem",
+            padding:"1rem .5rem",
             fontSize:"1.5rem"
         },
        
