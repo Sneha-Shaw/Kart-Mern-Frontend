@@ -11,45 +11,61 @@ export default makeStyles((theme) => ({
         alignItems: "center"
 
     },
+    left: {
+        flex: 1,
+        display: "flex",
+        alignItems: "center",
+        marginLeft: "3rem"
+    },
     logo: {
-        fontSize: "3rem",
-        width: "30%",
-        paddingLeft: "3rem"
-    },
-    nav: {
-        width: "70%",
         display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "2rem",
+        fontWeight: "bold",
+        cursor: "pointer",
+        margin: "0 1rem"
+    },
+    categories: {
+        display: "flex",
+        alignItems: "center",
+        marginLeft: "1rem",
+        "& h4": {
+            margin: "0 1rem",
+            cursor: "pointer"
+        }
+    },
+    right: {
+        flex: 1,
+        display: "flex",
+        alignItems: "center",
         justifyContent: "flex-end",
-        alignItems: "center"
-
-    },
-    list: {
-        listStyle: "none",
-        display: "flex",
-        alignItems: "center"
-    },
-    listItem: {
-        padding: "0 4rem",
-        color: "white",
-        textDecoration: "none"
+        marginRight: "3rem"
     },
     search: {
+        width: "40%",
         display: "flex",
-        background: "white",
-        width: "30%",
-        borderRadius: "3rem",
-        color: "black",
         alignItems: "center",
-        padding: ".5rem"
+        background: "white",
+        padding: "1rem",
+        borderRadius: "0.5rem",
+        color: "black",
+        "& input": {
+            border: "none",
+            outline: "none",
+            // marginLeft: "0.5rem"
+        }
     },
-    searchInput: {
-        background: "transparent",
-        border: "none",
-        outline: "none",
-        padding: ".5rem 1rem",
-        width: "100%",
-
-
+    icons: {
+        display: "flex",
+        alignItems: "center",
+        marginLeft: "1rem",
+        "& a": {
+            margin: "0 1rem",
+            color: "white",
+            textDecoration: "none",
+        }
     },
+    
 
 }))
