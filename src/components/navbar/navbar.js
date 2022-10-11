@@ -7,9 +7,10 @@ import { Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from 'react-router-dom';
 import 'react-dropdown/style.css';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
     const classes = useStyles();
-
+    const { userInfo } = useSelector((state) => state.signInUser)
 
     return (
         <div className={classes.container}>
@@ -46,12 +47,18 @@ const Navbar = () => {
                     <Link to="cart" className={classes.icon}>
                         <ShoppingCartIcon fontSize="large" />
                     </Link>
-                    <Link to="profile" className={classes.icon}>
-                        <AccountCircleIcon fontSize="large" />
-                    </Link>
-                    <Link to="login" className={classes.icon}>
-                        <Button variant="contained" color="primary">Login</Button>
-                    </Link>
+                    {
+                        userInfo ?
+                            <Link to="profile" className={classes.icon}>
+                                <AccountCircleIcon fontSize="large" />
+                            </Link>
+                            :
+                            <Link to="login" className={classes.icon}>
+                                <Button variant="contained" color="primary">Login</Button>
+                            </Link>
+                    }
+
+
                 </div>
             </div>
         </div>
