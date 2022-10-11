@@ -13,15 +13,9 @@ import {
 
 
 
-
 const localStorage = window.localStorage
-const API = 'https://api.courses.matricula.co.in'
-// const API = 'http://localhost:5000'
+const API = process.env.REACT_APP_NODE_API
 
-
-// console.log('====================================');
-// console.log(API);
-// console.log('====================================');
 
 
 // signIn user

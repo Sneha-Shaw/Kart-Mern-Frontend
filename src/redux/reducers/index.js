@@ -10,8 +10,8 @@ import { userSigninReducer,userSignupReducer } from './userReducer'
 
 
 const rootReducer = combineReducers({
-    userSignup: userSignupReducer,
-    userSignin:userSigninReducer,
+    signUpUser: userSignupReducer,
+    signInUser:userSigninReducer,
     getAllProduct: getAllProductReducer,
     getSingleProduct: getSingleProductReducer,
     addToWishlist: addToWishlistReducer,

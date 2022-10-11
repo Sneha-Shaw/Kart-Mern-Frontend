@@ -19,8 +19,7 @@ import {
     CHECK_IF_WISHLIST_FAILED
 } from '../constants/productConstants'
 
-const API = 'https://api.courses.matricula.co.in'
-// const API = 'http://localhost:5000'
+const API = process.env.REACT_APP_NODE_API
 
 
 // get all products
