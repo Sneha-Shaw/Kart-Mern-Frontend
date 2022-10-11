@@ -33,7 +33,7 @@ export const RegisterLogic = () => {
 
     useEffect(() => {
         if (userInfo) {
-            navigate('/')
+            navigate(`/home?id=${userInfo._id}`)
         }
     }, [userInfo,navigate])
 

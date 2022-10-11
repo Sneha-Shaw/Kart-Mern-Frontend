@@ -6,6 +6,9 @@ import {
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAILED,
   USER_LOGOUT,
+  GET_SINGLE_USER_REQUEST,
+  GET_SINGLE_USER_SUCCESS,
+  GET_SINGLE_USER_FAILED
 } from '../constants/userConstants'
 
 
@@ -44,9 +47,10 @@ export const userSignupReducer = (
         isAuthenticated: false,
         error: action.payload
       }
-      default:
-        return state
-    }}
+    default:
+      return state
+  }
+}
 
 
 
@@ -91,6 +95,48 @@ export const userSigninReducer = (
       return {
         userInfo: null
       }
+    default:
+      return state
+  }
+}
+
+///get single user
+export const getSingleUserReducer = (
+  state = {
+    loading: false,
+    user: null,
+    error: null,
+    isAuthenticated: false
+  },
+  action
+) => {
+  switch (action.type) {
+    case GET_SINGLE_USER_REQUEST:
+      return {
+        ...state,
+        user: null,
+        error: null,
+        isAuthenticated: false,
+        loading: true
+      }
+    case GET_SINGLE_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isAuthenticated: true,
+        error: null,
+        user: action.payload
+
+      }
+    case GET_SINGLE_USER_FAILED:
+      return {
+        ...state,
+        loading: false,
+        user: null,
+        isAuthenticated: false,
+        error: action.payload
+      }
+
     default:
       return state
   }

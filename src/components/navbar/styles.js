@@ -60,12 +60,13 @@ export default makeStyles((theme) => ({
         display: "flex",
         alignItems: "center",
         marginLeft: "1rem",
-        "& a": {
-            margin: "0 1rem",
-            color: "white",
-            textDecoration: "none",
-        }
+       
     },
-    
+    icon:{
+        margin: "0 1rem",
+        cursor: "pointer",
+        color: "white",
+        textDecoration: "none",
+    }
 
 }))

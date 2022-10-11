@@ -5,13 +5,17 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Link } from 'react-router-dom';
+import { Link,useSearchParams,useNavigate } from 'react-router-dom';
 import 'react-dropdown/style.css';
 import { useSelector } from 'react-redux';
+
+
 const Navbar = () => {
     const classes = useStyles();
     const { userInfo } = useSelector((state) => state.signInUser)
-
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const id = searchParams.get("id");
     return (
         <div className={classes.container}>
             <div className={classes.left}>
@@ -49,9 +53,9 @@ const Navbar = () => {
                     </Link>
                     {
                         userInfo ?
-                            <Link to="profile" className={classes.icon}>
-                                <AccountCircleIcon fontSize="large" />
-                            </Link>
+                            // <Link to="/profile?id=${id}" className={classes.icon}>
+                                <AccountCircleIcon fontSize="large"className={classes.icon} onClick={()=>{navigate(`/profile?id=${id}`)}} />
+                            // </Link>
                             :
                             <Link to="login" className={classes.icon}>
                                 <Button variant="contained" color="primary">Login</Button>

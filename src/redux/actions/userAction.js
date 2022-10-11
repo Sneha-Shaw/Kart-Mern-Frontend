@@ -7,7 +7,10 @@ import {
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAILED,
   USER_LOGOUT,
-  
+  GET_SINGLE_USER_REQUEST,
+  GET_SINGLE_USER_SUCCESS,
+  GET_SINGLE_USER_FAILED
+
 } from '../constants/userConstants'
 
 
@@ -49,7 +52,7 @@ export const signInUser = (email, password) => async (dispatch) => {
     })
   }
 }
-export const signUpUser = (username,email, password,mobile) => async (dispatch) => {
+export const signUpUser = (username, email, password, mobile) => async (dispatch) => {
   try {
     dispatch({
       type: USER_SIGNUP_REQUEST
@@ -73,6 +76,31 @@ export const signUpUser = (username,email, password,mobile) => async (dispatch) 
   } catch (error) {
     dispatch({
       type: USER_SIGNUP_FAILED,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+    })
+  }
+}
+
+//get single user
+export const getSingleUser = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: GET_SINGLE_USER_REQUEST
+    })
+    const config = {
+      'Content-Type': 'application/json'
+    }
+    const { data } = await axios.get(`${API}/public/auth/get-single-user/${id}`, config)
+    dispatch({
+      type: GET_SINGLE_USER_SUCCESS,
+      payload: data
+    })
+  } catch (error) {
+    dispatch({
+      type: GET_SINGLE_USER_FAILED,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

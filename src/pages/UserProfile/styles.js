@@ -50,7 +50,7 @@ export default makeStyles((theme) => ({
         "&>div": {
             position: 'absolute',
             bottom: '4rem',
-            right: '3rem',
+            right: '2rem',
             transform: 'translate(50%,50%)',
             width: "4rem",
             height: "4rem",

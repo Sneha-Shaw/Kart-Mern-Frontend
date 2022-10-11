@@ -3,9 +3,13 @@ import useStyles from "./styles";
 import SideBar from '../../components/SideBar/SideBar';
 import { Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import {ProfileLogic} from './ProfileLogic'
 
 const UserProfile = () => {
   const classes = useStyles();
+  const{
+    user
+  } = ProfileLogic()
   return (
     <div className={classes.container}>
       <SideBar />
@@ -29,11 +33,15 @@ const UserProfile = () => {
           </div>
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>Email</h3>
-            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="Email" 
+            value={user && user.email}
+            />
           </div>
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>Mobile</h3>
-            <input type="text" placeholder="Mobile" />
+            <input type="text" placeholder="Mobile"
+            value={user && user.mobile}
+             />
           </div>
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>Address</h3>

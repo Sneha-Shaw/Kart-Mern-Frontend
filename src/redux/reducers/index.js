@@ -6,12 +6,13 @@ import {
     getWishlistReducer,
     checkIfWishlistReducer
 } from './productReducer'
-import { userSigninReducer,userSignupReducer } from './userReducer'
+import { userSigninReducer,userSignupReducer,getSingleUserReducer } from './userReducer'
 
 
 const rootReducer = combineReducers({
     signUpUser: userSignupReducer,
     signInUser:userSigninReducer,
+    getSingleUser:getSingleUserReducer,
     getAllProduct: getAllProductReducer,
     getSingleProduct: getSingleProductReducer,
     addToWishlist: addToWishlistReducer,
