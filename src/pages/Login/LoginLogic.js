@@ -31,7 +31,7 @@ export const LoginLogic = () => {
 
     useEffect(() => {
         if (userInfo) {
-            navigate(`/home?id=${userInfo._id}`)
+            navigate(`/home`)
         }
     }, [userInfo,navigate])
 

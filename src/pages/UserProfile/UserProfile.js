@@ -8,7 +8,9 @@ import {ProfileLogic} from './ProfileLogic'
 const UserProfile = () => {
   const classes = useStyles();
   const{
-    user
+    user,
+    firstName,
+    lastName
   } = ProfileLogic()
   return (
     <div className={classes.container}>
@@ -24,11 +26,15 @@ const UserProfile = () => {
 
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>First Name</h3>
-            <input type="text" placeholder="First Name" />
+            <input type="text" placeholder="First Name" 
+            value={firstName}
+            />
           </div>
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>Last Name</h3>
-            <input type="text" placeholder="Last Name" />
+            <input type="text" placeholder="Last Name"
+            value={lastName}
+             />
 
           </div>
           <div className={classes.inputContainer}>

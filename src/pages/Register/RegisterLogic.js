@@ -11,7 +11,7 @@ export const RegisterLogic = () => {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const[userName,setUsername]=useState();
+    const[name,setName]=useState();
     const[mobile,setMobile]=useState();
 
     const dispatch = useDispatch();
@@ -33,14 +33,14 @@ export const RegisterLogic = () => {
 
     useEffect(() => {
         if (userInfo) {
-            navigate(`/home?id=${userInfo._id}`)
+            navigate(`/home`)
         }
     }, [userInfo,navigate])
 
 
     const signupHandler = () => {
-        if (email && password && userName && mobile) {
-            dispatch(signUpUser(userName,email, password,mobile))
+        if (email && password && name && mobile) {
+            dispatch(signUpUser(name,email, password,mobile))
         } else {
             Swal.fire({
                 icon: 'error',
@@ -56,8 +56,8 @@ export const RegisterLogic = () => {
         setEmail,
         password,
         setPassword,
-        userName,
-        setUsername,
+        name,
+        setName,
         mobile,
         setMobile,
         signupHandler
