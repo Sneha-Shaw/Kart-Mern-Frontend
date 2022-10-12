@@ -3,22 +3,14 @@ import useStyles from "./styles";
 import girl from '../../assets/girl-with-bags.png'
 import { HomeLogic } from './HomeLogic';
 import { Button, Card, CardMedia, CardContent, CardActions, } from '@mui/material';
-
+import Filter from '../../components/Filter/Filter';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Home = () => {
     const classes = useStyles();
     const {
-        color,
-        colorOptions,
-        setColor,
-        size,
-        setSize,
-        type,
-        setType,
-        sizeOptions,
-        typeOptions,
+    
         products
     } = HomeLogic();
     return (
@@ -47,55 +39,8 @@ const Home = () => {
 
             </div>
             {/* container with filter */}
-            <div className={classes.filterContainer}>
-                <div className={classes.sort}>
-                    <select>
-                        <option>Sort by:</option>
-                        <option>Price(High to Low)</option>
-                        <option>Price(Low to High)</option>
-                        <option>Newest Arrivals</option>
-                    </select>
-                </div>
-                <div className={classes.filter}>
-                    <select>
-                        <option>Color:</option>
-                        {colorOptions.map((colorOption) => (
-                            <option
-                                key={colorOption}
-                                value={colorOption}
-                                style={{ color: colorOption }}
-                            >
-                                {colorOption}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className={classes.filter}>
-                    <select>
-                        <option>Size:</option>
-                        {sizeOptions.map((sizeOption) => (
-                            <option
-                                key={sizeOption}
-                                value={sizeOption}
-                            >
-                                {sizeOption}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className={classes.filter}>
-                    <select>
-                        <option>Type:</option>
-                        {typeOptions.map((typeOption) => (
-                            <option
-                                key={typeOption}
-                                value={typeOption}
-                            >
-                                {typeOption}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+            <div className={classes.filterContainerMain}>
+                <Filter/>
                 <Button variant="contained" className={classes.filterBtn}>Filter</Button>
             </div>
             <div className={classes.products}>

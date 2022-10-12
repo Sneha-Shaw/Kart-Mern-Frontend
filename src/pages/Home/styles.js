@@ -54,39 +54,24 @@ export default makeStyles((theme) => ({
         top: "7rem",
         right: "0"
     },
-    filterContainer: {
-        width: "50%",
+    filterContainerMain: {
+        width: "60%",
         display: "flex",
-        justifyContent: "space-evenly",
+        // justifyContent: "center",
         alignItems: "center",
-        padding: "2rem 0",
-        margin: "auto"
-    },
-    sort: {
-        width: "40%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        "&>select": {
-            width: "50%",
-            padding: "1rem",
-            borderRadius: ".5rem",
-            fontSize: "1.5rem",
-            border: "none"
-        }
-    },
-    filter: {
-        width: "30%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        "&>select": {
-            width: "50%",
-            padding: "1rem",
-            borderRadius: ".5rem",
-            fontSize: "1.5rem",
-            border: "none"
-
+        padding: "2rem",
+        margin: "auto",
+        // background: "#fff",
+        // boxShadow: "0px 1px 10px rgba(0,0,0,0.1)",
+        // transform: "translateY(-5rem)",
+        // position: "absolute",
+        // left: "20%",
+        // top: "95%",
+        "& button": {
+            flex: 1,
+            marginRight: "2rem",
+            fontSize: "1.3rem",
+            padding: ".7rem 4.5rem"
         }
     },
     products: {
