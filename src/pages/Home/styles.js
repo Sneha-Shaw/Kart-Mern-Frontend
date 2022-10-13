@@ -59,13 +59,15 @@ export default makeStyles((theme) => ({
         display: "flex",
         justifyContent: "space-evenly",
         padding: "5rem 0",
-        background: "#E7F6F2",
+        background: "white",
         flexDirection: "column",
     },
     products: {
         width: "100%",
         display: "flex",
         flexDirection: "column",
+        background: "#E7F6F2",
+        margin: "2rem 0",
     
     },
     header: {
@@ -76,10 +78,12 @@ export default makeStyles((theme) => ({
         padding: "0 5rem",
         margin: "auto",
         "&>h3":{
-            fontSize: "3rem"
+            fontSize: "3rem",
+            paddingTop: "2rem"
         },
         "&>Button":{
             fontSize: "2rem",
+            marginTop: "2rem"
         }
     },
     cards: {
@@ -89,7 +93,7 @@ export default makeStyles((theme) => ({
         // gridGap: "2rem",
         padding: "2rem 0",
 
-        background: "#E7F6F2"
+        // background: "#E7F6F2"
     },
 }
 )
