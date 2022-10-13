@@ -54,27 +54,35 @@ export default makeStyles((theme) => ({
         top: "7rem",
         right: "0"
     },
-    filterContainerMain: {
-        width: "60%",
+    productSection: {
+        width: "100%",
         display: "flex",
-        // justifyContent: "center",
-        alignItems: "center",
-        padding: "2rem",
-        margin: "auto",
-        // background: "#fff",
-        // boxShadow: "0px 1px 10px rgba(0,0,0,0.1)",
-        // transform: "translateY(-5rem)",
-        // position: "absolute",
-        // left: "20%",
-        // top: "95%",
-        "& button": {
-            flex: 1,
-            marginRight: "2rem",
-            fontSize: "1.3rem",
-            padding: ".7rem 4.5rem"
-        }
+        justifyContent: "space-evenly",
+        padding: "5rem 0",
+        background: "#E7F6F2",
+        flexDirection: "column",
     },
     products: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+    
+    },
+    header: {
+        width: "90%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "0 5rem",
+        margin: "auto",
+        "&>h3":{
+            fontSize: "3rem"
+        },
+        "&>Button":{
+            fontSize: "2rem",
+        }
+    },
+    cards: {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(3, 1fr)",
@@ -83,48 +91,6 @@ export default makeStyles((theme) => ({
 
         background: "#E7F6F2"
     },
-
-
-    details: {
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-evenly",
-        // alignItems: "center",
-        textAlign: "left",
-        padding: "2rem 0",
-        background: "#A5C9CA",
-        lineHeight: "2",
-        "&>Button": {
-            padding: "2rem"
-
-        }
-
-    },
-    priceContainer: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        "&>Button": {
-            marginRight: "5rem",
-            fontSize: "1.5rem",
-            background: "#395B64"
-        }
-
-    },
-    title: {
-        fontSize: "3rem",
-        padding: " 0 2rem",
-        fontWeight: "bold",
-        color: "#395B64"
-    },
-    price: {
-        fontSize: "4rem",
-        padding: " 0 2rem",
-        fontWeight: "bold",
-        color: "#395B64"
-    },
-
 }
 )
 )
