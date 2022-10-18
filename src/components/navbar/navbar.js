@@ -5,7 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Link,useSearchParams,useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'react-dropdown/style.css';
 import { useSelector } from 'react-redux';
 
@@ -14,8 +14,7 @@ const Navbar = () => {
     const classes = useStyles();
     const { userInfo } = useSelector((state) => state.signInUser)
     // const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
-    const id = searchParams.get("id");
+
     return (
         <div className={classes.container}>
             <div className={classes.left}>
@@ -31,11 +30,9 @@ const Navbar = () => {
                     </Link>
                     <Link to="/women" style={{ textDecoration: 'none', color: 'white' }}>
                         <h4>Women</h4>
-
                     </Link>
-                    <Link to="/Kids" style={{ textDecoration: 'none', color: 'white' }}>
+                    <Link to="/kids" style={{ textDecoration: 'none', color: 'white' }}>
                         <h4>Kids</h4>
-
                     </Link>
                 </div>
             </div>

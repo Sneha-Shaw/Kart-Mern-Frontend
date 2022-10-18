@@ -1,9 +1,14 @@
 import React from 'react'
 import { Button, Card, CardMedia, CardContent, CardActions, } from '@mui/material';
 import useStyles from "./styles"; 
+import { useNavigate } from 'react-router-dom';
 
 const CardComponent = ({product}) => {
     const classes = useStyles();
+    const navigate = useNavigate();
+    const redirectHandler = () => {
+        navigate(`/product/${product?.id}`)
+    }
 
     return (
         <div>
@@ -18,10 +23,10 @@ const CardComponent = ({product}) => {
                     image={product?.img}
                 />
                 <CardContent className={classes.details}>
-                    <h3 className={classes.title}>{product?.name}</h3>
+                    <h3 className={classes.title}>{product?.name.substring(0,26)}...</h3>
                     <div className={classes.priceContainer}>
                         <p className={classes.price}>₹{product?.price}</p>
-                        <Button sx={{ fontSize: "1.6rem" }} variant="contained">Buy Now</Button>
+                        <Button sx={{ fontSize: "1.6rem" }} variant="contained" onClick={redirectHandler} >Buy Now</Button>
 
                     </div>
                     <CardActions >

@@ -51,7 +51,7 @@ export default makeStyles((theme) => ({
     img: {
         width: "91rem",
         position: "absolute",
-        top: "7rem",
+        top: "8.1rem",
         right: "0"
     },
     productSection: {

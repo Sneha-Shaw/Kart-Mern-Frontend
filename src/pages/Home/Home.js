@@ -7,9 +7,10 @@ import CardComponent from '../../components/Card/CardComponent'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 // import IconButton from '@mui/material/IconButton';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const classes = useStyles();
+    const navigate = useNavigate();
     const {
 
         products
@@ -44,7 +45,7 @@ const Home = () => {
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>MEN</h3>
-                        <Button >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
+                        <Button onClick={()=>{navigate('/men')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
                     </div>
                     <div className={classes.cards}>
                         {products &&
@@ -61,7 +62,7 @@ const Home = () => {
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>WOMEN</h3>
-                        <Button  >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
+                        <Button onClick={()=>{navigate('/women')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
                     </div>
                     <div className={classes.cards}>
                         {products &&
@@ -78,7 +79,7 @@ const Home = () => {
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>KIDS</h3>
-                        <Button  >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
+                        <Button onClick={()=>{navigate('/kids')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
                     </div>
                     <div className={classes.cards}>
                         {products &&

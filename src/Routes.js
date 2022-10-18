@@ -14,6 +14,7 @@ import Wishlist from "./pages/Wishlist/Wishlist";
 import OrderPage from "./pages/OrderPage/OrderPage";
 import AddressPage from "./pages/AddressPage/AddressPage";
 import OrderFinal from "./pages/orderFinal/orderFinal";
+import ProductPage from './pages/ProductPage/ProductPage'
 
 const Router = () => {
 
@@ -33,7 +34,7 @@ const Router = () => {
                     <Route exact path="/wishlist" element={<Wishlist />} />
                     <Route exact path="/orders" element={<OrderPage />} />
                     <Route exact path="/product/:id" element={<SingleProduct />} />
-                    
+                    <Route exact path="/men" element={<ProductPage />} /> 
                 </Routes>
                 <Footer />
             </BrowserRouter>
