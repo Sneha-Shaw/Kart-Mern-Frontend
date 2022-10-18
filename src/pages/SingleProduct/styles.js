@@ -47,12 +47,12 @@ export default makeStyles((theme) => ({
     },
     imageContainer: {
         flex: 1,
-        height: "100%",
         margin: "1rem 0rem",
         border: "2px solid #e0e0e0",
         borderRadius: "2rem",
         cursor: "pointer",
-        padding: "0.5rem",
+        // padding: "0.5rem",
+        overflow: "hidden"
     },
 
     right: {
@@ -68,9 +68,10 @@ export default makeStyles((theme) => ({
         marginBottom: "1rem",
     },
     price: {
-        fontSize: "1.5rem",
+        fontSize: "2rem",
         fontWeight: "bold",
         marginBottom: "1rem",
+        color: "#395B64"
     },
     Actions: {
         display: "flex",
@@ -91,16 +92,41 @@ export default makeStyles((theme) => ({
         
         }
     },
-    quantityContainer: {
+    colors: {
         display: "flex",
+        width: "30%",
         alignItems: "center",
         justifyContent: "space-between",
-        width: "20%",
+        marginBottom: "1rem",
+        "&>h3": {
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+        },
     },
+    colorContainer:{
+        display: "flex",
+        // alignItems: "center",
+        justifyContent: "space-between",
+        // flexDirection: "row",
+    },
+    colorOption: {
+        width: "2.5rem",
+        height: "2.5rem",
+        borderRadius: "50%",
+        flex:  1,
+        border: "1px solid #e0e0e0",
+        cursor: "pointer",
+        margin: "0.5rem",
+    },
+
     quantity: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        "&>p": {
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+        }
     },
     margin: {
         backgroundColor: '#e0e0e0',
@@ -108,16 +134,39 @@ export default makeStyles((theme) => ({
         margin: '1.5rem',
         cursor: "pointer",
         "&:hover": {
-            boxShadow: '0 0 .3rem 0 rgba(0,0,0,0.2)',
+            boxShadow: '0 0 .3rem 0 rgba(0,0,0,0.2)'
         },
     },
     description: {
         fontSize: "1.2rem",
-        fontWeight: "bold",
         marginBottom: "1rem",
     },
 
-
+    sizeOption:{
+        border: "1px solid #e0e0e0",
+      
+        padding: ".5rem 1rem",
+        fontSize: "1.5rem",
+        cursor: "pointer",
+    },
+    sizeContainer:{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "100%",
+       
+    },
+    sizes: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "30%",
+        "&>h3": {
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            paddingRight: "1rem",
+        },
+    },
    
     
 }))

@@ -13,14 +13,14 @@ const SingleProduct = () => {
     <div className={classes.container}>
       <div className={classes.left}>
         <div className={classes.imgContainer}>
-          <img src={product?.img} alt="" className={classes.img} />
+          <img src={product?.img1} alt="" className={classes.img} />
         </div>
         <div className={classes.imageOption}>
           <div className={classes.imageContainer}>
-            <img src={product?.img} alt="" className={classes.img} />
+            <img src={product?.img1} alt="" className={classes.img} />
           </div>
           <div className={classes.imageContainer}>
-            <img src={product?.img} alt="" className={classes.img} />
+            <img src={product?.img2} alt="" className={classes.img} />
           </div>
         </div>
 
@@ -28,8 +28,24 @@ const SingleProduct = () => {
       <div className={classes.right}>
         <h1 className={classes.title}>{product?.name}</h1>
         <p className={classes.price}>₹{product?.price}</p>
+        <div className={classes.colors}>
+            <h3>Color:</h3>
+            {product?.color.map((item,index) => (
+              <div className={classes.colorContainer} key={index}>
+              <div className={classes.colorOption} style={{ backgroundColor: item }}></div>
+              </div>
+            ))}
+          </div>
+          <div className={classes.sizes}>
+            <h3>Size:</h3>
+            {product?.size.map((item,index) => (
+              <div className={classes.sizeContainer} key={index}>
+                <div className={classes.sizeOption}>{item}</div>
+              </div>
+            ))}
+          </div>
         <div className={classes.Actions}>
-
+         
           <div className={classes.quantity}>
 
             <AddIcon fontSize="large" className={classes.margin} />
@@ -39,8 +55,8 @@ const SingleProduct = () => {
 
           </div>
           <Button variant="contained" color="primary" className={classes.button} >
-          Add to Cart
-        </Button>
+            Add to Cart
+          </Button>
         </div>
         <h3>Description</h3>
         <p className={classes.description}>{product?.desc}</p>

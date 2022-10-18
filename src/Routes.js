@@ -23,8 +23,8 @@ const Router = () => {
             <BrowserRouter>
                 <Navbar />
                 <Routes>
-                    <Route exact path="" element={<Navigate to="/home"/>}/>
-                    <Route exact path="/home" element={<Home />} />
+                    <Route exact path="" element={<Home/>}/>
+                    {/* <Route exact path="/home" element={<Home />} /> */}
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/cart" element={<Cart />} />
@@ -34,7 +34,7 @@ const Router = () => {
                     <Route exact path="/wishlist" element={<Wishlist />} />
                     <Route exact path="/orders" element={<OrderPage />} />
                     <Route exact path="/product/:id" element={<SingleProduct />} />
-                    <Route exact path="/men" element={<ProductPage />} /> 
+                    <Route exact path="/:category" element={<ProductPage />} /> 
                 </Routes>
                 <Footer />
             </BrowserRouter>

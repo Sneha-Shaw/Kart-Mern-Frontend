@@ -23,7 +23,7 @@ const CardComponent = ({product}) => {
                     image={product?.img}
                 />
                 <CardContent className={classes.details}>
-                    <h3 className={classes.title}>{product?.name.substring(0,26)}...</h3>
+                    <h3 className={classes.title}>{product?.name.length>26? product?.name.substring(0,26) +"..." : product?.name}</h3>
                     <div className={classes.priceContainer}>
                         <p className={classes.price}>₹{product?.price}</p>
                         <Button sx={{ fontSize: "1.6rem" }} variant="contained" onClick={redirectHandler} >Buy Now</Button>
