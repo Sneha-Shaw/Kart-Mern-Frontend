@@ -9,19 +9,26 @@ import AddIcon from '@mui/icons-material/Add';
 const SingleProduct = () => {
   const classes = useStyles();
   const { product } = SingleProductLogic();
+
+  const [show,setShow] = React.useState(product?.img[0])
+  const changeImage = (img) => {
+    setShow(img)
+  }
   return (
     <div className={classes.container}>
       <div className={classes.left}>
         <div className={classes.imgContainer}>
-          <img src={product?.img1} alt="" className={classes.img} />
+          <img src={show} alt="" className={classes.img} />
         </div>
         <div className={classes.imageOption}>
-          <div className={classes.imageContainer}>
-            <img src={product?.img1} alt="" className={classes.img} />
-          </div>
-          <div className={classes.imageContainer}>
-            <img src={product?.img2} alt="" className={classes.img} />
-          </div>
+
+          {
+            product?.img.map((item) => (
+              <div className={classes.imageContainer}>
+                <img src={item} alt="" className={classes.img} onClick={()=>changeImage(item)} />
+              </div>
+            ))
+          }
         </div>
 
       </div>
@@ -29,23 +36,23 @@ const SingleProduct = () => {
         <h1 className={classes.title}>{product?.name}</h1>
         <p className={classes.price}>₹{product?.price}</p>
         <div className={classes.colors}>
-            <h3>Color:</h3>
-            {product?.color.map((item,index) => (
-              <div className={classes.colorContainer} key={index}>
+          <h3>Color:</h3>
+          {product?.color.map((item, index) => (
+            <div className={classes.colorContainer} key={index}>
               <div className={classes.colorOption} style={{ backgroundColor: item }}></div>
-              </div>
-            ))}
-          </div>
-          <div className={classes.sizes}>
-            <h3>Size:</h3>
-            {product?.size.map((item,index) => (
-              <div className={classes.sizeContainer} key={index}>
-                <div className={classes.sizeOption}>{item}</div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+        <div className={classes.sizes}>
+          <h3>Size:</h3>
+          {product?.size.map((item, index) => (
+            <div className={classes.sizeContainer} key={index}>
+              <div className={classes.sizeOption}>{item}</div>
+            </div>
+          ))}
+        </div>
         <div className={classes.Actions}>
-         
+
           <div className={classes.quantity}>
 
             <AddIcon fontSize="large" className={classes.margin} />
