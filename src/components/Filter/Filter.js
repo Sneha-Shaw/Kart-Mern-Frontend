@@ -1,5 +1,5 @@
 import React from 'react'
-import useStyles from "./styles"; 
+import useStyles from "./styles";
 import { FilterLogic } from './FilterLogic';
 
 const Filter = () => {
@@ -17,58 +17,50 @@ const Filter = () => {
         sizeOptions,
         typeOptions,
     } = FilterLogic();
-  return (
-    <div className={classes.filterContainer}>
-        <div className={classes.filter}>
-                    <select>
-                        <option>Sort by:</option>
-                        <option>Price(High to Low)</option>
-                        <option>Price(Low to High)</option>
-                        <option>Newest Arrivals</option>
-                    </select>
+    return (
+        <div className={classes.filterContainer}>
+            <div className={classes.filter}>
+                <div className={classes.filterTitle}>
+                    <span className={classes.filterTitle}>Filter Products</span>
+                    <span className={classes.filterTitle}>Clear</span>
                 </div>
-                <div className={classes.filter}>
-                    <select>
-                        <option>Color:</option>
-                        {colorOptions.map((colorOption) => (
-                            <option
-                                key={colorOption}
-                                value={colorOption}
-                                style={{ color: colorOption }}
-                            >
-                                {colorOption}
-                            </option>
+                <div className={classes.filterColor}>
+                    <span className={classes.filterColorTitle}>Color</span>
+                    <div className={classes.filterColorOptions}>
+                        {colorOptions.map((color, index) => (
+                            <div key={index} className={classes.filterColorOption}>
+                                <input type="checkbox" name="color" className={classes.checkbox} />
+                                <label htmlFor="color">{color}</label>
+                            </div>
                         ))}
-                    </select>
+                    </div>
                 </div>
-                <div className={classes.filter}>
-                    <select>
-                        <option>Size:</option>
-                        {sizeOptions.map((sizeOption) => (
-                            <option
-                                key={sizeOption}
-                                value={sizeOption}
-                            >
-                                {sizeOption}
-                            </option>
+                <div className={classes.filterColor}>
+                    <span className={classes.filterColorTitle}>Size</span>
+                    <div className={classes.filterColorOptions}>
+                        {sizeOptions.map((size, index) => (
+                            <div key={index} className={classes.filterColorOption}>
+                                <input type="checkbox" name="size" className={classes.checkbox} />
+                                <label htmlFor="size">{size}</label>
+
+                            </div>
                         ))}
-                    </select>
+                    </div>
                 </div>
-                <div className={classes.filter}>
-                    <select>
-                        <option>Type:</option>
-                        {typeOptions.map((typeOption) => (
-                            <option
-                                key={typeOption}
-                                value={typeOption}
-                            >
-                                {typeOption}
-                            </option>
+                <div className={classes.filterColor}>
+                    <span className={classes.filterColorTitle}>Type</span>
+                    <div className={classes.filterColorOptions}>
+                        {typeOptions.map((type, index) => (
+                            <div key={index} className={classes.filterColorOption}>
+                                <input type="checkbox" name="type" className={classes.checkbox} />
+                                <label htmlFor="type">{type}</label>
+                            </div>
                         ))}
-                    </select>
+                    </div>
                 </div>
-    </div>
-  )
+            </div>
+        </div>
+    )
 }
 
 export default Filter
