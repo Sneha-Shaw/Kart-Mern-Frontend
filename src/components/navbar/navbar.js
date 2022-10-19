@@ -24,14 +24,14 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className={classes.categories}>
-                    <Link to="/men" style={{ textDecoration: 'none', color: 'white' }}>
+                    <Link to="/products?category=men" style={{ textDecoration: 'none', color: 'white' }}>
                         <h4>Men</h4>
 
                     </Link>
-                    <Link to="/women" style={{ textDecoration: 'none', color: 'white' }}>
+                    <Link to="/products?category=women" style={{ textDecoration: 'none', color: 'white' }}>
                         <h4>Women</h4>
                     </Link>
-                    <Link to="/kids" style={{ textDecoration: 'none', color: 'white' }}>
+                    <Link to="/products?category=kids" style={{ textDecoration: 'none', color: 'white' }}>
                         <h4>Kids</h4>
                     </Link>
                 </div>

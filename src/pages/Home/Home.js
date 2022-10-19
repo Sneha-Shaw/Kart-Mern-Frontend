@@ -45,7 +45,7 @@ const Home = () => {
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>MEN</h3>
-                        <Button onClick={()=>{navigate('/men')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
+                        <Button onClick={()=>{navigate('/products?category=men')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
                     </div>
                     <div className={classes.cards}>
                         {products &&
@@ -62,7 +62,7 @@ const Home = () => {
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>WOMEN</h3>
-                        <Button onClick={()=>{navigate('/women')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
+                        <Button onClick={()=>{navigate('/products?category=women')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
                     </div>
                     <div className={classes.cards}>
                         {products &&
@@ -79,7 +79,7 @@ const Home = () => {
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>KIDS</h3>
-                        <Button onClick={()=>{navigate('/kids')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
+                        <Button onClick={()=>{navigate('/products?category=kids')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
                     </div>
                     <div className={classes.cards}>
                         {products &&
