@@ -53,6 +53,7 @@ export default makeStyles((theme) => ({
         "& input": {
             border: "none",
             outline: "none",
+            width: "100%"
             // marginLeft: "0.5rem"
         }
     },
