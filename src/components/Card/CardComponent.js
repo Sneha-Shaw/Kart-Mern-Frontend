@@ -20,7 +20,7 @@ const CardComponent = ({product}) => {
                 <CardMedia
                     component="img"
                     // height="194"
-                    image={product?.img}
+                    image={product?.img[0]}
                 />
                 <CardContent className={classes.details}>
                     <h3 className={classes.title}>{product?.name.length>26? product?.name.substring(0,26) +"..." : product?.name}</h3>
