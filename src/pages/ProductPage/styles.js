@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
         width: "100%",
         height: "100%",
         padding: "1rem",
+        
     },
     left: {
         width: "20%",
@@ -25,7 +26,7 @@ export default makeStyles((theme) => ({
     cards: {
         width: "100%",
         display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
+        gridTemplateColumns: "repeat(4, 1fr)",
         // gridGap: "2rem",
     },
 

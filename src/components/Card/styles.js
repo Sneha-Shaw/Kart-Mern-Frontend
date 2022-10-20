@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
         justifyContent: "space-evenly",
         // alignItems: "center",
         textAlign: "left",
-        padding: "2rem 0",
+        padding: "1rem 0",
         background: "#A5C9CA",
         lineHeight: "2",
         "&>Button": {
@@ -23,19 +23,19 @@ export default makeStyles((theme) => ({
         justifyContent: "space-between",
         "&>Button": {
             marginRight: "5rem",
-            fontSize: "1.5rem",
+            fontSize: "1.1rem",
             background: "#395B64"
         }
 
     },
     title: {
-        fontSize: "3rem",
+        fontSize: "2rem",
         padding: " 0 2rem",
         fontWeight: "bold",
         color: "#395B64"
     },
     price: {
-        fontSize: "4rem",
+        fontSize: "2.5rem",
         padding: " 0 2rem",
         fontWeight: "bold",
         color: "#395B64"

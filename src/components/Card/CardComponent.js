@@ -13,7 +13,8 @@ const CardComponent = ({product}) => {
     return (
         <div>
             <Card
-                sx={{ margin: "4rem" }}
+                sx={{ margin: "1rem",cursor: "pointer" }}
+                onClick={redirectHandler}
             >
 
 
@@ -26,7 +27,7 @@ const CardComponent = ({product}) => {
                     <h3 className={classes.title}>{product?.name.length>20? product?.name.substring(0,20) +"..." : product?.name}</h3>
                     <div className={classes.priceContainer}>
                         <p className={classes.price}>₹{product?.price}</p>
-                        <Button sx={{ fontSize: "1.6rem" }} variant="contained" onClick={redirectHandler} >Buy Now</Button>
+                        <Button variant="contained"  >Add to Cart</Button>
 
                     </div>
                     <CardActions >

@@ -89,7 +89,7 @@ export default makeStyles((theme) => ({
     cards: {
         width: "100%",
         display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
+        gridTemplateColumns: "repeat(4, 1fr)",
         // gridGap: "2rem",
         padding: "2rem 0",
 
