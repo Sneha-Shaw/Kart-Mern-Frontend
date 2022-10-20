@@ -18,7 +18,7 @@ export default makeStyles((theme) => ({
     },
     filterTitle: {
         display: "flex",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         alignItems: "center",
         width: "100%",
         height: "100%",

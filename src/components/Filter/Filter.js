@@ -1,6 +1,7 @@
 import React from 'react'
 import useStyles from "./styles";
 import { FilterLogic } from './FilterLogic';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 const Filter = () => {
     const classes = useStyles();
@@ -21,8 +22,8 @@ const Filter = () => {
         <div className={classes.filterContainer}>
             <div className={classes.filter}>
                 <div className={classes.filterTitle}>
-                    <span className={classes.filterTitle}>Filter Products</span>
-                    <span className={classes.filterTitle}>Clear</span>
+                    <span className={classes.filterTitle}>Filter</span>
+                    <span className={classes.filterTitle} style={{cursor: "pointer"}}>Clear<RestartAltIcon fontSize="large" /></span>
                 </div>
                 <div className={classes.filterColor}>
                     <span className={classes.filterColorTitle}>Color</span>
