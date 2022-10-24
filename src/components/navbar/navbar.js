@@ -7,14 +7,18 @@ import { Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from 'react-router-dom';
 import 'react-dropdown/style.css';
-import { useSelector } from 'react-redux';
-
+import { useSelector,useDispatch } from 'react-redux';
+import {getAllProducts} from '../../redux/actions/productAction'
 
 const Navbar = () => {
     const classes = useStyles();
     const { userInfo } = useSelector((state) => state.signInUser)
+    const dispatch = useDispatch()
     // const navigate = useNavigate();
+   const redirectHandler=(category)=>{
+    dispatch(getAllProducts(category))
 
+   }
     return (
         <div className={classes.container}>
             <div className={classes.left}>
@@ -24,14 +28,14 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className={classes.categories}>
-                    <Link to="/see-products?category=Men" style={{ textDecoration: 'none', color: 'white' }}>
+                    <Link to="/see-products?category=Men" style={{ textDecoration: 'none', color: 'white' }} onClick={()=>{redirectHandler('Men')}}>
                         <h4>Men</h4>
 
                     </Link>
-                    <Link to="/see-products?category=Women" style={{ textDecoration: 'none', color: 'white' }}>
+                    <Link to="/see-products?category=Women" style={{ textDecoration: 'none', color: 'white' }} onClick={()=>{redirectHandler('Women')}}>
                         <h4>Women</h4>
                     </Link>
-                    <Link to="/see-products?category=Kids" style={{ textDecoration: 'none', color: 'white' }}>
+                    <Link to="/see-products?category=Kids" style={{ textDecoration: 'none', color: 'white' }}onClick={()=>{redirectHandler('Kids')}}>
                         <h4>Kids</h4>
                     </Link>
                 </div>
