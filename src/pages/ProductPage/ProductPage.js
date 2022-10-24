@@ -2,12 +2,12 @@ import React from 'react'
 import Filter from '../../components/Filter/Filter'
 import CardComponent from '../../components/Card/CardComponent'
 import useStyles from "./styles";
-import { HomeLogic } from '../Home/HomeLogic';
+import { ProductLogic } from './ProductLogic';
 
 
 const ProductPage = () => {
   const classes = useStyles();
-  const { products } = HomeLogic();
+  // const { products } = ProductLogic();
 
   return (
     <div className={classes.container}>
@@ -16,7 +16,7 @@ const ProductPage = () => {
       </div>
       <div className={classes.right}>
         <div className={classes.cards}>
-          {products &&
+          {/* {products &&
             products.map(
               (product, index) => {
                 return (
@@ -24,7 +24,7 @@ const ProductPage = () => {
                   <CardComponent product={product} key={index} />
 
                 );
-              })}
+              })} */}
         </div>
       </div>
 

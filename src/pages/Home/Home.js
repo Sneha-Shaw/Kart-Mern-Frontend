@@ -49,7 +49,7 @@ const Home = () => {
                     </div>
                     <div className={classes.cards}>
                         {products &&
-                            products.map(
+                           products.slice(0,4).map(
                                 (product, index) => {
                                     return (
 
@@ -66,7 +66,7 @@ const Home = () => {
                     </div>
                     <div className={classes.cards}>
                         {products &&
-                            products.map(
+                            products.slice(0,4).map(
                                 (product, index) => {
                                     return (
 
@@ -83,7 +83,7 @@ const Home = () => {
                     </div>
                     <div className={classes.cards}>
                         {products &&
-                            products.map(
+                            products.slice(0,4).map(
                                 (product, index) => {
                                     return (
 

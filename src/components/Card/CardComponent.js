@@ -1,9 +1,11 @@
 import React from 'react'
 import { Button, Card, CardMedia, CardContent, CardActions, } from '@mui/material';
-import useStyles from "./styles"; 
+import useStyles from "./styles";
 import { useNavigate } from 'react-router-dom';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const CardComponent = ({product}) => {
+const CardComponent = ({ product }) => {
     const classes = useStyles();
     const navigate = useNavigate();
     const redirectHandler = () => {
@@ -13,27 +15,23 @@ const CardComponent = ({product}) => {
     return (
         <div>
             <Card
-                sx={{ margin: "1rem",cursor: "pointer" }}
-                onClick={redirectHandler}
+                sx={{ margin: "1rem", cursor: "pointer" }}
+
             >
-
-
                 <CardMedia
                     component="img"
                     // height="194"
                     image={product?.img[0]}
+                    onClick={redirectHandler}
                 />
-                <CardContent className={classes.details}>
-                    <h3 className={classes.title}>{product?.name.length>20? product?.name.substring(0,20) +"..." : product?.name}</h3>
+                <CardContent className={classes.details} >
+                    <h3 className={classes.title} onClick={redirectHandler} >{product?.name.length > 20 ? product?.name.substring(0, 20) + "..." : product?.name}</h3>
                     <div className={classes.priceContainer}>
-                        <p className={classes.price}>₹{product?.price}</p>
-                        <Button variant="contained"  >Add to Cart</Button>
+                        <p className={classes.price}  onClick={redirectHandler}>₹{product?.price}</p>
 
+                        <Button variant="contained"  >Add to Cart</Button>
                     </div>
                     <CardActions >
-                        {/* <IconButton aria-label="add to favorites">
-                                                <FavoriteIcon />
-                                            </IconButton> */}
 
                     </CardActions>
                 </CardContent>
