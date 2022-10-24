@@ -34,7 +34,7 @@ const Router = () => {
                     <Route exact path="/wishlist" element={<Wishlist />} />
                     <Route exact path="/orders" element={<OrderPage />} />
                     <Route exact path="/product/:id" element={<SingleProduct />} />
-                    <Route exact path="/products" element={<ProductPage />} /> 
+                    <Route exact path="/see-products" element={<ProductPage />} /> 
                 </Routes>
                 <Footer />
             </BrowserRouter>
