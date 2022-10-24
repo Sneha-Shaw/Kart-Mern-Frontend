@@ -8,6 +8,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const CardComponent = ({ product }) => {
     const classes = useStyles();
     const navigate = useNavigate();
+    
     const redirectHandler = () => {
         navigate(`/product/${product?._id}`)
     }
@@ -25,7 +26,7 @@ const CardComponent = ({ product }) => {
                     onClick={redirectHandler}
                 />
                 <CardContent className={classes.details} >
-                    <h3 className={classes.title} onClick={redirectHandler} >{product?.name}</h3>
+                    <h3 className={classes.title} onClick={redirectHandler} >{product?.title}</h3>
                     <div className={classes.priceContainer}>
                         <p className={classes.price}  onClick={redirectHandler}>₹{product?.price}</p>
 
