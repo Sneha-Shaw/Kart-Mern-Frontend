@@ -70,3 +70,79 @@ export const getSingleProduct = (id) => async (dispatch) => {
         })
     }
 }
+
+// ADD PRODUCT TO WISHLIST
+export const addToWishlist = (userId,productId) => async (dispatch) => {
+    try {
+        dispatch({
+            type: ADD_TO_WISHLIST_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json',
+          
+        }
+        const { data } = await axios.post(`${API}/private/products/add-product-to-wishlist/${userId}/${productId}`, config)
+        dispatch({
+            type: ADD_TO_WISHLIST_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: ADD_TO_WISHLIST_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}
+
+// GET WISHLIST
+export const getWishlist = (userId) => async (dispatch) => {
+    try {
+        dispatch({
+            type: GET_WISHLIST_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const { data } = await axios.get(`${API}/private/products/wishlist-products/${userId}`, config)
+        dispatch({
+            type: GET_WISHLIST_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: GET_WISHLIST_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}
+
+// CHECK IF PRODUCT IS IN WISHLIST
+export const checkIfWishlist = (userId,productId) => async (dispatch) => {
+    try {
+        dispatch({
+            type: CHECK_IF_WISHLIST_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const { data } = await axios.get(`${API}/private/products/check-product-in-wishlist/${userId}/${productId}`, config)
+        dispatch({
+            type: CHECK_IF_WISHLIST_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: CHECK_IF_WISHLIST_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}
