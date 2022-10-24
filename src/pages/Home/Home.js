@@ -1,7 +1,7 @@
 import React from 'react'
 import useStyles from "./styles";
 import girl from '../../assets/girl-with-bags.png'
-import { HomeLogic } from './HomeLogic';
+// import { HomeLogic } from './HomeLogic';
 import { Button } from '@mui/material';
 import CardComponent from '../../components/Card/CardComponent'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
@@ -11,10 +11,10 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const classes = useStyles();
     const navigate = useNavigate();
-    const {
+    // const {
 
-        products
-    } = HomeLogic();
+        // products
+    // } = HomeLogic();
     return (
         // mainContainer
         <div className={classes.container}>
@@ -41,7 +41,7 @@ const Home = () => {
 
             </div>
 
-            <div className={classes.productSection}>
+            {/* <div className={classes.productSection}>
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>MEN</h3>
@@ -94,7 +94,7 @@ const Home = () => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
         </div >
     )
 }

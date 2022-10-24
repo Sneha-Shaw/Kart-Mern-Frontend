@@ -2,9 +2,9 @@ import { makeStyles } from "@mui/styles";
 export default makeStyles((theme) => ({
     container: {
         display: "flex",
-        height: "100%",
-        justifyContent: "center",
-        alignItems: "center",
+        // height: "100vh",
+        justifyContent: "space-around",
+        // alignItems: "center",
         marginTop: "4rem",
         [theme.breakpoints.down("md")]: {
             flexDirection: "column",
@@ -24,8 +24,8 @@ export default makeStyles((theme) => ({
     },
     imgContainer:{
         width: "80%",
-        border: "1px solid #e0e0e0",
-        borderRadius: "2rem",
+        height: "90%",
+        borderRadius: "3rem",
         margin: "1rem",
         overflow: "hidden",
     },
@@ -46,9 +46,11 @@ export default makeStyles((theme) => ({
         },
     },
     imageContainer: {
+        width: "100%",
+        height: "100%",
         flex: 1,
         margin: "1rem 0rem",
-        border: "2px solid #e0e0e0",
+        // border: "1px solid #e0e0e0",
         borderRadius: "2rem",
         cursor: "pointer",
         // padding: "0.5rem",
@@ -57,10 +59,15 @@ export default makeStyles((theme) => ({
 
     right: {
         flex: 1,
-        height: "100%",
         display: "flex",
+        height: "100%",
         flexDirection: "column",
-        justifyContent: "space-between"
+        // alignItems: "center",
+        justifyContent: "center",
+        padding: "1rem",
+        [theme.breakpoints.down("md")]: {
+            marginBottom: "2rem",
+        },
     },
     title: {
         fontSize: "2.5rem",

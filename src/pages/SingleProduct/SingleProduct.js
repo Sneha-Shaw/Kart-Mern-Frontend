@@ -8,24 +8,23 @@ import AddIcon from '@mui/icons-material/Add';
 
 const SingleProduct = () => {
   const classes = useStyles();
-  const { product } = SingleProductLogic();
-
-  const [show,setShow] = React.useState(product?.img[0])
-  const changeImage = (img) => {
-    setShow(img)
+  const { product,show,setShow } = SingleProductLogic();
+console.log(show)
+  const changeImage = (featureimg) => {
+    setShow(featureimg)
   }
   return (
     <div className={classes.container}>
       <div className={classes.left}>
         <div className={classes.imgContainer}>
-          <img src={show} alt="" className={classes.img} />
+          <img src={show} alt="" className={classes.img}  />
         </div>
         <div className={classes.imageOption}>
 
           {
-            product?.img.map((item) => (
+            product?.featureimg.map((currentImg) => (
               <div className={classes.imageContainer}>
-                <img src={item} alt="" className={classes.img} onClick={()=>changeImage(item)} />
+                <img src={currentImg} alt="" className={classes.img} onClick={()=>changeImage(currentImg)} />
               </div>
             ))
           }
@@ -33,13 +32,13 @@ const SingleProduct = () => {
 
       </div>
       <div className={classes.right}>
-        <h1 className={classes.title}>{product?.name}</h1>
+        <h1 className={classes.title}>{product?.title}</h1>
         <p className={classes.price}>₹{product?.price}</p>
         <div className={classes.colors}>
           <h3>Color:</h3>
-          {product?.color.map((item, index) => (
+          {product?.color.map((currentColor, index) => (
             <div className={classes.colorContainer} key={index}>
-              <div className={classes.colorOption} style={{ backgroundColor: item }}></div>
+              <div className={classes.colorOption} style={{ backgroundColor: currentColor }}></div>
             </div>
           ))}
         </div>

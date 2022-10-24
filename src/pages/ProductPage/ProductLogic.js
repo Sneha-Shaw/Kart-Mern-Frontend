@@ -12,6 +12,6 @@ export const ProductLogic = () => {
     }, [dispatch])
     console.log(products && products);
     return{
-        // products
+        products
     }
 }

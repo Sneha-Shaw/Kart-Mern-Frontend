@@ -24,7 +24,7 @@ const getAllProductState = {
     isAuthenticated: false,
     products: null
 }
-export const getAllProductReducer = (state = getAllProductState, action) => {
+export const getAllProductsReducer = (state = getAllProductState, action) => {
     switch (action.type) {
         case GET_ALL_PRODUCT_REQUEST:
             return {

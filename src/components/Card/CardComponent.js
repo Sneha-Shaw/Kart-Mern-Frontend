@@ -9,7 +9,7 @@ const CardComponent = ({ product }) => {
     const classes = useStyles();
     const navigate = useNavigate();
     const redirectHandler = () => {
-        navigate(`/product/${product?.id}`)
+        navigate(`/product/${product?._id}`)
     }
 
     return (
@@ -21,11 +21,11 @@ const CardComponent = ({ product }) => {
                 <CardMedia
                     component="img"
                     // height="194"
-                    image={product?.img[0]}
+                    image={product?.featureimg[0]}
                     onClick={redirectHandler}
                 />
                 <CardContent className={classes.details} >
-                    <h3 className={classes.title} onClick={redirectHandler} >{product?.name.length > 20 ? product?.name.substring(0, 20) + "..." : product?.name}</h3>
+                    <h3 className={classes.title} onClick={redirectHandler} >{product?.name}</h3>
                     <div className={classes.priceContainer}>
                         <p className={classes.price}  onClick={redirectHandler}>₹{product?.price}</p>
 

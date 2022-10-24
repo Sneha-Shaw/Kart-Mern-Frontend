@@ -7,7 +7,7 @@ import { ProductLogic } from './ProductLogic';
 
 const ProductPage = () => {
   const classes = useStyles();
-  // const { products } = ProductLogic();
+  const { products } = ProductLogic();
 
   return (
     <div className={classes.container}>
@@ -16,15 +16,15 @@ const ProductPage = () => {
       </div>
       <div className={classes.right}>
         <div className={classes.cards}>
-          {/* {products &&
-            products.map(
+          {products &&
+            products.data.map(
               (product, index) => {
                 return (
 
                   <CardComponent product={product} key={index} />
 
                 );
-              })} */}
+              })}
         </div>
       </div>
 

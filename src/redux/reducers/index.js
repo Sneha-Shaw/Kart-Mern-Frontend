@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import {
-    getAllProductReducer,
+    getAllProductsReducer,
     getSingleProductReducer,
     addToWishlistReducer,
     getWishlistReducer,
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
     signUpUser: userSignupReducer,
     signInUser:userSigninReducer,
     getSingleUser:getSingleUserReducer,
-    getAllProduct: getAllProductReducer,
+    getAllProducts: getAllProductsReducer,
     getSingleProduct: getSingleProductReducer,
     addToWishlist: addToWishlistReducer,
     getWishlist: getWishlistReducer,
