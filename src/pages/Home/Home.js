@@ -1,7 +1,7 @@
 import React from 'react'
 import useStyles from "./styles";
 import girl from '../../assets/girl-with-bags.png'
-// import { HomeLogic } from './HomeLogic';
+import { HomeLogic } from './HomeLogic';
 import { Button } from '@mui/material';
 import CardComponent from '../../components/Card/CardComponent'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
@@ -11,10 +11,10 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const classes = useStyles();
     const navigate = useNavigate();
-    // const {
+    const {
 
-        // products
-    // } = HomeLogic();
+        products
+    } = HomeLogic();
     return (
         // mainContainer
         <div className={classes.container}>
@@ -45,54 +45,18 @@ const Home = () => {
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>MEN</h3>
-                        <Button onClick={()=>{navigate('/products?category=men')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
+                        <Button onClick={()=>{navigate('/see-products?category=Men')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
                     </div>
-                    <div className={classes.cards}>
-                        {products &&
-                           products.slice(0,4).map(
-                                (product, index) => {
-                                    return (
-
-                                        <CardComponent product={product} key={index} />
-
-                                    );
-                                })}
-                    </div>
+                 
                 </div>
                 <div className={classes.products}>
                     <div className={classes.header}>
                         <h3>WOMEN</h3>
-                        <Button onClick={()=>{navigate('/products?category=women')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
+                        <Button onClick={()=>{navigate('/see-products?category=Women')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
                     </div>
-                    <div className={classes.cards}>
-                        {products &&
-                            products.slice(0,4).map(
-                                (product, index) => {
-                                    return (
-
-                                        <CardComponent product={product} key={index} />
-
-                                    );
-                                })}
-                    </div>
+                    
                 </div>
-                <div className={classes.products}>
-                    <div className={classes.header}>
-                        <h3>KIDS</h3>
-                        <Button onClick={()=>{navigate('/products?category=kids')}} >View All<KeyboardDoubleArrowRightIcon fontSize="large" /></Button>
-                    </div>
-                    <div className={classes.cards}>
-                        {products &&
-                            products.slice(0,4).map(
-                                (product, index) => {
-                                    return (
-
-                                        <CardComponent product={product} key={index} />
-
-                                    );
-                                })}
-                    </div>
-                </div>
+               
 
             </div> */}
         </div >

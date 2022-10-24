@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
         alignItems: "center",
         // textAlign: "left"
         "&>Button":{
-            borderRadius: "10rem",
+            // borderRadius: "1rem",
             fontSize: "2rem",
             marginTop: "2rem"
         }
