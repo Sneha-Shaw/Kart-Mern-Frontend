@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
         display: "flex",
         height: "90vh",
         flexDirection: "row-reverse",
-        alignItems: "center",
+        // alignItems: "center",
         justifyContent: "center",
         padding: "1rem",
         [theme.breakpoints.down("md")]: {
@@ -23,10 +23,12 @@ export default makeStyles((theme) => ({
     },
     imgContainer:{
         width: "80%",
-        height: "90%",
+        height: "100%",
         // borderRadius: "3rem",
         margin: "1rem",
-        overflow: "hidden",
+        // overflow: "hidden",
+        border: "1px solid rgb(0,0,0,0.2)",
+
     },
     img: {
         width: "100%",
@@ -34,23 +36,23 @@ export default makeStyles((theme) => ({
         objectFit: "contain",
     },
     imageOption: {
-        display: "flex",
+        // display: "flex",
         
         flexDirection: "column",
-        justifyContent: "space-between",
-        width: "20%",
-        marginTop: "1rem",
+        // justifyContent: "space-between",
+        width: "10%",
+        marginTop: "1.5rem",
         [theme.breakpoints.down("md")]: {
             width: "100%",
         },
     },
     imageContainer: {
         width: "100%",
-        height: "100%",
+        // height: "100%",
         flex: 1,
         margin: "1rem 0rem",
-        // border: "1px solid #e0e0e0",
-        borderRadius: "2rem",
+        border: "1px solid rgb(0,0,0,0.2)",
+        // borderRadius: "2rem",
         cursor: "pointer",
         // padding: "0.5rem",
         overflow: "hidden"

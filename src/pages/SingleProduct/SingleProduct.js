@@ -8,8 +8,15 @@ import AddIcon from '@mui/icons-material/Add';
 
 const SingleProduct = () => {
   const classes = useStyles();
-  const { product,show,setShow } = SingleProductLogic();
-console.log(show)
+  const {
+    product,
+    show,
+    setShow,
+    addToWishHandler,
+    addToCartHandler,
+    isWishlist
+  } = SingleProductLogic();
+ 
   const changeImage = (featureimg) => {
     setShow(featureimg)
   }
@@ -17,14 +24,14 @@ console.log(show)
     <div className={classes.container}>
       <div className={classes.left}>
         <div className={classes.imgContainer}>
-          <img src={show} alt="" className={classes.img}  />
+          <img src={show} alt="" className={classes.img} />
         </div>
         <div className={classes.imageOption}>
 
           {
             product?.featureimg.map((currentImg) => (
               <div className={classes.imageContainer}>
-                <img src={currentImg} alt="" className={classes.img} onClick={()=>changeImage(currentImg)} />
+                <img src={currentImg} alt="" className={classes.img} onMouseOver={() => changeImage(currentImg)} />
               </div>
             ))
           }
@@ -33,7 +40,7 @@ console.log(show)
       </div>
       <div className={classes.right}>
         <h1 className={classes.title}>{product?.title}</h1>
-        <p className={classes.price}>₹{product?.price}</p>
+        <p className={classes.price}><span style={{ color: "black" }}>Price: </span>₹{product?.price}</p>
         <div className={classes.colors}>
           <h3>Color:</h3>
           {product?.color.map((currentColor, index) => (
@@ -44,25 +51,27 @@ console.log(show)
         </div>
         <div className={classes.sizes}>
           <h3>Size:</h3>
-          {product?.size.map((item, index) => (
-            <div className={classes.sizeContainer} key={index}>
-              <div className={classes.sizeOption}>{item}</div>
-            </div>
-          ))}
+          <select className={classes.select}>
+            <option value="not selected" >Select</option>
+            {
+              product?.size.map((currentSize, index) => (
+                <option value={currentSize} key={index}>{currentSize}</option>
+              ))
+            }
+          </select>
         </div>
         <div className={classes.Actions}>
 
-          <div className={classes.quantity}>
 
-            <AddIcon fontSize="large" className={classes.margin} />
-
-            <p>1</p>
-            <RemoveIcon fontSize="large" className={classes.margin} />
-
-          </div>
-          <Button variant="contained" color="primary" className={classes.button} >
+          <Button variant="contained" color="primary" className={classes.button} onClick={addToCartHandler}>
             Add to Cart
           </Button>
+          
+            <Button variant="contained" color="primary" className={classes.button} onClick={addToWishHandler}>
+              Add to Wishlist
+            </Button>
+           
+         
         </div>
         <h3>Description</h3>
         <p className={classes.description}>{product?.desc}</p>
