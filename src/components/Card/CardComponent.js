@@ -23,11 +23,16 @@ const CardComponent = ({ product }) => {
     useEffect(() => {
         dispatch(checkIfWishlist(userInfo?.body._id, product?._id))
     }, [dispatch])
-    const ifwishlist =() => {
+    const addToWish =() => {
         // if(isWishlist && isWishlist.isWishlist===false){
-            dispatch(addToWishlist(userInfo?.body._id, product?._id))
+            if(userInfo){
+                dispatch(addToWishlist(userInfo?.body._id, product?._id))
+            }else{
+                navigate('/login')
+            }
         // }
     }
+
 
     return (
         <div>
@@ -51,9 +56,9 @@ const CardComponent = ({ product }) => {
                     <CardActions sx={{position: "absolute", top:0, right: 0}}>
                         {
                             isWishlist && isWishlist.isWishlist ?
-                                <FavoriteIcon fontSize="large" sx={{ color: "red" }} onClick={ifwishlist} />
+                                <FavoriteIcon fontSize="large" sx={{ color: "red" }} onClick={addToWish} />
                                 :
-                                <FavoriteBorderIcon fontSize="large" sx={{ color: "red" }} onClick={ifwishlist} />
+                                <FavoriteBorderIcon fontSize="large" sx={{ color: "red" }} onClick={addToWish} />
                         }
                     </CardActions>
                 </CardContent>
