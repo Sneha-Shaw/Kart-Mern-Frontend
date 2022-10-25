@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
         // height: "100vh",
         justifyContent: "space-around",
         // alignItems: "center",
-        marginTop: "4rem",
+        // marginTop: "4rem",
         [theme.breakpoints.down("md")]: {
             flexDirection: "column",
         },
@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
     left: {
         flex: 1,
         display: "flex",
-        height: "100%",
+        height: "90vh",
         flexDirection: "row-reverse",
         alignItems: "center",
         justifyContent: "center",
@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
     imgContainer:{
         width: "80%",
         height: "90%",
-        borderRadius: "3rem",
+        // borderRadius: "3rem",
         margin: "1rem",
         overflow: "hidden",
     },
