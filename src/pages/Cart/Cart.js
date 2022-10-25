@@ -10,7 +10,7 @@ import {
   deleteProductFromCart
 } from '../../redux/actions/productAction';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify'
+
 
 const Cart = () => {
 
