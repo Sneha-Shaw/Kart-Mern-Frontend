@@ -160,7 +160,7 @@ const SingleProduct = () => {
               <div className={classes.reviewUser}>
                 <img src="https://faces-img.xcdn.link/image-lorem-face-5919.jpg" alt="profile" />
                 <div className={classes.reviewUserName}>
-                  <h3>John Doe</h3>
+                  <h3>Jane Doe</h3>
                   <div className={classes.circle}></div>
                   <p>1 day ago</p>
                 </div>
@@ -186,7 +186,7 @@ const SingleProduct = () => {
               <div className={classes.reviewUser}>
                 <img src="https://faces-img.xcdn.link/image-lorem-face-5919.jpg" alt="profile" />
                 <div className={classes.reviewUserName}>
-                  <h3>John Doe</h3>
+                  <h3>Jane Doe</h3>
                   <div className={classes.circle}></div>
                   <p>1 day ago</p>
                 </div>
@@ -212,7 +212,7 @@ const SingleProduct = () => {
               <div className={classes.reviewUser}>
                 <img src="https://faces-img.xcdn.link/image-lorem-face-5919.jpg" alt="profile" />
                 <div className={classes.reviewUserName}>
-                  <h3>John Doe</h3>
+                  <h3>Jane Doe</h3>
                   <div className={classes.circle}></div>
                   <p>1 day ago</p>
                 </div>
@@ -238,7 +238,7 @@ const SingleProduct = () => {
               <div className={classes.reviewUser}>
                 <img src="https://faces-img.xcdn.link/image-lorem-face-5919.jpg" alt="profile" />
                 <div className={classes.reviewUserName}>
-                  <h3>John Doe</h3>
+                  <h3>Jane Doe</h3>
                   <div className={classes.circle}></div>
                   <p>1 day ago</p>
                 </div>
