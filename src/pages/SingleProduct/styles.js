@@ -21,7 +21,7 @@ export default makeStyles((theme) => ({
             marginBottom: "2rem",
         },
     },
-    imgContainer:{
+    imgContainer: {
         width: "80%",
         height: "100%",
         // borderRadius: "3rem",
@@ -37,7 +37,7 @@ export default makeStyles((theme) => ({
     },
     imageOption: {
         // display: "flex",
-        
+
         flexDirection: "column",
         // justifyContent: "space-between",
         width: "10%",
@@ -61,8 +61,8 @@ export default makeStyles((theme) => ({
     right: {
         flex: 1,
         display: "flex",
-        height: "90vh",
-        flexDirection: "column",
+        // height: "90vh",
+        // flexDirection: "column",
         // alignItems: "center",
         // justifyContent: "center",
         // marginTop: "4rem",
@@ -74,19 +74,21 @@ export default makeStyles((theme) => ({
     title: {
         fontSize: "2.5rem",
         fontWeight: "bold",
-        marginBottom: "1rem",
+        // marginBottom: "1rem",
     },
     price: {
         fontSize: "2rem",
         fontWeight: "bold",
-        marginBottom: "1rem",
+        // marginBottom: "1rem",
         color: "#395B64"
     },
     Actions: {
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         marginBottom: "1rem",
+        flexDirection: "column",
+        width: "70%",
         "&>Button": {
             margin: '2rem auto',
             padding: '1rem',
@@ -98,84 +100,180 @@ export default makeStyles((theme) => ({
             "&:hover": {
                 backgroundColor: '#395B64',
             }
-        
+
         }
     },
-    colors: {
+    details: {
         display: "flex",
-        width: "30%",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginBottom: "1rem",
-        "&>h3": {
-            fontSize: "1.5rem",
-            fontWeight: "bold",
-        },
-    },
-    colorContainer:{
-        display: "flex",
-        // alignItems: "center",
-        justifyContent: "space-between",
-        // flexDirection: "row",
-    },
-    colorOption: {
-        width: "2.5rem",
-        height: "2.5rem",
-        borderRadius: "50%",
-        flex:  1,
-        border: "1px solid #e0e0e0",
-        cursor: "pointer",
-        margin: "0.5rem",
-    },
-
-    quantity: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        "&>p": {
-            fontSize: "1.5rem",
-            fontWeight: "bold",
-        }
-    },
-    margin: {
-        backgroundColor: '#e0e0e0',
-        padding: '0.5rem',
-        margin: '1.5rem',
-        cursor: "pointer",
-        "&:hover": {
-            boxShadow: '0 0 .3rem 0 rgba(0,0,0,0.2)'
-        },
-    },
-    description: {
-        fontSize: "1.2rem",
-        marginBottom: "1rem",
-    },
-
-    sizeOption:{
-        border: "1px solid #e0e0e0",
-      
-        padding: ".5rem 1rem",
-        fontSize: "1.5rem",
-        cursor: "pointer",
-    },
-    sizeContainer:{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        width: "100%",
-       
+        flexDirection: "column",
+        width: "30%"
     },
     sizes: {
-        display: "flex",
+        // display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
-        width: "30%",
+        paddingTop: "5rem",
+
+        "&>h3": {
+            fontSize: "1.8rem",
+            fontWeight: "bold",
+            paddingRight: "1rem",
+        },
+        "& select": {
+            padding: "0.5rem 1rem",
+            fontSize: "1.5rem",
+            border: "1px solid rgb(0,0,0,0.2)",
+            borderRadius: "0.5rem",
+            outline: "none",
+            marginTop: "1rem",
+
+        }
+    },
+    divider: {
+        margin: "1rem 0rem",
+        width: "95%",
+        height: "1px",
+        backgroundColor: "#e0e0e0",
+    },
+    productInstruction: {
+        paddingTop: "7rem",
+        "& >ul": {
+            padding: "0",
+            "& >li": {
+                fontSize: "1.7rem",
+                fontWeight: "bold",
+                paddingRight: "1rem",
+                lineHeight: "2",
+
+            }
+        }
+    },
+    productDescription: {
+        padding: "3rem",
+        "&>h1": {
+            fontSize: "2.5rem",
+            fontWeight: "bold",
+            paddingRight: "1rem",
+        },
+        "&>p": {
+            fontSize: "1.7rem",
+            paddingRight: "1rem",
+            lineHeight: "2",
+        }
+    },
+    reviewSection: {
+        display: "flex",
+        padding: "3rem",
+        "&>h1": {
+            fontSize: "2.5rem",
+            fontWeight: "bold",
+            paddingRight: "1rem",
+        }
+    },
+    starContainer: {
+        display: "flex",
+        flexDirection: "column",
+        // alignItems: "center",
+        width: "35%",
+        fontSize: "1.5rem",
         "&>h3": {
             fontSize: "1.5rem",
             fontWeight: "bold",
             paddingRight: "1rem",
         },
     },
-   
-    
+    reviewCount: {
+        display: "flex",
+        padding: "1rem 0",
+    },
+    starProgress: {
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        alignItems: "center",
+    },
+    progress: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "flex-start",
+        margin: "0.5rem 0",
+        "&>h4": {
+            paddingRight: "1rem"
+        },
+        "&>p": {
+            paddingLeft: "1rem"
+        }
+    },
+    progressBar: {
+        width: "70%",
+        height: "1rem",
+        border: "1px solid rgb(0,0,0,0.2)",
+    },
+    progressFill: {
+        // width: "100%",
+        height: "100%",
+        backgroundColor: "#395B64",
+        // borderRadius: "0.5rem",
+    },
+    WriteReview: {
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        "&>input": {
+            width: "80%",
+            padding: "0.5rem 1rem",
+            fontSize: "1.5rem",
+            border: "1px solid rgb(0,0,0,0.2)",
+            borderRadius: "0.5rem",
+            outline: "none",
+            margin: "1rem auto",
+        },
+        "&>button": {
+            fontSize: "1.2rem",
+            width: "20%",
+            margin: "0 auto",
+        }
+
+    },
+    showReview: {
+        width: "60%"
+    },
+    reviewHeader: {
+        display: "flex",
+        justifyContent: "space-between",
+        // alignItems: "center",
+        flexDirection: "column",
+    },
+    reviewUser: {
+        display: "flex",
+        alignItems: "center",
+        "&>img": {
+            width: "3rem",
+            height: "3rem",
+            borderRadius: "50%",
+            marginRight: "1rem",
+        },
+    },
+    reviewUserName:{
+        display: "flex",
+        fontSize: "1.5rem",
+        alignItems: "center",
+
+    },
+    circle:{
+        width: ".8rem",
+        height: ".8rem",
+        borderRadius: "50%",
+        backgroundColor: "#395B64",
+        margin: "0 1rem"
+    },
+    reviewRating:{
+        paddingLeft: "4rem",
+    },
+    reviewBody:{
+        width: "80%",
+        fontSize: "1.5rem",
+        padding: "1rem 0rem",
+       
+    },
+
 }))
