@@ -37,6 +37,7 @@ export default makeStyles((theme) => ({
         backgroundColor: '#f5f5f5',
         borderRadius: '1rem',
         boxShadow: '0 0 1rem 0 rgba(0,0,0,0.1)',
+        cursor: 'pointer',
       
     },
     media: {

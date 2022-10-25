@@ -26,6 +26,10 @@ const Cart = () => {
     }
   }, [dispatch, userInfo, navigate])
 
+  const redirectHandler = (id) => {
+    navigate(`/product/${id}`)
+}
+
   return (
     <div className={classes.container}>
       {/* cart */}
@@ -39,7 +43,9 @@ const Cart = () => {
 
                 <div className={classes.cartContainer}>
 
-                  <Card className={classes.card}>
+                  <Card className={classes.card}
+                  onClick={() => redirectHandler(product.productId._id)}
+                  >
                     <CardMedia
                       className={classes.media}
                       component="img"
