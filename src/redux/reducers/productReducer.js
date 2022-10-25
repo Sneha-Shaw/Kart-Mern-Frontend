@@ -14,7 +14,13 @@ import {
     GET_WISHLIST_FAILED,
     CHECK_IF_WISHLIST_REQUEST,
     CHECK_IF_WISHLIST_SUCCESS,
-    CHECK_IF_WISHLIST_FAILED
+    CHECK_IF_WISHLIST_FAILED,
+    ADD_TO_CART_REQUEST,
+    ADD_TO_CART_SUCCESS,
+    ADD_TO_CART_FAILED,
+    GET_CART_REQUEST,
+    GET_CART_SUCCESS,
+    GET_CART_FAILED
 } from '../constants/productConstants'
 
 
@@ -158,6 +164,67 @@ export const checkIfWishlistReducer = (state = checkIfWishlistState, action) => 
                 isWishlist: action.payload
             }
         case CHECK_IF_WISHLIST_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+const addToCartState = {
+    loading: false,
+    error: null,
+    isAuthenticated: false,
+    data: null
+}
+export const addToCartReducer = (state = addToCartState, action) => {
+    switch (action.type) {
+        case ADD_TO_CART_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case ADD_TO_CART_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
+        case ADD_TO_CART_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+const getCartState = {
+    loading: false,
+    error: null,
+    isAuthenticated: false,
+    cartProduct: null
+}
+
+export const getCartReducer = (state = getCartState, action) => {
+    switch (action.type) {
+        case GET_CART_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case GET_CART_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                cartProduct: action.payload
+            }
+        case GET_CART_FAILED:
             return {
                 ...state,
                 loading: false,

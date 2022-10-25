@@ -4,7 +4,9 @@ import {
     getSingleProductReducer,
     addToWishlistReducer,
     getWishlistReducer,
-    checkIfWishlistReducer
+    checkIfWishlistReducer,
+    addToCartReducer,
+    getCartReducer
 } from './productReducer'
 import { userSigninReducer,userSignupReducer,getSingleUserReducer } from './userReducer'
 
@@ -17,7 +19,9 @@ const rootReducer = combineReducers({
     getSingleProduct: getSingleProductReducer,
     addToWishlist: addToWishlistReducer,
     getWishlist: getWishlistReducer,
-    checkIfWishlist: checkIfWishlistReducer
+    checkIfWishlist: checkIfWishlistReducer,
+    addToCart: addToCartReducer,
+    getCart: getCartReducer
 })
 
 export default rootReducer

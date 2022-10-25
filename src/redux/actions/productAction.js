@@ -14,7 +14,13 @@ import {
     GET_WISHLIST_FAILED,
     CHECK_IF_WISHLIST_REQUEST,
     CHECK_IF_WISHLIST_SUCCESS,
-    CHECK_IF_WISHLIST_FAILED
+    CHECK_IF_WISHLIST_FAILED,
+    ADD_TO_CART_REQUEST,
+    ADD_TO_CART_SUCCESS,
+    ADD_TO_CART_FAILED,
+    GET_CART_REQUEST,
+    GET_CART_SUCCESS,
+    GET_CART_FAILED
 } from '../constants/productConstants'
 import axios from 'axios'
 
@@ -72,14 +78,14 @@ export const getSingleProduct = (id) => async (dispatch) => {
 }
 
 // ADD PRODUCT TO WISHLIST
-export const addToWishlist = (userId,productId) => async (dispatch) => {
+export const addToWishlist = (userId, productId) => async (dispatch) => {
     try {
         dispatch({
             type: ADD_TO_WISHLIST_REQUEST
         })
         const config = {
             'Content-Type': 'application/json',
-          
+
         }
         const { data } = await axios.post(`${API}/private/products/add-product-to-wishlist/${userId}/${productId}`, config)
         dispatch({
@@ -123,7 +129,7 @@ export const getWishlist = (userId) => async (dispatch) => {
 }
 
 // CHECK IF PRODUCT IS IN WISHLIST
-export const checkIfWishlist = (userId,productId) => async (dispatch) => {
+export const checkIfWishlist = (userId, productId) => async (dispatch) => {
     try {
         dispatch({
             type: CHECK_IF_WISHLIST_REQUEST
@@ -146,3 +152,54 @@ export const checkIfWishlist = (userId,productId) => async (dispatch) => {
         })
     }
 }
+
+// ADD PRODUCT TO CART
+export const addToCart = (userId, productId) => async (dispatch) => {
+    try {
+        dispatch({
+            type: ADD_TO_CART_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const { data } = await axios.post(`${API}/private/products/add-to-cart/${userId}/${productId}`, config)
+        dispatch({
+            type: ADD_TO_CART_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: ADD_TO_CART_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}
+
+// GET CART
+export const getCart = (userId) => async (dispatch) => {
+    try {
+        dispatch({
+            type: GET_CART_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const { data } = await axios.get(`${API}/private/products/cart-products/${userId}`, config)
+        dispatch({
+            type: GET_CART_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: GET_CART_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}
+
