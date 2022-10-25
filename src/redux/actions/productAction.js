@@ -20,7 +20,10 @@ import {
     ADD_TO_CART_FAILED,
     GET_CART_REQUEST,
     GET_CART_SUCCESS,
-    GET_CART_FAILED
+    GET_CART_FAILED,
+    DELETE_PRODUCT_FROM_CART_REQUEST,
+    DELETE_PRODUCT_FROM_CART_SUCCESS,
+    DELETE_PRODUCT_FROM_CART_FAILED
 } from '../constants/productConstants'
 import axios from 'axios'
 
@@ -195,6 +198,31 @@ export const getCart = (userId) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: GET_CART_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}
+
+// Delete Product From Cart
+export const deleteProductFromCart = (userId, productId) => async (dispatch) => {
+    try {
+        dispatch({
+            type: DELETE_PRODUCT_FROM_CART_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const { data } = await axios.delete(`${API}/private/products/remove-from-cart/${userId}/${productId}`, config)
+        dispatch({
+            type: DELETE_PRODUCT_FROM_CART_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: DELETE_PRODUCT_FROM_CART_FAILED,
             payload: error.response &&
                 error.response.data.message ?
                 error.response.data.message

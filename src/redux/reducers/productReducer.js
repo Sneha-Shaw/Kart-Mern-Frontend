@@ -20,7 +20,10 @@ import {
     ADD_TO_CART_FAILED,
     GET_CART_REQUEST,
     GET_CART_SUCCESS,
-    GET_CART_FAILED
+    GET_CART_FAILED,
+    DELETE_PRODUCT_FROM_CART_REQUEST,
+    DELETE_PRODUCT_FROM_CART_SUCCESS,
+    DELETE_PRODUCT_FROM_CART_FAILED
 } from '../constants/productConstants'
 
 
@@ -225,6 +228,37 @@ export const getCartReducer = (state = getCartState, action) => {
                 cartProduct: action.payload
             }
         case GET_CART_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+const deleteCartProductState = {
+    loading: false,
+    error: null,
+    isAuthenticated: false,
+    data: null
+}
+
+export const deleteCartProductReducer = (state = deleteCartProductState, action) => {
+    switch (action.type) {
+        case DELETE_PRODUCT_FROM_CART_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case DELETE_PRODUCT_FROM_CART_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
+        case DELETE_PRODUCT_FROM_CART_FAILED:
             return {
                 ...state,
                 loading: false,
