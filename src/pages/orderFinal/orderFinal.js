@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useStyles from './styles'
-import { Card, CardMedia, CardContent, Button,  } from '@mui/material';
+import { Card, CardMedia, CardContent, Button, } from '@mui/material';
+
+import { useNavigate } from 'react-router-dom';
+import {
+    getCart
+} from '../../redux/actions/productAction';
+import { useSelector, useDispatch } from 'react-redux';
 
 const OrderFinal = () => {
     const classes = useStyles()
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { cartProduct } = useSelector(state => state.getCart)
+    const { userInfo } = useSelector(state => state.signInUser)
+
+    useEffect(() => {
+        if (userInfo) {
+            dispatch(getCart(userInfo?._id))
+        } else {
+            navigate('/login')
+        }
+    }, [dispatch, userInfo, navigate])
     const orderproducts = [
         { "name": "T-shirt", "price": "200", "img": "https://images.squarespace-cdn.com/content/v1/59d2bea58a02c78793a95114/1533744372275-89SQDE9JMMSO09CMNBOS/%28RED%29_Men%27s%2BINSPI%28RED%29%2BTshirt.jpg" },
         { "name": "T-shirt", "price": "300", "img": "https://images.squarespace-cdn.com/content/v1/59d2bea58a02c78793a95114/1533744372275-89SQDE9JMMSO09CMNBOS/%28RED%29_Men%27s%2BINSPI%28RED%29%2BTshirt.jpg" },
-        
+
     ]
     return (
         <div className={classes.container}>
@@ -17,8 +34,8 @@ const OrderFinal = () => {
                 {/* <div className={classes.cartItem}> */}
 
                 <h1 className={classes.cartTitle}>Review your Order</h1>
-                {orderproducts &&
-                    orderproducts.map(
+                {cartProduct &&
+                    cartProduct.body.map(
                         (product, index) => {
                             return (
 
@@ -28,15 +45,15 @@ const OrderFinal = () => {
                                         <CardMedia
                                             className={classes.media}
                                             component="img"
-                                            image={product.img}
+                                            image={product.productId.featureimg[0]}
                                             sx={{ width: "20rem" }}
                                         />
                                         <CardContent className={classes.cardContent}>
                                             <div>
-                                                <h3>{product.name}</h3>
+                                                <h3>{product.productId.title}</h3>
                                                 <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                                             </div>
-                                            <h3>₹{product.price}</h3>
+                                            <h3>₹{product.productId.price}</h3>
                                         </CardContent>
                                     </Card>
                                 </div>
@@ -63,7 +80,8 @@ const OrderFinal = () => {
                 <h1 className={classes.paymentTitle}>Order Summary</h1>
                 <div className={classes.paymentContainer}>
                     <h3>Subtotal</h3>
-                    <h3>₹{orderproducts && orderproducts.reduce((acc, item) => acc + Number(item.price), 0)}</h3>
+                    <h3>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h3>
+
                 </div>
                 <div className={classes.paymentContainer}>
                     <h3>Shipping</h3>
