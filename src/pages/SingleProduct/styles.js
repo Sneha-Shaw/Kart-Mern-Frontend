@@ -5,7 +5,6 @@ export default makeStyles((theme) => ({
         // height: "100vh",
         justifyContent: "space-around",
         // alignItems: "center",
-        // marginTop: "4rem",
         [theme.breakpoints.down("md")]: {
             flexDirection: "column",
         },
@@ -60,11 +59,12 @@ export default makeStyles((theme) => ({
     right: {
         flex: 1,
         display: "flex",
-        height: "100%",
+        height: "90vh",
         flexDirection: "column",
         // alignItems: "center",
-        justifyContent: "center",
-        padding: "1rem",
+        // justifyContent: "center",
+        // marginTop: "4rem",
+        padding: "6rem 1rem",
         [theme.breakpoints.down("md")]: {
             marginBottom: "2rem",
         },
