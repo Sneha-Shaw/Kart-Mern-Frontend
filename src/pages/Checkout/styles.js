@@ -21,6 +21,31 @@ export default makeStyles((theme) => ({
         height: "100%",
         justifyContent: "center",
     },
+    absolute: {
+        position: "absolute",
+        top: "1.2rem",
+        right: "0",
+        cursor: "pointer",
+        fontSize: "1.5rem !important",
+    },
+    noneditbox: {
+        position: "relative",
+        display: "flex",
+        width: "100%",
+        "&>h2": {
+            width: "30%",
+            fontSize: "2rem",
+            padding: "1rem 0",
+        },
+        "&>div":{
+            width: "50%",
+            padding: "1rem 0",
+            fontSize: "1.5rem"
+        },
+        "&>p":{
+            flex: 1,
+        }
+    },
     Left: {
         width: "40%",
         padding: "1rem",
@@ -30,6 +55,8 @@ export default makeStyles((theme) => ({
     boxContainer: {
         width: "100%",
         height: "100%",
+        position: "relative",
+
         "&>h2": {
             fontSize: "2rem",
             padding: "1rem 0",
