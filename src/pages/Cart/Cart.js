@@ -98,7 +98,7 @@ const Cart = () => {
             <h1>Subtotal</h1>
             <h1>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h1>
           </div>
-          <Button variant="contained" color="primary" className={classes.button} onClick={() => { navigate('/address') }} >
+          <Button variant="contained" color="primary" className={classes.button} onClick={() => { navigate('/checkout') }} >
             Checkout
           </Button>
         </Card>
