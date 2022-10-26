@@ -1,18 +1,22 @@
 import React from 'react'
 import { Card, CardMedia, CardContent } from '@mui/material';
 import useStyles from "./styles";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 const CardComponent = ({ product }) => {
-  
+
     const classes = useStyles();
     const navigate = useNavigate();
+    const location = useLocation();
+    const path = location.pathname;
+
 
     const redirectHandler = () => {
         navigate(`/product/${product?._id}`)
     }
+    const [show, setShow] = React.useState(false);
 
-    
 
     return (
         <div>
@@ -31,7 +35,16 @@ const CardComponent = ({ product }) => {
                     <div className={classes.priceContainer}>
                         <p className={classes.price} onClick={redirectHandler}>₹{product?.price}</p>
                     </div>
-
+                    {
+                        path === "/wishlist" && <MoreHorizIcon className={classes.more} fontSize="large" onClick={() => setShow(!show)} />
+                    }
+                    
+                    {
+                        path === "/wishlist" && show &&
+                        <div className={classes.dropdown}>
+                            <p>Delete</p>
+                        </div>
+                    }
                 </CardContent>
 
 

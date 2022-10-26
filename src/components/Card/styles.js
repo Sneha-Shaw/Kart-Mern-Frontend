@@ -40,5 +40,29 @@ export default makeStyles((theme) => ({
         fontWeight: "bold",
         color: "#395B64"
     },
+    more:{
+        position: "absolute",
+        top: "0",
+        right: "0",
+        color: "#395B64",
+        padding: ".5rem 1rem",
+    },
+    dropdown:{
+        position: "absolute",
+        top: "2rem",
+        right: "0",
+        background: "#A5C9CA",
+        color: "#fff",
+        padding: "0",
+        "&>p":{
+            padding: ".5rem 1.5rem",
+            fontSize: "1.5rem",
+            cursor: "pointer",
+            "&:hover":{
+                background: "#395B64",
+                
+            }
+        }
+    }
    
 }));
