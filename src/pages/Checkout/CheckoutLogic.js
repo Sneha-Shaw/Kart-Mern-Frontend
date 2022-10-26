@@ -12,7 +12,7 @@ export const CheckoutLogic = () => {
 
     const { cartProduct } = useSelector(state => state.getCart)
     const { userInfo } = useSelector(state => state.signInUser)
-    const [addressShow, setAddressShow] = useState(false)
+    const [addressShow, setAddressShow] = useState(true)
     const [showPayment, setShowPayment] = useState(false)
     const [showReview, setShowReview] = useState(false)
     const name = "Sneha Shaw"
@@ -22,7 +22,21 @@ export const CheckoutLogic = () => {
     const state = "West Bengal"
     const mobile = "9876543210"
     const landmark = "Near bus stand"
+    
+    const [quantity, setQuantity] = useState(1)
     const showAddress = `${address}, ${city}, ${pincode}, ${state}, Mobile: ${mobile}, ${landmark}`;
+    // const subtotal = cartProduct && cartProduct.reduce((acc, item) => acc + item.price * item.qty, 0)
+    const subtotal = (cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0))*quantity
+    const shipping = 40
+    const total = subtotal + shipping
+    const increaseQuantity = () => {
+        setQuantity(quantity + 1)
+    }
+    const decreaseQuantity = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1)
+        }
+    }
 
     useEffect(() => {
         if (userInfo) {
@@ -42,6 +56,13 @@ export const CheckoutLogic = () => {
         showPayment,
         setShowPayment,
         showReview,
-        setShowReview
+        setShowReview,
+        subtotal,
+        shipping,
+        total,
+        quantity,
+        setQuantity,
+        increaseQuantity,
+        decreaseQuantity
     }
 }

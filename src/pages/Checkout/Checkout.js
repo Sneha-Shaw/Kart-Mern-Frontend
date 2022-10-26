@@ -3,6 +3,7 @@ import useStyles from "./styles";
 import { Button, Card, CardMedia, CardContent } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { CheckoutLogic } from './CheckoutLogic';
 const Checkout = () => {
     const classes = useStyles()
@@ -17,7 +18,13 @@ const Checkout = () => {
         showPayment,
         setShowPayment,
         showReview,
-        setShowReview
+        setShowReview,
+        subtotal,
+        shipping,
+        total,
+        quantity,
+        increaseQuantity,
+        decreaseQuantity
     } = CheckoutLogic()
 
     return (
@@ -29,7 +36,7 @@ const Checkout = () => {
                         addressShow ?
                             <div className={classes.boxContainer}>
                                 <h2>1. Select a delivery address</h2>
-                                <div className={classes.absolute} onClick={() => { setAddressShow(false) }} fontSize="large"><CloseIcon /></div>
+                                <div className={classes.absolute} onClick={() => { setAddressShow(false); setShowPayment(true) }} fontSize="large"><CloseIcon /></div>
                                 <div className={classes.AddressBox}>
                                     <h4>Your Addresses</h4>
                                     <div className={classes.divider} style={{ margin: "0 1rem", width: "98%" }}></div>
@@ -103,7 +110,7 @@ const Checkout = () => {
                                     }
 
                                     <div className={classes.bottomContainer}>
-                                        <Button variant="contained" color="primary" onClick={() => { setAddressShow(false) }}>Use this address</Button>
+                                        <Button variant="contained" color="primary" onClick={() => { setAddressShow(false); setShowPayment(true) }}>Use this address</Button>
                                     </div>
                                 </div>
                             </div>
@@ -116,81 +123,126 @@ const Checkout = () => {
                                     </p>
                                 </div>
                                 {/* <p onClick={() => { setShow(!show) }}><AddIcon />Add a new address</p> */}
-                                <p className={classes.absolute} onClick={() => { setAddressShow(true) }}>Change</p>
+                                <p className={classes.absolute} onClick={() => { setAddressShow(true); setShowPayment(false); setShowReview(false) }}>Change</p>
 
                             </div>
                     }
 
                     {/* end of address container */}
                     {/* start of payment  */}
-                    <div className={classes.boxContainer}>
-                        <h2>2. Payment Method</h2>
-                        <div className={classes.AddressBox}>
-                            <h4>Payment Options</h4>
-                            <div className={classes.divider}></div>
-                            <div className={classes.Payment}>
-                                <input type="radio" name="payment" id="payment" />
-                                <label htmlFor="payment">Cash on Delivery</label>
+                    {
+                        showPayment ?
+                            <div className={classes.boxContainer}>
+                                <h2>2. Payment Method</h2>
+                                <div className={classes.absolute} onClick={() => { setShowPayment(false); setShowReview(true) }} fontSize="large"><CloseIcon /></div>
+
+                                <div className={classes.AddressBox}>
+                                    <h4>Payment Options</h4>
+                                    <div className={classes.divider}></div>
+                                    <div className={classes.Payment}>
+                                        <input type="radio" name="payment" id="payment" />
+                                        <label htmlFor="payment">Cash on Delivery</label>
+                                    </div>
+                                    <div className={classes.Payment}>
+                                        <input type="radio" name="payment" id="payment" />
+                                        <label htmlFor="payment">Using Stripe</label>
+                                    </div>
+                                    <div className={classes.bottomContainer}>
+                                        <Button variant="contained" color="primary" onClick={() => { setShowPayment(false); setShowReview(true) }}>Use this payment method</Button>
+                                    </div>
+                                </div>
                             </div>
-                            <div className={classes.Payment}>
-                                <input type="radio" name="payment" id="payment" />
-                                <label htmlFor="payment">Using Stripe</label>
+                            :
+                            <div className={classes.noneditbox}>
+                                <h2>2. Payment Method</h2>
+                                <div className={classes.AddressDetails}>
+                                    <label htmlFor="payment">Cash on Delivery</label>
+                                </div>
+                                <p className={classes.absolute} onClick={() => { setAddressShow(false); setShowPayment(true); setShowReview(false) }}>Change</p>
                             </div>
-                            <div className={classes.bottomContainer}>
-                                <Button variant="contained" color="primary">Use this payment method</Button>
-                            </div>
-                        </div>
-                    </div>
+                    }
+
                     {/* start of review */}
-                    <div className={classes.boxContainer}>
-                        <h2>3. Review your order</h2>
-                        {cartProduct &&
-                            cartProduct.body.map(
-                                (product, index) => {
-                                    return (
+                    {
+                        showReview ?
+                            <div className={classes.boxContainer}>
+                                <h2>3. Review your order</h2>
+                                {cartProduct &&
+                                    cartProduct.body.map(
+                                        (product, index) => {
+                                            return (
 
-                                        <div className={classes.cartContainer}>
+                                                <div className={classes.cartContainer}>
 
-                                            <Card className={classes.card}>
-                                                <CardMedia
-                                                    className={classes.media}
-                                                    component="img"
-                                                    image={product.productId.featureimg[0]}
-                                                    sx={{ width: "20rem" }}
-                                                />
-                                                <CardContent className={classes.cardContent}>
-                                                    <div>
-                                                        <h3>{product.productId.title}</h3>
-                                                        <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                                                    </div>
-                                                    <h3>₹{product.productId.price}</h3>
-                                                </CardContent>
-                                            </Card>
-                                        </div>
+                                                    <Card className={classes.card}>
+                                                        <CardMedia
+                                                            className={classes.media}
+                                                            component="img"
+                                                            image={product.productId.featureimg[0]}
+                                                            sx={{ width: "20rem" }}
+                                                        />
+                                                        <CardContent className={classes.cardContent}>
+                                                            <div>
+                                                                <h3>{product.productId.title}</h3>
+                                                                <div className={classes.quantity}>
+                                                                    <RemoveIcon fontSize="large" className={classes.margin} onClick={decreaseQuantity} />
+                                                                    <p>{quantity}</p>
+                                                                    <AddIcon fontSize="large" className={classes.margin} onClick={increaseQuantity} />
 
-                                    );
-                                })}
-                    </div>
+                                                                </div>
+                                                                <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                                                            </div>
+                                                            <h3>₹{product.productId.price}</h3>
+                                                        </CardContent>
+                                                    </Card>
+                                                </div>
+
+                                            );
+                                        })}
+                            </div>
+                            :
+                            <div className={classes.noneditbox}>
+                                <h2>3. Review your order</h2>
+                            </div>
+
+                    }
+
 
                 </div>
                 <div className={classes.Right}>
                     <Card className={classes.cardTotal}>
+                        {
+                            addressShow &&
+                            <Button variant="contained" color="primary" onClick={() => { setAddressShow(false); setShowPayment(true) }}>Use this address</Button>
+
+                        }
+                        {
+                            showPayment &&
+                            <Button variant="contained" color="primary" onClick={() => { setShowPayment(false); setShowReview(true) }}>Use this payment method</Button>
+
+                        }
+                        {
+                            showReview &&
+                            <Button className={classes.paymentButton}>Place Order</Button>
+
+                        }
+                        <div className={classes.divider} style={{ marginBottom: "2rem" }}></div>
                         <h1 className={classes.paymentTitle}>Order Summary</h1>
                         <div className={classes.paymentContainer}>
                             <h3>Subtotal</h3>
-                            <h3>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h3>
+                            <h3>₹{subtotal}</h3>
 
                         </div>
                         <div className={classes.paymentContainer}>
                             <h3>Shipping</h3>
-                            <h3>₹100</h3>
+                            <h3>₹{shipping}</h3>
                         </div>
                         <hr />
                         <div className={classes.paymentContainer}>
                             <h3>Total</h3>
-                            <h3>₹900</h3>
+                            <h3>₹{total}</h3>
                         </div>
-                        <Button className={classes.paymentButton}>Place Order</Button>
+
                     </Card>
                 </div>
             </div>

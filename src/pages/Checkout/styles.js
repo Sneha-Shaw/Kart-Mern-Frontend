@@ -46,6 +46,20 @@ export default makeStyles((theme) => ({
             flex: 1,
         }
     },
+    quantity: {
+        display: 'flex',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+    },
+    margin: {
+        backgroundColor: '#e0e0e0',
+        padding: '0.5rem',
+        margin: '1.5rem',
+        cursor: "pointer",
+        "&:hover": {
+            boxShadow: '0 0 .3rem 0 rgba(0,0,0,0.2)',
+        },
+    },
     Left: {
         width: "40%",
         padding: "1rem",
