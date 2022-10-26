@@ -5,6 +5,7 @@ import {
     addToWishlistReducer,
     getWishlistReducer,
     checkIfWishlistReducer,
+    deleteFromWishlistReducer,
     addToCartReducer,
     getCartReducer,
     deleteCartProductReducer
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
     addToWishlist: addToWishlistReducer,
     getWishlist: getWishlistReducer,
     checkIfWishlist: checkIfWishlistReducer,
+    deleteFromWishlist: deleteFromWishlistReducer,
     addToCart: addToCartReducer,
     getCart: getCartReducer,
     deleteProductFromCart: deleteCartProductReducer

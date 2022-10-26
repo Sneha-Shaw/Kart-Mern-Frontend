@@ -11,7 +11,7 @@ export default makeStyles((theme) => ({
         // gridGap: "2rem",
         padding: "2rem 0",
 
-        background: "#E7F6F2"
+        // background: "#E7F6F2"
     },
 
 

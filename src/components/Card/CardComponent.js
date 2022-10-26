@@ -1,16 +1,20 @@
 import React from 'react'
 import { Card, CardMedia, CardContent } from '@mui/material';
 import useStyles from "./styles";
-import { useNavigate,useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import {
+    deleteFromWishlist
+} from '../../redux/actions/productAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CardComponent = ({ product }) => {
-
+    const { userInfo } = useSelector(state => state.signInUser)
     const classes = useStyles();
     const navigate = useNavigate();
     const location = useLocation();
     const path = location.pathname;
-
+    const dispatch = useDispatch()
 
     const redirectHandler = () => {
         navigate(`/product/${product?._id}`)
@@ -38,11 +42,11 @@ const CardComponent = ({ product }) => {
                     {
                         path === "/wishlist" && <MoreHorizIcon className={classes.more} fontSize="large" onClick={() => setShow(!show)} />
                     }
-                    
+
                     {
                         path === "/wishlist" && show &&
                         <div className={classes.dropdown}>
-                            <p>Delete</p>
+                            <p onClick={() => { dispatch(deleteFromWishlist(userInfo?._id,product?._id)) }}>Delete</p>
                         </div>
                     }
                 </CardContent>

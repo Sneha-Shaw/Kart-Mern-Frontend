@@ -15,6 +15,9 @@ import {
     CHECK_IF_WISHLIST_REQUEST,
     CHECK_IF_WISHLIST_SUCCESS,
     CHECK_IF_WISHLIST_FAILED,
+    DELETE_FROM_WISHLIST_REQUEST,
+    DELETE_FROM_WISHLIST_SUCCESS,
+    DELETE_FROM_WISHLIST_FAILED,
     ADD_TO_CART_REQUEST,
     ADD_TO_CART_SUCCESS,
     ADD_TO_CART_FAILED,
@@ -167,6 +170,36 @@ export const checkIfWishlistReducer = (state = checkIfWishlistState, action) => 
                 isWishlist: action.payload
             }
         case CHECK_IF_WISHLIST_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+const deleteFromWishlistState = {
+    loading: false,
+    error: null,
+    isAuthenticated: false,
+    data: null
+}
+export const deleteFromWishlistReducer = (state = deleteFromWishlistState, action) => {
+    switch (action.type) {
+        case DELETE_FROM_WISHLIST_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case DELETE_FROM_WISHLIST_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
+        case DELETE_FROM_WISHLIST_FAILED:
             return {
                 ...state,
                 loading: false,

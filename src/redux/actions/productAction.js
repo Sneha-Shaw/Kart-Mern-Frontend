@@ -15,6 +15,9 @@ import {
     CHECK_IF_WISHLIST_REQUEST,
     CHECK_IF_WISHLIST_SUCCESS,
     CHECK_IF_WISHLIST_FAILED,
+    DELETE_FROM_WISHLIST_REQUEST,
+    DELETE_FROM_WISHLIST_SUCCESS,
+    DELETE_FROM_WISHLIST_FAILED,
     ADD_TO_CART_REQUEST,
     ADD_TO_CART_SUCCESS,
     ADD_TO_CART_FAILED,
@@ -148,6 +151,30 @@ export const checkIfWishlist = (userId, productId) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: CHECK_IF_WISHLIST_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}
+// DELETE FROM WISHLIST
+export const deleteFromWishlist = (userId, productId) => async (dispatch) => {
+    try {
+        dispatch({
+            type: DELETE_FROM_WISHLIST_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const { data } = await axios.delete(`${API}/private/products/remove-from-wishlist/${userId}/${productId}`, config)
+        dispatch({
+            type: DELETE_FROM_WISHLIST_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: DELETE_FROM_WISHLIST_FAILED,
             payload: error.response &&
                 error.response.data.message ?
                 error.response.data.message

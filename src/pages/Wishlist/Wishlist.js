@@ -4,7 +4,7 @@ import CardComponent from '../../components/Card/CardComponent'
 
 import { useNavigate } from 'react-router-dom';
 import {
-  getWishlist
+  getWishlist,
 } from '../../redux/actions/productAction';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -14,7 +14,7 @@ const Wishlist = () => {
   const dispatch = useDispatch()
   const { wishlistProduct } = useSelector(state => state.getWishlist)
   const { userInfo } = useSelector(state => state.signInUser)
-  const { data: deleteProduct, error } = useSelector(state => state.deleteProductFromCart)
+  const { data: deleteProduct, error } = useSelector(state => state.deleteFromWishlist)
   useEffect(() => {
     if (!error) {
 
