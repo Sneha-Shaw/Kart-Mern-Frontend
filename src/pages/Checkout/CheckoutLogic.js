@@ -5,6 +5,7 @@ import {
 } from '../../redux/actions/productAction';
 import { createOrder } from '../../redux/actions/orderAction';
 import { useSelector, useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 
 export const CheckoutLogic = () => {
     const dispatch = useDispatch()
@@ -52,7 +53,14 @@ export const CheckoutLogic = () => {
     const placeOrderHandler = () => {
         if (userInfo) {
             dispatch(createOrder(userInfo?._id, cartProduct && cartProduct.body[0]?.productId._id, quantity, total, showAddress))
-            navigate('/cart')
+            Swal.fire({
+                icon: 'success',
+                title: 'Order Placed',
+                text: 'Your order has been placed successfully',
+            })
+            setTimeout(() => {
+            navigate('/')
+            }, 2000)
         } else {
             navigate('/login')
         }
