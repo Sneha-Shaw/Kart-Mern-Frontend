@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import useStyles from './styles'
 import { Card, CardMedia, CardContent, CardActions, Button, IconButton } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -20,14 +20,15 @@ const Cart = () => {
   const { cartProduct } = useSelector(state => state.getCart)
   const { userInfo } = useSelector(state => state.signInUser)
   const { data: deleteProduct, error } = useSelector(state => state.deleteProductFromCart)
+
+
   useEffect(() => {
     if (!error) {
-       
-        setTimeout(() => {
-          dispatch(getCart(userInfo?._id))
-        }, 1000)
+      setTimeout(() => {
+        dispatch(getCart(userInfo?._id))
+      }, 1000)
     }
-}, [ deleteProduct, dispatch, error])
+  }, [deleteProduct, dispatch, error])
   useEffect(() => {
     if (userInfo) {
       dispatch(getCart(userInfo?._id))
@@ -53,7 +54,11 @@ const Cart = () => {
 
                 <div className={classes.cartContainer}>
 
-                  <Card className={classes.card}                  >
+                  <Card className={classes.card} >
+                    {/* <input 
+                    type="checkbox"
+                     className={classes.checkbox}
+                    /> */}
                     <CardMedia
                       className={classes.media}
                       component="img"
@@ -67,16 +72,6 @@ const Cart = () => {
                     >
 
                       <h3>{product.productId.title}</h3>
-
-
-                      <div className={classes.quantity}>
-
-                        <AddIcon fontSize="large" className={classes.margin} />
-
-                        <p>1</p>
-                        <RemoveIcon fontSize="large" className={classes.margin} />
-
-                      </div>
                       <h3>₹{product.productId.price}</h3>
                     </CardContent>
                     <CardActions className={classes.cardActions}>
@@ -92,17 +87,17 @@ const Cart = () => {
         {/* </div> */}
 
       </div>
-     
-        <Card className={classes.cardTotal}>
-          <div className={classes.content}>
-            <h1>Subtotal</h1>
-            <h1>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h1>
-          </div>
-          <Button variant="contained" color="primary" className={classes.button} onClick={() => { navigate('/checkout') }} >
-            Checkout
-          </Button>
-        </Card>
-       
+
+      <Card className={classes.cardTotal}>
+        <div className={classes.content}>
+          <h1>Subtotal</h1>
+          <h1>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h1>
+        </div>
+        <Button variant="contained" color="primary" className={classes.button} onClick={() => { navigate('/checkout') }} >
+          Checkout
+        </Button>
+      </Card>
+
     </div>
   )
 }

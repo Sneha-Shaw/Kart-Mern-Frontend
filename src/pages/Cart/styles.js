@@ -38,7 +38,7 @@ export default makeStyles((theme) => ({
         borderRadius: '1rem',
         boxShadow: '0 0 1rem 0 rgba(0,0,0,0.1)',
         cursor: 'pointer',
-      
+
     },
     media: {
         height: '100%',
@@ -65,6 +65,12 @@ export default makeStyles((theme) => ({
         "&:hover": {
             boxShadow: '0 0 .3rem 0 rgba(0,0,0,0.2)',
         },
+    },
+    checkbox: {
+        marginRight: "2rem",
+        color: "#395B64"
+
+
     },
     cardTotal: {
         display: 'flex',

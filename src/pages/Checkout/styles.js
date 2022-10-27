@@ -37,12 +37,12 @@ export default makeStyles((theme) => ({
             fontSize: "2rem",
             padding: "1rem 0",
         },
-        "&>div":{
+        "&>div": {
             width: "50%",
             padding: "1rem 0",
             fontSize: "1.5rem"
         },
-        "&>p":{
+        "&>p": {
             flex: 1,
         }
     },
@@ -87,42 +87,27 @@ export default makeStyles((theme) => ({
             fontWeight: "500",
             marginBottom: "1rem",
             paddingLeft: "1rem"
-        },
-        "&>p": {
-            fontSize: "1.6rem",
-            display: "flex",
-            alignItems: "center",
-            cursor: "pointer",
-            padding: ".5rem 0",
-            marginLeft: "1rem"
         }
     },
-    overlay: {
-        position: "absolute",
-        top: 0,
-        right: 0,
-        width: "100%",
-        height: "114vh",
-        background: "rgba(0,0,0,0.5)",
-        zIndex: 25,
+    trigger: {
+        fontSize: "1.6rem",
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
-        padding: "1rem",
+        cursor: "pointer",
+        padding: ".5rem 0",
+        marginLeft: "1rem"
+    },
+    modalContainer: {
+        width: "100%",
+        height: "100%",
     },
     modal: {
         zIndex: 20,
         display: "flex",
         justifyContent: "center",
-        width: "40%",
-        height: "90%",
-        background: "#fff",
-        border: "1px solid #ccc",
-        borderRadius: ".5rem",
-        padding: "1rem",
-        // position: "absolute",
-        // top: 0,
-        // left: "40rem",
+        width: "100%",
+        height: "100%",
+        // padding: "1rem",
         flexDirection: "column",
         alignItems: "center",
 
@@ -132,7 +117,6 @@ export default makeStyles((theme) => ({
         flexDirection: "column",
         width: "90%",
         height: "100%",
-
         "& > div": {
             margin: "1rem 0",
             "& > label": {
@@ -175,6 +159,7 @@ export default makeStyles((theme) => ({
         width: "100%",
         height: "1px",
         background: "#ccc",
+        // margin: "1rem auto",
     },
     Address: {
         display: "flex",

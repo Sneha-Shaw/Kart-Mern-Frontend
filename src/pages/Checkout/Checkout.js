@@ -5,6 +5,8 @@ import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { CheckoutLogic } from './CheckoutLogic';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 const Checkout = () => {
     const classes = useStyles()
     const {
@@ -52,59 +54,72 @@ const Checkout = () => {
                                         </div>
 
                                     </div>
-                                    <p onClick={() => { setShow(!show) }}><AddIcon />Add a new address</p>
+                                    <div className={classes.modalContainer}>
+                                        <Popup
+                                            // onClose={() => setOpenPopup(false)}
+                                            trigger={
+                                                <p className={classes.trigger}><AddIcon />Add a new address</p>
+                                            }
+                                            // open={openPopup}
+                                            modal
+                                            nested
+                                        >
+                                            {(close) => (
+                                                <div className={classes.modal}>
+                                                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "90%", paddingBottom: "1rem" }}>
+                                                        <h1>Add a new Address</h1>
+                                                        <CloseIcon fontSize="large" style={{ cursor: "pointer" }} onClick={close} />
+                                                    </div>
 
+                                                    <div className={classes.divider}></div>
+                                                    <div className={classes.form}>
+                                                        <div className={classes.input}>
+                                                            <label>Full Name</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div className={classes.input}>
+                                                            <label>Address</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div className={classes.input}>
+                                                            <label>Pincode</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div className={classes.input}>
+                                                            <label>City/District/Town</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div className={classes.input}>
+                                                            <label>State</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div className={classes.input}>
+                                                            <label>Landmark</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div className={classes.input}>
+                                                            <label>Alternate Phone</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div className={classes.input}>
+                                                            <label>Address Type: </label>
+                                                            <select>
+                                                                <option>Home</option>
+                                                                <option>Work</option>
+                                                            </select>
+                                                        </div>
+                                                        <Button variant="contained" color="primary" onClick={close} >Add Address</Button>
+
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </Popup>
+                                    </div>
                                     {/* modal form */}
                                     {
                                         show &&
                                         <div className={classes.overlay} >
-                                            <div className={classes.modal} >
-                                                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "90%", paddingBottom: "1rem" }}>
-                                                    <h1>Add a new Address</h1>
-                                                    <CloseIcon fontSize="large" style={{ cursor: "pointer" }} onClick={() => { setShow(false) }} />
-                                                </div>
 
-                                                <div className={classes.divider}></div>
-                                                <div className={classes.form}>
-                                                    <div className={classes.input}>
-                                                        <label>Full Name</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div className={classes.input}>
-                                                        <label>Address</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div className={classes.input}>
-                                                        <label>Pincode</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div className={classes.input}>
-                                                        <label>City/District/Town</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div className={classes.input}>
-                                                        <label>State</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div className={classes.input}>
-                                                        <label>Landmark</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div className={classes.input}>
-                                                        <label>Alternate Phone</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div className={classes.input}>
-                                                        <label>Address Type: </label>
-                                                        <select>
-                                                            <option>Home</option>
-                                                            <option>Work</option>
-                                                        </select>
-                                                    </div>
-                                                    <Button variant="contained" color="primary" >Add Address</Button>
-
-                                                </div>
-                                            </div>
                                         </div>
 
                                     }
@@ -194,6 +209,7 @@ const Checkout = () => {
                                                             </div>
                                                             <h3>₹{product.productId.price}</h3>
                                                         </CardContent>
+                                                        
                                                     </Card>
                                                 </div>
 

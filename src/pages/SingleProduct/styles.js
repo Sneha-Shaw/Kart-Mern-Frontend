@@ -33,7 +33,7 @@ export default makeStyles((theme) => ({
     img: {
         width: "100%",
         height: "100%",
-        objectFit: "contain",
+        objectFit: "cover"
     },
     imageOption: {
         // display: "flex",
@@ -205,7 +205,7 @@ export default makeStyles((theme) => ({
     },
     progressBar: {
         width: "70%",
-        height: "1rem",
+        height: "1.5rem",
         border: "1px solid rgb(0,0,0,0.2)",
     },
     progressFill: {
@@ -253,27 +253,27 @@ export default makeStyles((theme) => ({
             marginRight: "1rem",
         },
     },
-    reviewUserName:{
+    reviewUserName: {
         display: "flex",
         fontSize: "1.5rem",
         alignItems: "center",
 
     },
-    circle:{
+    circle: {
         width: ".8rem",
         height: ".8rem",
         borderRadius: "50%",
         backgroundColor: "#395B64",
         margin: "0 1rem"
     },
-    reviewRating:{
+    reviewRating: {
         paddingLeft: "4rem",
     },
-    reviewBody:{
+    reviewBody: {
         width: "80%",
         fontSize: "1.5rem",
         padding: "1rem 0rem",
-       
+
     },
 
 }))
