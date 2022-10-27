@@ -1,9 +1,8 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useStyles from './styles'
 import { Card, CardMedia, CardContent, CardActions, Button, IconButton } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import {
   getCart,
@@ -21,7 +20,17 @@ const Cart = () => {
   const { userInfo } = useSelector(state => state.signInUser)
   const { data: deleteProduct, error } = useSelector(state => state.deleteProductFromCart)
 
-
+const checkoutHandler = () => {
+  if(cartProduct && cartProduct.body.length!==0){
+    navigate('/checkout')
+  }else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Add product to your cart to checkout',
+    })
+  }
+}
   useEffect(() => {
     if (!error) {
       setTimeout(() => {
@@ -93,7 +102,7 @@ const Cart = () => {
           <h1>Subtotal</h1>
           <h1>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h1>
         </div>
-        <Button variant="contained" color="primary" className={classes.button} onClick={() => { navigate('/checkout') }} >
+        <Button variant="contained" color="primary" className={classes.button} onClick={checkoutHandler} >
           Checkout
         </Button>
       </Card>
