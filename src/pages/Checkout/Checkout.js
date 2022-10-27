@@ -10,8 +10,7 @@ import 'reactjs-popup/dist/index.css';
 const Checkout = () => {
     const classes = useStyles()
     const {
-        show,
-        setShow,
+       
         cartProduct,
         showAddress,
         name,
@@ -115,14 +114,7 @@ const Checkout = () => {
                                             )}
                                         </Popup>
                                     </div>
-                                    {/* modal form */}
-                                    {
-                                        show &&
-                                        <div className={classes.overlay} >
-
-                                        </div>
-
-                                    }
+                               
 
                                     <div className={classes.bottomContainer}>
                                         <Button variant="contained" color="primary" onClick={() => { setAddressShow(false); setShowPayment(true) }}>Use this address</Button>
@@ -137,7 +129,6 @@ const Checkout = () => {
                                         {showAddress}
                                     </p>
                                 </div>
-                                {/* <p onClick={() => { setShow(!show) }}><AddIcon />Add a new address</p> */}
                                 <p className={classes.absolute} onClick={() => { setAddressShow(true); setShowPayment(false); setShowReview(false) }}>Change</p>
 
                             </div>

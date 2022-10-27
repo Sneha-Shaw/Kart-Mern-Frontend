@@ -6,7 +6,6 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 
 export const CheckoutLogic = () => {
-    const [show, setShow] = useState(false);
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -46,8 +45,6 @@ export const CheckoutLogic = () => {
         }
     }, [dispatch, userInfo, navigate])
     return {
-        show,
-        setShow,
         cartProduct,
         showAddress,
         name,
