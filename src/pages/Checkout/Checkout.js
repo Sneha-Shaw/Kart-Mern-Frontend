@@ -10,7 +10,7 @@ import 'reactjs-popup/dist/index.css';
 const Checkout = () => {
     const classes = useStyles()
     const {
-       
+        placeOrderHandler,
         cartProduct,
         showAddress,
         name,
@@ -230,7 +230,7 @@ const Checkout = () => {
                         }
                         {
                             showReview &&
-                            <Button className={classes.paymentButton}>Place Order</Button>
+                            <Button className={classes.paymentButton} onClick={placeOrderHandler} >Place Order</Button>
 
                         }
                         <div className={classes.divider} style={{ marginBottom: "2rem" }}></div>
