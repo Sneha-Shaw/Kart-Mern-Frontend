@@ -11,48 +11,54 @@ import Swal from 'sweetalert2';
 
 export const SingleProductLogic = () => {
     const { isWishlist } = useSelector(state => state.checkIfWishlist)
-    const { data: cart } = useSelector(state => state.addToWishlist)
     const { userInfo } = useSelector(state => state.signInUser)
     const { product } = useSelector(state => state.getSingleProduct)
+
     const { id } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(() => {
-        dispatch(getSingleProduct(id))
+       
+            dispatch(getSingleProduct(id))
+      
     }, [dispatch])
+
     const [show, setShow] = useState()
+
     useEffect(() => {
         setShow(product?.featureimg[0])
     }, [product?.featureimg])
-    useEffect(() => {
-        dispatch(checkIfWishlist(userInfo?._id, product?._id))
-    }, [dispatch, product?._id, userInfo?._id])
-    const addToWishHandler = () => {
-        // if(isWishlist && isWishlist.isWishlist===false){
 
+    useEffect(() => {
+        setTimeout(() => {
+            dispatch(checkIfWishlist(userInfo?._id, product?._id))
+        }, 1500);
+    }, [dispatch, product?._id, userInfo?._id])
+
+    const addToWishHandler = () => {
         if (userInfo) {
             if (isWishlist?.isWishlist === false) {
-                dispatch(addToWishlist(userInfo?._id, product?._id))
-                Swal.fire({
+                setTimeout(() => {
 
-                    icon: 'success',
-                    text: 'Added to wishlist',
+                    dispatch(addToWishlist(userInfo?._id, product?._id))
+                }, 1500);
+                    Swal.fire({
 
-                })
-            }
+                        icon: 'success',
+                        text: 'Added to wishlist',
+
+                    })
+                }
             else {
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
+                    icon: 'info',
                     text: 'Already in wishlist!',
                 })
             }
         } else {
             navigate('/login')
         }
-        // }
     }
-    console.log(cart && cart.success);
 
     const addToCartHandler = () => {
 

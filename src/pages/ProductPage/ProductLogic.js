@@ -10,7 +10,7 @@ export const ProductLogic = () => {
     useEffect(() => {
         dispatch(getAllProducts(searchParams.get('category')))
     }, [dispatch])
-    console.log(products && products);
+    // console.log(products && products);
     return{
         products
     }
