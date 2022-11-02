@@ -62,15 +62,18 @@ export const SingleProductLogic = () => {
 
     const addToCartHandler = () => {
 
-        if (userInfo) {
-            dispatch(addToCart(userInfo?._id, product?._id))
-            Swal.fire({
-
-                icon: 'success',
-                text: 'Added to cart',
-
-            })
-            navigate('/cart')
+        if (userInfo ) {
+            if(product){
+                dispatch(addToCart(userInfo?._id, product?._id))
+                Swal.fire({
+    
+                    icon: 'success',
+                    text: 'Added to cart',
+    
+                })
+                navigate('/cart')
+            }
+        
         } else {
             navigate('/login')
         }

@@ -8,7 +8,7 @@ import { GetOrderLogic } from './GetOrderLogic';
 const OrderPage = () => {
   const classes = useStyles()
   const { orders } = GetOrderLogic()
-  const orderFilter = ["All orders","Pending","Shipped", "Delivered", "Cancelled", "Returned"]
+  const orderFilter = ["All orders", "Pending", "Shipped", "Delivered", "Cancelled", "Returned"]
 
   return (
     <div className={classes.container}>
@@ -38,25 +38,25 @@ const OrderPage = () => {
         </div>
         {/* start of order body */}
         <div className={classes.orderBody}>
-          {orders&&
+          {orders &&
             orders.map(
               (product, index) => {
                 return (
 
                   <Card key={index}
-                    sx={{ margin: "2rem 4rem", display: "flex", alignItems: "center", width: "100%",background: "#395B64", color: "white" }}>
+                    sx={{ margin: "2rem 4rem", display: "flex", alignItems: "center", width: "100%", background: "#395B64", color: "white" }}>
 
                     <CardMedia
                       component="img"
                       // height="194"
                       sx={{ width: "20rem" }}
-                      image={product.productId.featureimg[0]}
+                    image={product?.productId?.featureimg[0]}
                     />
                     <CardContent className={classes.details}>
-                      <h3 className={classes.title}>{product.productId.title}</h3>
-                      <p className={classes.price}>₹{product.productId.price}</p>
+                      <h3 className={classes.title}>{product?.productId?.title}</h3>
+                      <p className={classes.price}>₹{product?.productId?.price}</p>
                       <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                      <p style={{fontSize: '1.5rem'}}>Product will be Delivered by Next Week</p>
+                      <p style={{ fontSize: '1.5rem' }}>Product will be Delivered by Next Week</p>
                     </CardContent>
 
 

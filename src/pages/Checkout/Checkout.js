@@ -25,7 +25,24 @@ const Checkout = () => {
         total,
         quantity,
         increaseQuantity,
-        decreaseQuantity
+        decreaseQuantity,
+        setName,
+        setAddress,
+        setCity,
+        setState,
+        setPincode,
+        setAltMobile,
+        setLandmark,
+        setAddressType,
+        address,
+        city,
+        state,
+        pincode,
+        altMobile,
+        landmark,
+        addressType,
+        user,
+        addAddress
     } = CheckoutLogic()
 
     return (
@@ -41,80 +58,109 @@ const Checkout = () => {
                                 <div className={classes.AddressBox}>
                                     <h4>Your Addresses</h4>
                                     <div className={classes.divider} style={{ margin: "0 1rem", width: "98%" }}></div>
-                                    <div className={classes.Address}>
-                                        <input type="radio" name="address" id="address" />
-                                        <div className={classes.AddressDetails}>
-                                            <p> <strong>{name}, &nbsp;</strong>
-                                                {showAddress}
-                                                &nbsp;&nbsp;&nbsp;
-                                                |
-                                                <Button>Edit Address</Button></p>
+                                    {
+                                        user?.address ?
+                                            <div className={classes.modalContainer}>
+                                                <Popup
+                                                    // onClose={() => setOpenPopup(false)}
+                                                    trigger={
+                                                        <p className={classes.trigger}><AddIcon />Add a new address</p>
+                                                    }
+                                                    // open={openPopup}
+                                                    modal
+                                                    nested
+                                                >
+                                                    {(close) => (
+                                                        <div className={classes.modal}>
+                                                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "90%", paddingBottom: "1rem" }}>
+                                                                <h1>Add a new Address</h1>
+                                                                <CloseIcon fontSize="large" style={{ cursor: "pointer" }} onClick={close} />
+                                                            </div>
 
-                                        </div>
+                                                            <div className={classes.divider}></div>
+                                                            <div className={classes.form}>
+                                                                <div className={classes.input}>
+                                                                    <label>Full Name</label>
+                                                                    <input type="text"
+                                                                        value={name}
+                                                                        onChange={(e) => setName(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className={classes.input}>
+                                                                    <label>Address</label>
+                                                                    <input type="text"
+                                                                        value={address}
+                                                                        onChange={(e) => setAddress(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className={classes.input}>
+                                                                    <label>Pincode</label>
+                                                                    <input type="text"
+                                                                        value={pincode}
+                                                                        onChange={(e) => setPincode(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className={classes.input}>
+                                                                    <label>City/District/Town</label>
+                                                                    <input type="text"
+                                                                        value={city}
+                                                                        onChange={(e) => setCity(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className={classes.input}>
+                                                                    <label>State</label>
+                                                                    <input type="text"
+                                                                        value={state}
+                                                                        onChange={(e) => setState(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className={classes.input}>
+                                                                    <label>Landmark</label>
+                                                                    <input type="text"
+                                                                        value={landmark}
+                                                                        onChange={(e) => setLandmark(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className={classes.input}>
+                                                                    <label>Alternate Phone</label>
+                                                                    <input type="text"
+                                                                        value={altMobile}
+                                                                        onChange={(e) => setAltMobile(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className={classes.input}>
+                                                                    <label>Address Type: </label>
+                                                                    <select
+                                                                        value={addressType}
+                                                                        onChange={(e) => setAddressType(e.target.value)}
+                                                                    >
+                                                                        <option value="home">Home</option>
+                                                                        <option value="work" >Work</option>
+                                                                    </select>
+                                                                </div>
+                                                                <Button variant="contained" color="primary" onClick={() => { close(); addAddress(); }} >Add Address</Button>
 
-                                    </div>
-                                    <div className={classes.modalContainer}>
-                                        <Popup
-                                            // onClose={() => setOpenPopup(false)}
-                                            trigger={
-                                                <p className={classes.trigger}><AddIcon />Add a new address</p>
-                                            }
-                                            // open={openPopup}
-                                            modal
-                                            nested
-                                        >
-                                            {(close) => (
-                                                <div className={classes.modal}>
-                                                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "90%", paddingBottom: "1rem" }}>
-                                                        <h1>Add a new Address</h1>
-                                                        <CloseIcon fontSize="large" style={{ cursor: "pointer" }} onClick={close} />
-                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </Popup>
+                                            </div>
+                                            :
+                                            <div className={classes.Address}>
+                                                {/* <input type="radio" name="address" id="address" /> */}
+                                                <div className={classes.AddressDetails}>
+                                                    <p> <strong>{user?.name}, &nbsp;</strong>
+                                                    {user?.address}, {user?.city}- {user?.Pincode}, {user?.State}, {user?.Landmark}
+                                                      <br/>
+                                                    <Button>Edit Address</Button></p>
 
-                                                    <div className={classes.divider}></div>
-                                                    <div className={classes.form}>
-                                                        <div className={classes.input}>
-                                                            <label>Full Name</label>
-                                                            <input type="text" />
-                                                        </div>
-                                                        <div className={classes.input}>
-                                                            <label>Address</label>
-                                                            <input type="text" />
-                                                        </div>
-                                                        <div className={classes.input}>
-                                                            <label>Pincode</label>
-                                                            <input type="text" />
-                                                        </div>
-                                                        <div className={classes.input}>
-                                                            <label>City/District/Town</label>
-                                                            <input type="text" />
-                                                        </div>
-                                                        <div className={classes.input}>
-                                                            <label>State</label>
-                                                            <input type="text" />
-                                                        </div>
-                                                        <div className={classes.input}>
-                                                            <label>Landmark</label>
-                                                            <input type="text" />
-                                                        </div>
-                                                        <div className={classes.input}>
-                                                            <label>Alternate Phone</label>
-                                                            <input type="text" />
-                                                        </div>
-                                                        <div className={classes.input}>
-                                                            <label>Address Type: </label>
-                                                            <select>
-                                                                <option>Home</option>
-                                                                <option>Work</option>
-                                                            </select>
-                                                        </div>
-                                                        <Button variant="contained" color="primary" onClick={close} >Add Address</Button>
-
-                                                    </div>
                                                 </div>
-                                            )}
-                                        </Popup>
-                                    </div>
-                               
+
+                                            </div>
+                                    }
+
+
+
 
                                     <div className={classes.bottomContainer}>
                                         <Button variant="contained" color="primary" onClick={() => { setAddressShow(false); setShowPayment(true) }}>Use this address</Button>
@@ -151,7 +197,7 @@ const Checkout = () => {
                                     </div>
                                     <div className={classes.Payment}>
                                         <input type="radio" name="payment" id="payment" />
-                                        <label htmlFor="payment">Using Stripe</label>
+                                        <label htmlFor="payment">Using RazorPay</label>
                                     </div>
                                     <div className={classes.bottomContainer}>
                                         <Button variant="contained" color="primary" onClick={() => { setShowPayment(false); setShowReview(true) }}>Use this payment method</Button>
@@ -185,7 +231,7 @@ const Checkout = () => {
                                                             className={classes.media}
                                                             component="img"
                                                             image={product.productId.featureimg[0]}
-                                                            sx={{ width: "20rem" }}
+                                                        // sx={{ width: "20rem" }}
                                                         />
                                                         <CardContent className={classes.cardContent}>
                                                             <div>
@@ -200,7 +246,7 @@ const Checkout = () => {
                                                             </div>
                                                             <h3>₹{product.productId.price}</h3>
                                                         </CardContent>
-                                                        
+
                                                     </Card>
                                                 </div>
 

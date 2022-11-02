@@ -9,7 +9,10 @@ import {
   USER_LOGOUT,
   GET_SINGLE_USER_REQUEST,
   GET_SINGLE_USER_SUCCESS,
-  GET_SINGLE_USER_FAILED
+  GET_SINGLE_USER_FAILED,
+  UPDATE_USER_REQUEST,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILED
 
 } from '../constants/userConstants'
 
@@ -119,3 +122,52 @@ export const logoutUser = () => (dispatch) => {
     type: USER_LOGOUT
   })
 }
+
+// update user
+export const updateUser = (
+  name,
+  email,
+  password,
+  mobile,
+  address,
+  pincode,
+  city,
+  state,
+  Landmark,
+  altMobile,
+  AddressType,id) => async (dispatch) => {
+    try {
+      dispatch({
+        type: UPDATE_USER_REQUEST
+      })
+      const config = {
+        'Content-Type': 'application/json'
+      }
+      const body = {
+        name,
+        email,
+        password,
+        mobile,
+        address,
+        pincode,
+        city,
+        state,
+        Landmark,
+        altMobile,
+        AddressType
+      }
+      const { data } = await axios.put(`${API}/public/auth/update/${id}`, body, config)
+      dispatch({
+        type: UPDATE_USER_SUCCESS,
+        payload: data
+      })
+    } catch (error) {
+      dispatch({
+        type: UPDATE_USER_FAILED,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message
+      })
+    }
+  }

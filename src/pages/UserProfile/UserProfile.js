@@ -51,31 +51,36 @@ const UserProfile = () => {
           </div>
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>Address</h3>
-            <input type="text" placeholder="Address" />
+            <input type="text" placeholder="Address" 
+            value={user && user.address}
+            />
           </div>
 
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>City</h3>
-            <input type="text" placeholder="City" />
+            <input type="text" placeholder="City" 
+            value={user && user.city}
+            />
           </div>
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>State</h3>
-            <input type="text" placeholder="State" />
+            <input type="text" placeholder="State"
+            value={user && user.State}
+            />
           </div>
 
 
           <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>Zip Code</h3>
-            <input type="text" placeholder="Zip Code" />
+            <input type="text" placeholder="Zip Code" 
+            value={user && user.Pincode}
+            />
           </div>
-          <div className={classes.inputContainer}>
-            <h3 className={classes.inputLabel}>Country</h3>
-            <input type="text" placeholder="Country" />
-          </div>
-          <div className={classes.inputContainer}>
+         
+          {/* <div className={classes.inputContainer}>
             <h3 className={classes.inputLabel}>Password</h3>
             <input type="text" placeholder="Password" />
-          </div>
+          </div> */}
           <Button variant='contained' className={classes.button}>Save</Button>
         
       </div>

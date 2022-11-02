@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import {
     getCart
 } from '../../redux/actions/productAction';
+import { getSingleUser } from '../../redux/actions/userAction'
 import { createOrder } from '../../redux/actions/orderAction';
 import { useSelector, useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
+import axios from 'axios'
 
 export const CheckoutLogic = () => {
     const dispatch = useDispatch()
@@ -13,22 +15,53 @@ export const CheckoutLogic = () => {
 
     const { cartProduct } = useSelector(state => state.getCart)
     const { userInfo } = useSelector(state => state.signInUser)
+    const { user } = useSelector((state) => state.getSingleUser)
 
+    useEffect(() => {
+        dispatch(getSingleUser(userInfo._id))
+    }, [])
     const [addressShow, setAddressShow] = useState(true)
     const [showPayment, setShowPayment] = useState(false)
     const [showReview, setShowReview] = useState(false)
+    const [name, setName] = useState("");
+    const [address, setAddress] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [pincode, setPincode] = useState("");
+    const [altMobile, setAltMobile] = useState("");
+    const [landmark, setLandmark] = useState("");
+    const [addressType, setAddressType] = useState("");
 
+    const addAddress = () => {
+        if (address !== "" && city !== "" && state !== "" && pincode !== "") {
+            console.log("called");
 
-    const name = "Sneha Shaw"
-    const address = "Santoshpur, lalabagan"
-    const city = "Kolkata"
-    const pincode = "700066"
-    const state = "West Bengal"
-    const mobile = "9876543210"
-    const landmark = "Near bus stand"
+            const body = {
+                name: name,
+                address: address,
+                city: city,
+                State: state,
+                Pincode: pincode,
+                altMobile: altMobile,
+                Landmark: landmark,
+                AddressType: addressType
+            }
+            axios.post(`http://localhost:5000/public/auth/add-address/${userInfo?._id}`, body)
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch(err => { console.log(err) });
+        }
+
+    }
+
+    var showAddress = "";
 
     const [quantity, setQuantity] = useState(1)
-    const showAddress = `${address}, ${city}, ${pincode}, ${state}, Mobile: ${mobile}, ${landmark}`;
+    // if (user?.address !== undefined && user?.city !== undefined && user?.state !== undefined && user?.pincode !== undefined && user?.altMobile !== undefined && user?.landmark !== undefined && user?.addressType !== undefined) {
+    //     showAddress = `${user?.address}, ${user?.city}- ${user?.Pincode}, ${user?.State}, ${user?.Landmark}`;
+
+    // }
     // const subtotal = cartProduct && cartProduct.reduce((acc, item) => acc + item.price * item.qty, 0)
     const subtotal = (cartProduct && cartProduct.body[0]?.productId.price) * quantity
 
@@ -59,7 +92,7 @@ export const CheckoutLogic = () => {
                 text: 'Your order has been placed successfully',
             })
             setTimeout(() => {
-            navigate('/')
+                navigate('/')
             }, 2000)
         } else {
             navigate('/login')
@@ -83,6 +116,22 @@ export const CheckoutLogic = () => {
         increaseQuantity,
         decreaseQuantity,
         placeOrderHandler,
-        placeOrderHandler
+        setName,
+        setAddress,
+        setCity,
+        setState,
+        setPincode,
+        setAltMobile,
+        setLandmark,
+        setAddressType,
+        address,
+        city,
+        state,
+        pincode,
+        altMobile,
+        landmark,
+        addressType,
+        user,
+        addAddress
     }
 }

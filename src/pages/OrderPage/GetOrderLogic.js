@@ -17,7 +17,7 @@ export const GetOrderLogic = () => {
             navigate('/login')
         }
     }, [dispatch])
-    console.log(orders);
+
     return {
         orders
     }
