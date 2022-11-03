@@ -3,6 +3,9 @@ export default makeStyles((theme) => ({
     container: {
         display: 'flex',
         width: '100%',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: "column"
+        }
     },
     orderContainer: {
         width: '100%',
@@ -11,6 +14,9 @@ export default makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         background: '#F5F5F5',
+        [theme.breakpoints.down('md')]: {
+            padding: "2rem 0"
+        }
     },
     orderHeader: {
         width: '70%',
@@ -18,6 +24,9 @@ export default makeStyles((theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: '2rem',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: "column"
+        }
     },
     search: {
         display: 'flex',
@@ -45,6 +54,9 @@ export default makeStyles((theme) => ({
             outline: 'none',
             marginLeft: '0.5rem',
         },
+        [theme.breakpoints.down('md')]: {
+            marginTop: "1rem"
+        }
     },
     orderBody: {
         width: "80%",
@@ -52,25 +64,53 @@ export default makeStyles((theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         alignItems: 'center',
+
+        [theme.breakpoints.down('md')]: {
+            width: "95%",
+
+        }
+    },
+    card: {
+        margin: "2rem 4rem !important",
+        display: "flex !important",
+        alignItems: "center",
+        width: "100% !important",
+        background: "#395B64",
+        color: "white",
+        [theme.breakpoints.down('md')]: {
+            margin: "2rem 0rem !important",
+            flexDirection: "column",
+            padding: "2rem"
+
+        }
     },
     details: {
         width: "100%",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',
-        padding: '1rem',
+        // padding: '3rem !important',
         '& h3': {
             fontSize: '2rem',
             fontWeight: '800',
         },
+        [theme.breakpoints.down('md')]: {
+           
+        }
     },
-    price:{
+    price: {
         fontSize: '2.5rem',
         padding: "2rem 0"
     },
-    description:{
+    description: {
         fontSize: '1.5rem',
         padding: "0 0 2rem 0"
+    },
+    cardImg:{
+        width: "20rem !important",
+        [theme.breakpoints.down('md')]:{
+            width: "30rem !important"
+        }
     }
 
 

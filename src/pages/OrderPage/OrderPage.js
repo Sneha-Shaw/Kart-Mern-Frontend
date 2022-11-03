@@ -44,12 +44,12 @@ const OrderPage = () => {
                 return (
 
                   <Card key={index}
-                    sx={{ margin: "2rem 4rem", display: "flex", alignItems: "center", width: "100%", background: "#395B64", color: "white" }}>
+                   className={classes.card}>
 
                     <CardMedia
                       component="img"
                       // height="194"
-                      sx={{ width: "20rem" }}
+                    className={classes.cardImg}
                     image={product?.productId?.featureimg[0]}
                     />
                     <CardContent className={classes.details}>
