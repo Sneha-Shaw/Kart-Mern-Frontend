@@ -23,7 +23,7 @@ const Navbar = () => {
     return (
         <div className={classes.MainContainer}>
            <div>
-            <MenuIcon/>
+            {/* <MenuIcon/> */}
            </div>
             <div className={classes.container}>
                 <div className={classes.left}>

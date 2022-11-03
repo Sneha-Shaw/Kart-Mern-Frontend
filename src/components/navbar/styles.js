@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
     container: {
         width: "100%",
         background: "#395B64",
-        display: "none",
+        display: "flex",
         color: "white",
         padding: "1rem 0",
         fontSize: "2rem",
