@@ -10,6 +10,7 @@ import 'react-dropdown/style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllProducts } from '../../redux/actions/productAction'
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Navbar = () => {
     const classes = useStyles();
@@ -24,7 +25,14 @@ const Navbar = () => {
     return (
         <div className={classes.MainContainer}>
             <div className={classes.Menucontainer}>
-                <MenuIcon fontSize="large" sx={{ padding: "0 1rem" }} onClick={() => { setShow(!show) }} />
+                {
+                    show ? 
+                    <CloseIcon onClick={() => setShow(!show)} fontSize="large" sx={{ padding: "0 1rem" }} className={classes.MenuIcon} />
+                     : 
+                    <MenuIcon onClick={() => setShow(!show)} fontSize="large" sx={{ padding: "0 1rem" }} className={classes.MenuIcon} />
+
+                }
+                {/* <MenuIcon fontSize="large" sx={{ padding: "0 1rem" }} onClick={() => { setShow(!show) }} /> */}
                 {
                     show &&
                     <div className={classes.MenuListcontainer}>

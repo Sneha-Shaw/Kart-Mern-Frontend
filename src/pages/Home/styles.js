@@ -9,9 +9,7 @@ export default makeStyles((theme) => ({
         justifyContent: "space-between",
         background: "black",
         color: "white",
-        [theme.breakpoints.down("md")]: {
-            padding: "2rem"
-        }
+        
     },
     textPart: {
         width: "50%",
@@ -26,10 +24,9 @@ export default makeStyles((theme) => ({
             marginTop: "2rem",
         },
         [theme.breakpoints.down("md")]: {
-            alignItems: "flex-start",
             width: "100%",
             fontSize: "2rem",
-            // display: "none",
+            padding: "1rem 0",
             "&>Button": {
                 fontSize: "1.5rem",
                 margin: "1rem 0",
@@ -40,9 +37,7 @@ export default makeStyles((theme) => ({
         width: "40%",
         padding: "2.1rem",
         [theme.breakpoints.down("md")]: {
-            width: "115%",
-            padding: "0",
-            position: "relative"
+          display: "none"
         }
     },
     rectangle: {
