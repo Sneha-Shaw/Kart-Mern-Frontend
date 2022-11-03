@@ -8,17 +8,67 @@ export default makeStyles((theme) => ({
         color: "white",
         // padding: "1rem 0",
         // fontSize: "2rem",
-        alignItems: "center"
+        alignItems: "center",
 
+
+    },
+    Menucontainer:{
+        width: "100%",
+        color: "white",
+        padding: "1rem 0",
+        fontSize: "2rem",
+        position: "relative",
+        display: "block",
+        [theme.breakpoints.up('md')]: {
+            display: "none"
+        }
+    },
+    MenuListcontainer:{
+        position: "absolute",
+        top: "100%",
+        left: "0",
+        background: "#395B64",
+        opacity: ".9",
+        width: "100%",
+        zIndex: "100",
+        "& ul":{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-around",
+            alignItems: "center",
+            listStyle: "none",
+            padding: "0",
+            margin: "0",
+            "& li":{
+                "& a":{
+                    textDecoration: "none",
+                    color: "white",
+                    fontSize: "1.5rem",
+                    "& h4":{
+                        padding: "1rem 0"
+                    },
+                    "&:hover":{
+                        color: "#F2C94C"
+                    }
+                }
+            }
+        }
+    },
+    listItem:{
+        "&>button":{
+            margin: "1rem 0 1.5rem 0"
+        }
     },
     container: {
         width: "100%",
-        background: "#395B64",
         display: "flex",
         color: "white",
         padding: "1rem 0",
         fontSize: "2rem",
-        alignItems: "center"
+        alignItems: "center",
+        [theme.breakpoints.down('md')]: {
+            display: "none"
+        }
 
     },
     left: {

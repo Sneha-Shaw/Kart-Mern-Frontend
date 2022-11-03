@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useStyles from "./styles";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -20,11 +20,66 @@ const Navbar = () => {
         dispatch(getAllProducts(category))
 
     }
+    const [show, setShow] = useState(false)
     return (
         <div className={classes.MainContainer}>
-           <div>
-            {/* <MenuIcon/> */}
-           </div>
+            <div className={classes.Menucontainer}>
+                <MenuIcon fontSize="large" sx={{ padding: "0 1rem" }} onClick={() => { setShow(!show) }} />
+                {
+                    show &&
+                    <div className={classes.MenuListcontainer}>
+                        <ul>
+                            <li>
+                                <div className={classes.logo}>
+                                    <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+                                        <h1>KART</h1>
+                                    </Link>
+                                </div>
+                            </li>
+                            <li>
+                                <Link to="/see-products?category=Men" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Men') }}>
+                                    <h4>Men</h4>
+
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/see-products?category=Women" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Women') }} >
+                                    <h4>Women</h4>
+
+                                </Link>
+                            </li>
+                            <li>
+                                {
+                                    userInfo ?
+                                        <Link to="wishlist">
+                                            <h4>Wishlist</h4>
+                                        </Link>
+                                        :
+                                        ""
+                                }
+                            </li>
+                            <li>
+
+                                <Link to="cart">
+                                    <h4>Cart</h4>
+                                </Link>
+                            </li>
+                            <li>
+                                {
+                                    userInfo ?
+                                        <Link to="/profile">
+                                            <h4>Profile</h4>
+                                        </Link>
+                                        :
+                                        <Link to="login" className={classes.listItem}>
+                                            <Button variant="contained" color="primary">Login</Button>
+                                        </Link>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
             <div className={classes.container}>
                 <div className={classes.left}>
                     <div className={classes.logo}>
