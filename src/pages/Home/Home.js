@@ -1,20 +1,20 @@
 import React from 'react'
 import useStyles from "./styles";
 import girl from '../../assets/girl-with-bags.png'
-import { HomeLogic } from './HomeLogic';
+// import { HomeLogic } from './HomeLogic';
 import { Button } from '@mui/material';
-import CardComponent from '../../components/Card/CardComponent'
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+// import CardComponent from '../../components/Card/CardComponent'
+// import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 // import IconButton from '@mui/material/IconButton';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const classes = useStyles();
-    const navigate = useNavigate();
-    const {
+    // const navigate = useNavigate();
+    // const {
 
-        products
-    } = HomeLogic();
+    // products
+    // } = HomeLogic();
     return (
         // mainContainer
         <div className={classes.container}>

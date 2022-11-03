@@ -12,7 +12,6 @@ const Checkout = () => {
     const {
         placeOrderHandler,
         cartProduct,
-        showAddress,
         name,
         addressShow,
         setAddressShow,
@@ -60,6 +59,23 @@ const Checkout = () => {
                                     <div className={classes.divider} style={{ margin: "0 1rem", width: "98%" }}></div>
                                     {
                                         user?.address ?
+
+
+                                            <div className={classes.Address}>
+                                                {/* <input type="radio" name="address" id="address" /> */}
+                                                <div className={classes.AddressDetails}>
+                                                    <p> <strong>{user?.name}</strong>
+                                                        {", " + (user && user.address)} {", " + (user && user.city)}{"- " + (user && user.Pincode)} {", " + (user && user.State)}
+                                                        <br />
+                                                        {
+                                                            user?.Landmark ? "Landmark: " + user?.Landmark : ""
+                                                        }
+                                                        <Button>Edit Address</Button></p>
+
+                                                </div>
+
+                                            </div>
+                                            :
                                             <div className={classes.modalContainer}>
                                                 <Popup
                                                     // onClose={() => setOpenPopup(false)}
@@ -145,18 +161,6 @@ const Checkout = () => {
                                                     )}
                                                 </Popup>
                                             </div>
-                                            :
-                                            <div className={classes.Address}>
-                                                {/* <input type="radio" name="address" id="address" /> */}
-                                                <div className={classes.AddressDetails}>
-                                                    <p> <strong>{user?.name}, &nbsp;</strong>
-                                                    {user?.address}, {user?.city}- {user?.Pincode}, {user?.State}, {user?.Landmark}
-                                                      <br/>
-                                                    <Button>Edit Address</Button></p>
-
-                                                </div>
-
-                                            </div>
                                     }
 
 
@@ -171,8 +175,12 @@ const Checkout = () => {
                             <div className={classes.noneditbox}>
                                 <h2>1. Delivery address</h2>
                                 <div className={classes.AddressDetails}>
-                                    <p> <strong>{name}, &nbsp;</strong>
-                                        {showAddress}
+                                    <p> <strong>{user?.name}</strong>
+                                        {", " + (user && user.address)} {", " + (user && user.city)}{"- " + (user && user.Pincode)} {", " + (user && user.State)}
+                                        <br />
+                                        {
+                                            user?.Landmark ? "Landmark: " + user?.Landmark : ""
+                                        }
                                     </p>
                                 </div>
                                 <p className={classes.absolute} onClick={() => { setAddressShow(true); setShowPayment(false); setShowReview(false) }}>Change</p>
@@ -191,12 +199,12 @@ const Checkout = () => {
                                 <div className={classes.AddressBox}>
                                     <h4>Payment Options</h4>
                                     <div className={classes.divider}></div>
-                                    <div className={classes.Payment}>
+                                    {/* <div className={classes.Payment}>
                                         <input type="radio" name="payment" id="payment" />
                                         <label htmlFor="payment">Cash on Delivery</label>
-                                    </div>
+                                    </div> */}
                                     <div className={classes.Payment}>
-                                        <input type="radio" name="payment" id="payment" />
+                                        <input type="radio" name="payment" id="payment" checked />
                                         <label htmlFor="payment">Using RazorPay</label>
                                     </div>
                                     <div className={classes.bottomContainer}>
@@ -208,7 +216,7 @@ const Checkout = () => {
                             <div className={classes.noneditbox}>
                                 <h2>2. Payment Method</h2>
                                 <div className={classes.AddressDetails}>
-                                    <label htmlFor="payment">Cash on Delivery</label>
+                                    <label htmlFor="payment">Using RazorPay</label>
                                 </div>
                                 <p className={classes.absolute} onClick={() => { setAddressShow(false); setShowPayment(true); setShowReview(false) }}>Change</p>
                             </div>
@@ -231,7 +239,7 @@ const Checkout = () => {
                                                             className={classes.media}
                                                             component="img"
                                                             image={product.productId.featureimg[0]}
-                                                        // sx={{ width: "20rem" }}
+                                                            sx={{ width: "20rem" }}
                                                         />
                                                         <CardContent className={classes.cardContent}>
                                                             <div>
