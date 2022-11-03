@@ -26,13 +26,12 @@ const Navbar = () => {
         <div className={classes.MainContainer}>
             <div className={classes.Menucontainer}>
                 {
-                    show ? 
-                    <CloseIcon onClick={() => setShow(!show)} fontSize="large" sx={{ padding: "0 1rem" }} className={classes.MenuIcon} />
-                     : 
-                    <MenuIcon onClick={() => setShow(!show)} fontSize="large" sx={{ padding: "0 1rem" }} className={classes.MenuIcon} />
+                    show ?
+                        <CloseIcon onClick={() => setShow(!show)} fontSize="large" sx={{ padding: "0 1rem" }} className={classes.MenuIcon} />
+                        :
+                        <MenuIcon onClick={() => setShow(!show)} fontSize="large" sx={{ padding: "0 1rem" }} className={classes.MenuIcon} />
 
                 }
-                {/* <MenuIcon fontSize="large" sx={{ padding: "0 1rem" }} onClick={() => { setShow(!show) }} /> */}
                 {
                     show &&
                     <div className={classes.MenuListcontainer}>
