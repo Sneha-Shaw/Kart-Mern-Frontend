@@ -6,6 +6,9 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+        }
 
     },
     cartTitle: {
@@ -19,6 +22,9 @@ export default makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         textAlign: 'center',
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+        }
     },
     cartContainer: {
         display: 'flex',
@@ -37,7 +43,12 @@ export default makeStyles((theme) => ({
         backgroundColor: '#f5f5f5',
         borderRadius: '1rem',
         boxShadow: '0 0 1rem 0 rgba(0,0,0,0.1)',
+        position: "relative",
         cursor: 'pointer',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+
+        }
 
     },
     media: {
@@ -50,7 +61,12 @@ export default makeStyles((theme) => ({
         width: '100%',
         alignItems: 'center',
         justifyContent: 'space-between',
-        fontSize: "2.5rem"
+        fontSize: "2.5rem",
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+            fontSize: "2rem",
+            alignItems: "flex-start"
+        }
     },
     quantity: {
         display: 'flex',
@@ -89,6 +105,9 @@ export default makeStyles((theme) => ({
             "&:hover": {
                 backgroundColor: '#395B64',
             }
+        },
+        [theme.breakpoints.down('md')]: {
+            width: '90%',
         }
 
     },
@@ -98,7 +117,17 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         margin: "auto",
-        fontSize: "1.5rem"
+        fontSize: "1.5rem",
+        [theme.breakpoints.down('md')]: {
+            fontSize: "1rem",
+        }
+    },
+    cardActions: {
+        [theme.breakpoints.down('md')]: {
+            position: "absolute",
+            top: "0",
+            right: "0"
+        }
     }
 
 }))
