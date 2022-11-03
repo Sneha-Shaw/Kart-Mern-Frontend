@@ -35,6 +35,26 @@ export default makeStyles((theme) => ({
                     }
                 }
             }
+        },
+        [theme.breakpoints.down('md')]: {
+            // display: "none"
+            width: '100%',
+            minHeight: 'unset',
+            // height: "10%",
+            "& ul": {
+
+                display: "flex",
+                flexDirection: 'row',
+                paddingTop: "0rem",
+                justifyContent: "center",
+                "& li": {
+                    "& a": {
+                        "& p": {
+                            display: "none"
+                        }
+                    }
+                }
+            }
         }
 
     }

@@ -15,10 +15,12 @@ const SideBar = () => {
     // my details, my orders, account settings> logout
     <div className={classes.container}>
       <ul className={classes.list}>
-      <li className={classes.listItem}><a href='/profile'><ManageAccountsIcon fontSize='large' sx={{paddingRight: "2rem"}} />Account Settings</a></li>
-        <li className={classes.listItem}><a href='/orders'><ListAltIcon fontSize='large' sx={{paddingRight: "2rem"}} />My Orders</a></li>
-        <li className={classes.listItem}><a href='/notifications'><NotificationsActiveIcon fontSize='large' sx={{paddingRight: "2rem"}} />Notifications</a></li>
-        <li className={classes.listItem}><a href='/' onClick={()=>dispatch(logoutUser())}><LogoutIcon fontSize='large' sx={{paddingRight: "2rem"}} />Logout</a></li>
+      <li className={classes.listItem}><a href='/profile'>
+        <ManageAccountsIcon fontSize='large' sx={{paddingRight:{"md": "2rem","sm": "0"}}} /><p>Account Settings</p></a>
+        </li>
+        <li className={classes.listItem}><a href='/orders'><ListAltIcon fontSize='large'  sx={{paddingRight:{"md": "2rem","sm": "0"}}}  /><p>My Orders</p></a></li>
+        {/* <li className={classes.listItem}><a href='/notifications'><NotificationsActiveIcon fontSize='large'  sx={{paddingRight:{"md": "2rem","sm": "0"}}}  />Notifications</a></li> */}
+        <li className={classes.listItem}><a href='/' onClick={()=>dispatch(logoutUser())}><LogoutIcon fontSize='large'  sx={{paddingRight:{"md": "2rem","sm": "0"}}}  /><p>Logout</p></a></li>
         </ul>
     </div>
   )

@@ -3,6 +3,10 @@ export default makeStyles((theme) => ({
     container: {
         display: 'flex',
         width: '100%',
+        [theme.breakpoints.down('md')]:{
+           flexDirection: "column"
+            
+        }
     },
     settingsContainer: {
         width: '80%',
