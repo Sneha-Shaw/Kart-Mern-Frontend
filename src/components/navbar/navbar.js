@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import 'react-dropdown/style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllProducts } from '../../redux/actions/productAction'
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
     const classes = useStyles();
@@ -20,56 +21,61 @@ const Navbar = () => {
 
     }
     return (
-        <div className={classes.container}>
-            <div className={classes.left}>
-                <div className={classes.logo}>
-                    <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
-                        <h1>KART</h1>
-                    </Link>
+        <div className={classes.MainContainer}>
+           <div>
+            <MenuIcon/>
+           </div>
+            <div className={classes.container}>
+                <div className={classes.left}>
+                    <div className={classes.logo}>
+                        <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+                            <h1>KART</h1>
+                        </Link>
+                    </div>
+                    <div className={classes.categories}>
+                        <Link to="/see-products?category=Men" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Men') }}>
+                            <h4>Men</h4>
+
+                        </Link>
+                        <Link to="/see-products?category=Women" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Women') }}>
+                            <h4>Women</h4>
+                        </Link>
+                        <Link to="/see-products?category=Kids" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Kids') }}>
+                            <h4>Kids</h4>
+                        </Link>
+                    </div>
                 </div>
-                <div className={classes.categories}>
-                    <Link to="/see-products?category=Men" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Men') }}>
-                        <h4>Men</h4>
+                <div className={classes.right}>
+                    <div className={classes.search}>
+                        <SearchIcon fontSize="large" />
+                        <input type="text" placeholder="Search" />
+                    </div>
 
-                    </Link>
-                    <Link to="/see-products?category=Women" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Women') }}>
-                        <h4>Women</h4>
-                    </Link>
-                    <Link to="/see-products?category=Kids" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Kids') }}>
-                        <h4>Kids</h4>
-                    </Link>
-                </div>
-            </div>
-            <div className={classes.right}>
-                <div className={classes.search}>
-                    <SearchIcon fontSize="large" />
-                    <input type="text" placeholder="Search" />
-                </div>
-
-                <div className={classes.icons}>
-                    {
-                        userInfo ?
-                            <Link to="wishlist" className={classes.icon}>
-                                <FavoriteBorderIcon fontSize="large" />
-                            </Link>
-                            :
-                            ""
-                    }
-                    <Link to="cart" className={classes.icon}>
-                        <ShoppingCartIcon fontSize="large" />
-                    </Link>
-                    {
-                        userInfo ?
-                            <Link to="/profile" className={classes.icon}>
-                                <AccountCircleIcon fontSize="large" className={classes.icon} />
-                            </Link>
-                            :
-                            <Link to="login" className={classes.icon}>
-                                <Button variant="contained" color="primary">Login</Button>
-                            </Link>
-                    }
+                    <div className={classes.icons}>
+                        {
+                            userInfo ?
+                                <Link to="wishlist" className={classes.icon}>
+                                    <FavoriteBorderIcon fontSize="large" />
+                                </Link>
+                                :
+                                ""
+                        }
+                        <Link to="cart" className={classes.icon}>
+                            <ShoppingCartIcon fontSize="large" />
+                        </Link>
+                        {
+                            userInfo ?
+                                <Link to="/profile" className={classes.icon}>
+                                    <AccountCircleIcon fontSize="large" className={classes.icon} />
+                                </Link>
+                                :
+                                <Link to="login" className={classes.icon}>
+                                    <Button variant="contained" color="primary">Login</Button>
+                                </Link>
+                        }
 
 
+                    </div>
                 </div>
             </div>
         </div>
