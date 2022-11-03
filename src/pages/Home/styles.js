@@ -8,7 +8,10 @@ export default makeStyles((theme) => ({
         display: "flex",
         justifyContent: "space-between",
         background: "black",
-        color: "white"
+        color: "white",
+        [theme.breakpoints.down("md")]: {
+            padding: "2rem"
+        }
     },
     textPart: {
         width: "50%",
@@ -17,22 +20,40 @@ export default makeStyles((theme) => ({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        // textAlign: "left"
-        "&>Button":{
+        "&>Button": {
             // borderRadius: "1rem",
             fontSize: "2rem",
-            marginTop: "2rem"
+            marginTop: "2rem",
+        },
+        [theme.breakpoints.down("md")]: {
+            alignItems: "flex-start",
+            width: "100%",
+            fontSize: "2rem",
+            // display: "none",
+            "&>Button": {
+                fontSize: "1.5rem",
+                margin: "1rem 0",
+            }
         }
     },
     imgPart: {
         width: "40%",
-        padding: "2.1rem"
+        padding: "2.1rem",
+        [theme.breakpoints.down("md")]: {
+            width: "115%",
+            padding: "0",
+            position: "relative"
+        }
     },
     rectangle: {
         background: "#E7F6F2",
         width: "40rem",
         height: "60rem",
         borderRadius: "10%",
+        // display: "none",
+        [theme.breakpoints.down("md")]: {
+           display: "none"
+        }
 
 
     },
@@ -46,55 +67,23 @@ export default makeStyles((theme) => ({
         color: "black",
         position: "absolute",
         top: "10rem",
-        left: "66rem"
+        left: "66rem",
+        display: "none"
+
     },
     img: {
         width: "91rem",
         position: "absolute",
         top: "8.1rem",
-        right: "0"
-    },
-    productSection: {
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-evenly",
-        padding: "5rem 0",
-        background: "white",
-        flexDirection: "column",
-    },
-    products: {
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        background: "#E7F6F2",
-        margin: "2rem 0",
-    
-    },
-    header: {
-        width: "90%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "0 5rem",
-        margin: "auto",
-        "&>h3":{
-            fontSize: "3rem",
-            paddingTop: "2rem"
-        },
-        "&>Button":{
-            fontSize: "2rem",
-            marginTop: "2rem"
+        right: "0",
+        // display: "none",
+        [theme.breakpoints.down("md")]: {
+            width: "130%",
+            top:"-1rem",
+            left: "-2rem",
         }
-    },
-    cards: {
-        width: "100%",
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        // gridGap: "2rem",
-        padding: "2rem 0",
 
-        // background: "#E7F6F2"
-    },
+    }
 }
 )
 )

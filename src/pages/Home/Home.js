@@ -22,7 +22,7 @@ const Home = () => {
             <div className={classes.introContainer}>
                 <div className={classes.textPart}>
                     <div>
-                        <h5 style={{ marginLeft: "2rem" }}>Shop</h5>
+                        <h5 style={{ marginLeft: "1rem" }}>Shop</h5>
                         <h2>Anytime</h2>
                         <h2>Anywhere</h2>
                     </div>
