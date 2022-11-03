@@ -13,6 +13,9 @@ export default makeStyles((theme) => ({
         justifyContent:"center",
         "& a":{
             color:"black",
+        },
+        [theme.breakpoints.down("md")]: {
+            fontSize:"1.5rem"
         }
         
     },
@@ -26,7 +29,11 @@ export default makeStyles((theme) => ({
         padding:"2rem",
         borderRadius:"1rem",
         flexDirection:"column",
-
+        [theme.breakpoints.down("md")]: {
+            width: "80%",
+            height: "65%",
+            borderRadius: "0"
+        }
 
     },
     form:{
@@ -62,7 +69,19 @@ export default makeStyles((theme) => ({
             padding:"1rem .5rem",
             fontSize:"1.5rem"
         },
-       
+        [theme.breakpoints.down("md")]: {
+            width: "100%",
+            flexDirection: "column",
+            justifyContent: "center",
+            "& label": {
+                width: "90%",
+                textAlign: "left"
+            },
+            "& input":{
+                width: "90%"
+            }
+        }
+
     
     },
     button:{
@@ -72,9 +91,9 @@ export default makeStyles((theme) => ({
         fontSize:"1.8rem !important",
         background:"#395B64",
         color:"white",
-        "&:hover":{
-            background:"#395B64",
-            color:"white",
+        [theme.breakpoints.down("md")]: {
+            width: "60%",
+            fontSize: "1.5rem !important",
         }
     },
 }))

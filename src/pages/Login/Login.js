@@ -18,7 +18,7 @@ const Login = () => {
         <div className={classes.form}>
           <h1 className={classes.heading}>Login</h1>
           <div className={classes.inputContainer}>
-            <label className={classes.label}>Email</label>
+            <label className={classes.label}>Email:</label>
             <input 
             type="email" 
             className={classes.input} 
@@ -27,7 +27,7 @@ const Login = () => {
             />
           </div>
           <div className={classes.inputContainer}>
-            <label className={classes.label}>Password</label>
+            <label className={classes.label}>Password:</label>
             <input 
             type="password" 
             className={classes.input} 
