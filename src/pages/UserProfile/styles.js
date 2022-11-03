@@ -16,7 +16,11 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         background: '#F5F5F5',
+        [theme.breakpoints.down('md')]:{
+            width: "100%",
+        padding: '2rem 0',
 
+        }
     },
     inputContainer: {
         width: '70%',
@@ -32,6 +36,10 @@ export default makeStyles((theme) => ({
             marginBottom: '2rem',
             borderRadius: '2rem',
         },
+        [theme.breakpoints.down('md')]:{
+            width: "70%",
+            alignItems: "center"
+        }
     },
     inputLabel: {
         fontSize: '1.8rem',
@@ -44,6 +52,7 @@ export default makeStyles((theme) => ({
         height: '15rem',
         position: 'relative',
         margin: 'auto',
+        paddingBottom: "2rem",
         "&>img": {
             width: '100%',
             height: '100%',
