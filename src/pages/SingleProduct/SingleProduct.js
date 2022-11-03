@@ -42,7 +42,7 @@ const SingleProduct = () => {
             <div className={classes.divider}></div>
             <p className={classes.price}><span style={{ color: "black" }}>Price: </span>₹{product?.price}</p>
 
-            <div className={classes.sizes}>
+            {/* <div className={classes.sizes}>
               <h3>Size:</h3>
               <select className={classes.select}>
                 <option value="not selected" >Select</option>
@@ -52,7 +52,7 @@ const SingleProduct = () => {
                   ))
                 }
               </select>
-            </div>
+            </div> */}
             <div className={classes.productInstruction}>
               <ul>
                 <li>100% Cotton</li>

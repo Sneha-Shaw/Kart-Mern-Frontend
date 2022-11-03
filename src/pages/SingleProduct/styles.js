@@ -19,6 +19,9 @@ export default makeStyles((theme) => ({
         padding: "1rem",
         [theme.breakpoints.down("md")]: {
             marginBottom: "2rem",
+            flexDirection: "column",
+            height: "unset",
+
         },
     },
     imgContainer: {
@@ -28,6 +31,9 @@ export default makeStyles((theme) => ({
         margin: "1rem",
         // overflow: "hidden",
         border: "1px solid rgb(0,0,0,0.2)",
+        [theme.breakpoints.down("md")]: {
+        width: "95%",
+        }
 
     },
     img: {
@@ -36,14 +42,12 @@ export default makeStyles((theme) => ({
         objectFit: "cover"
     },
     imageOption: {
-        // display: "flex",
-
-        flexDirection: "column",
-        // justifyContent: "space-between",
         width: "10%",
         marginTop: "1.5rem",
         [theme.breakpoints.down("md")]: {
             width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
         },
     },
     imageContainer: {
@@ -54,21 +58,18 @@ export default makeStyles((theme) => ({
         border: "1px solid rgb(0,0,0,0.2)",
         // borderRadius: "2rem",
         cursor: "pointer",
-        // padding: "0.5rem",
-        overflow: "hidden"
+        overflow: "hidden",
+       
     },
 
     right: {
         flex: 1,
         display: "flex",
-        // height: "90vh",
-        // flexDirection: "column",
-        // alignItems: "center",
-        // justifyContent: "center",
-        // marginTop: "4rem",
         padding: "6rem 1rem",
         [theme.breakpoints.down("md")]: {
+            flex: "unset",
             marginBottom: "2rem",
+            flexDirection: "column"
         },
     },
     title: {
@@ -101,12 +102,22 @@ export default makeStyles((theme) => ({
                 backgroundColor: '#395B64',
             }
 
+        },
+        [theme.breakpoints.down("md")]: {
+            width: "100%",
+            "&>Button":{
+                width: "80%"
+            }
         }
     },
     details: {
         display: "flex",
         flexDirection: "column",
-        width: "30%"
+        width: "30%",
+        [theme.breakpoints.down("md")]: {
+            width: "100%",
+            alignItems: "center"
+        }
     },
     sizes: {
         // display: "flex",
@@ -135,7 +146,7 @@ export default makeStyles((theme) => ({
         backgroundColor: "#e0e0e0",
     },
     productInstruction: {
-        paddingTop: "7rem",
+        paddingTop: "2rem",
         "& >ul": {
             padding: "0",
             "& >li": {
@@ -145,7 +156,8 @@ export default makeStyles((theme) => ({
                 lineHeight: "2",
 
             }
-        }
+        },
+      
     },
     productDescription: {
         padding: "3rem",
@@ -167,6 +179,9 @@ export default makeStyles((theme) => ({
             fontSize: "2.5rem",
             fontWeight: "bold",
             paddingRight: "1rem",
+        },
+        [theme.breakpoints.down('md')]:{
+            display: "none"
         }
     },
     starContainer: {
