@@ -10,8 +10,11 @@ export default makeStyles((theme) => ({
         gridTemplateColumns: "repeat(6, 1fr)",
         // gridGap: "2rem",
         padding: "2rem 0",
-
         // background: "#E7F6F2"
+        [theme.breakpoints.down("md")]: {
+            gridTemplateColumns: "repeat(2, 1fr)",
+            padding: "1rem 0"
+        }
     },
 
 
