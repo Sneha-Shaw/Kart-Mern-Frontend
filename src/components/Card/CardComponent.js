@@ -34,10 +34,8 @@ const CardComponent = ({ product }) => {
                     image={product?.featureimg[0]}
                     onClick={redirectHandler}
                 />
-                <CardContent
-                  
-                 className={classes.details} >
-                    <h3 className={classes.title} onClick={redirectHandler} >{product?.title}</h3>
+                <CardContent className={classes.details} >
+                    <h3 className={classes.title} onClick={redirectHandler} >{(product?.title).length>25?(product?.title.substring(0,22)+ "..."):(product?.title)}</h3>
                     <div className={classes.priceContainer}>
                         <p className={classes.price} onClick={redirectHandler}>₹{product?.price}</p>
                     </div>
