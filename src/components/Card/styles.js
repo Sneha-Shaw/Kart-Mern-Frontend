@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 export default makeStyles((theme) => ({
     details: {
         width: "100%",
+        height: "30%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-evenly",

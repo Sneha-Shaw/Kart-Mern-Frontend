@@ -25,16 +25,18 @@ const CardComponent = ({ product }) => {
     return (
         <div>
             <Card
-                sx={{ margin: "1rem", cursor: "pointer", position: "relative" }}
+                sx={{ margin: "1rem", cursor: "pointer", position: "relative", height: "40rem" }}
 
             >
                 <CardMedia
                     component="img"
-                    // height="194"
+                    height="250"
                     image={product?.featureimg[0]}
                     onClick={redirectHandler}
                 />
-                <CardContent className={classes.details} >
+                <CardContent
+                  
+                 className={classes.details} >
                     <h3 className={classes.title} onClick={redirectHandler} >{product?.title}</h3>
                     <div className={classes.priceContainer}>
                         <p className={classes.price} onClick={redirectHandler}>₹{product?.price}</p>
