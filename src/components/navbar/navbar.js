@@ -102,9 +102,9 @@ const Navbar = () => {
                         <Link to="/see-products?category=Women" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Women') }}>
                             <h4>Women</h4>
                         </Link>
-                        <Link to="/see-products?category=Kids" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Kids') }}>
+                        {/* <Link to="/see-products?category=Kids" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Kids') }}>
                             <h4>Kids</h4>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
                 <div className={classes.right}>
