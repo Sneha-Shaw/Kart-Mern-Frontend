@@ -63,7 +63,6 @@ export default makeStyles((theme) => ({
         position: "absolute",
         top: "10rem",
         left: "66rem",
-        display: "none"
 
     },
     img: {
