@@ -9,6 +9,7 @@ import {
     addToCartReducer,
     getCartReducer,
     deleteCartProductReducer,
+    searchProductReducer
 } from './productReducer'
 import { userSigninReducer, userSignupReducer, getSingleUserReducer } from './userReducer'
 import {
@@ -33,7 +34,8 @@ const rootReducer = combineReducers({
     deleteProductFromCart: deleteCartProductReducer,
     createOrder: createOrderReducer,
     getAllOrder: getAllOrderReducer,
-    cancelOrder: cancelOrderReducer
+    cancelOrder: cancelOrderReducer,
+    searchProduct:searchProductReducer
 })
 
 export default rootReducer

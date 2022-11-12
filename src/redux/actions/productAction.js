@@ -24,6 +24,9 @@ import {
     GET_CART_REQUEST,
     GET_CART_SUCCESS,
     GET_CART_FAILED,
+    SEARCH_PRODUCT_REQUEST,
+    SEARCH_PRODUCT_SUCCESS,
+    SEARCH_PRODUCT_FAILED,
     DELETE_PRODUCT_FROM_CART_REQUEST,
     DELETE_PRODUCT_FROM_CART_SUCCESS,
     DELETE_PRODUCT_FROM_CART_FAILED
@@ -250,6 +253,32 @@ export const deleteProductFromCart = (userId, productId) => async (dispatch) => 
     } catch (error) {
         dispatch({
             type: DELETE_PRODUCT_FROM_CART_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}
+
+//search product using keyword
+export const searchProduct = (keyword)=> async (dispatch)=>{
+    try{
+        dispatch({
+            type: SEARCH_PRODUCT_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const { data } = await axios.get(`${API}/private/products/search?keyword=${keyword}`, config)
+        dispatch({
+            type: SEARCH_PRODUCT_SUCCESS,
+            payload: data
+        })
+    }
+    catch(error){
+        dispatch({
+            type: SEARCH_PRODUCT_FAILED,
             payload: error.response &&
                 error.response.data.message ?
                 error.response.data.message

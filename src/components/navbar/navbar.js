@@ -11,16 +11,32 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllProducts } from '../../redux/actions/productAction'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import {searchProduct} from '../../redux/actions/productAction'
 
 const Navbar = () => {
     const classes = useStyles();
     const { userInfo } = useSelector((state) => state.signInUser)
+    const {data: searchResult} = useSelector((state)=> state.searchProduct)
+    const categoryList = [
+        { value: 'Women', label: 'Women' },
+        { value: 'Men', label: 'Men' }
+    ]
     const dispatch = useDispatch()
     // const navigate = useNavigate();
     const redirectHandler = (category) => {
         dispatch(getAllProducts(category))
 
     }
+    //search state variable
+    const [search, setSearch] = useState('')
+    //search handler
+    const searchHandler = (e) => {
+        //filter from all products
+        setSearch(e.target.value)
+        dispatch(searchProduct(e.target.value))
+
+    }
+    console.log(searchResult,"rsult");
     const [show, setShow] = useState(false)
     return (
         <div className={classes.MainContainer}>
@@ -43,18 +59,16 @@ const Navbar = () => {
                                     </Link>
                                 </div>
                             </li>
-                            <li>
-                                <Link to="/see-products?category=Men" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Men') }}>
-                                    <h4>Men</h4>
+                            {
+                                categoryList.map((category) => (
+                                    <li>
+                                        <Link to={`/see-products?category=${category.value}`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler(category.value) }} >
+                                            <h4>{category.label}</h4>
+                                        </Link>
+                                    </li>
+                                ))
+                            }
 
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/see-products?category=Women" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Women') }} >
-                                    <h4>Women</h4>
-
-                                </Link>
-                            </li>
                             <li>
                                 {
                                     userInfo ?
@@ -95,22 +109,23 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className={classes.categories}>
-                        <Link to="/see-products?category=Men" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Men') }}>
-                            <h4>Men</h4>
+                        {
+                            categoryList.map((category) => (
+                                <Link to={`/see-products?category=${category.value}`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler(category.value) }} >
+                                    <h4>{category.label}</h4>
+                                </Link>
+                            ))
+                        }
 
-                        </Link>
-                        <Link to="/see-products?category=Women" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Women') }}>
-                            <h4>Women</h4>
-                        </Link>
-                        {/* <Link to="/see-products?category=Kids" style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler('Kids') }}>
-                            <h4>Kids</h4>
-                        </Link> */}
                     </div>
                 </div>
                 <div className={classes.right}>
                     <div className={classes.search}>
                         <SearchIcon fontSize="large" />
-                        <input type="text" placeholder="Search" />
+                        <input type="text" placeholder="Search"
+                            value={search}
+                            onChange={(e)=>searchHandler(e)}
+                        />
                     </div>
 
                     <div className={classes.icons}>

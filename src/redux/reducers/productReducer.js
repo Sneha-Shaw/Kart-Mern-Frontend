@@ -24,6 +24,9 @@ import {
     GET_CART_REQUEST,
     GET_CART_SUCCESS,
     GET_CART_FAILED,
+    SEARCH_PRODUCT_REQUEST,
+    SEARCH_PRODUCT_SUCCESS,
+    SEARCH_PRODUCT_FAILED,
     DELETE_PRODUCT_FROM_CART_REQUEST,
     DELETE_PRODUCT_FROM_CART_SUCCESS,
     DELETE_PRODUCT_FROM_CART_FAILED
@@ -292,6 +295,37 @@ export const deleteCartProductReducer = (state = deleteCartProductState, action)
                 data: action.payload
             }
         case DELETE_PRODUCT_FROM_CART_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+const searchProductState = {
+    loading: false,
+    error: null,
+    isAuthenticated: false,
+    data: null
+}
+
+export const searchProductReducer = (state = searchProductState, action) => {
+    switch (action.type) {
+        case SEARCH_PRODUCT_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case SEARCH_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
+        case SEARCH_PRODUCT_FAILED:
             return {
                 ...state,
                 loading: false,
