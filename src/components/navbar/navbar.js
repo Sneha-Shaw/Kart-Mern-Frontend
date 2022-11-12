@@ -18,8 +18,8 @@ const Navbar = () => {
     const { userInfo } = useSelector((state) => state.signInUser)
     const {data: searchResult} = useSelector((state)=> state.searchProduct)
     const categoryList = [
-        { value: 'Women', label: 'Women' },
-        { value: 'Men', label: 'Men' }
+        { value: 'Men', label: 'Men' },
+        { value: 'Women', label: 'Women' }
     ]
     const dispatch = useDispatch()
     // const navigate = useNavigate();
