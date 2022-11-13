@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import useStyles from "./styles";
 import CardComponent from '../../components/Card/CardComponent'
-
+import {Button} from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import {
   getWishlist,
@@ -32,17 +32,29 @@ const Wishlist = () => {
   }, [dispatch, userInfo, navigate])
 
   return (
-    <div className={classes.container}>
-      <div className={classes.products}>
-        {wishlistProduct &&
-          wishlistProduct.body.map(
-            (product, index) => {
-              return (
-                <CardComponent product={product.productId} key={index} />
+    <div className={classes.root}>
+      {
+        wishlistProduct && wishlistProduct.body.length !== 0 ?
+          <div className={classes.container}>
+            <div className={classes.products}>
+              {wishlistProduct &&
+                wishlistProduct.body.map(
+                  (product, index) => {
+                    return (
+                      <CardComponent product={product.productId} key={index} />
 
-              );
-            })}
-      </div>
+                    );
+                  })}
+            </div>
+          </div>
+          :
+          <div className={classes.empty}>
+            <h1 className={classes.emptyTitle}>Your Wishlist is Empty!</h1>
+            <Button variant="contained" color="primary" className={classes.button} onClick={() => navigate('/')} >
+            Browse Products
+            </Button>
+          </div>
+      }
     </div>
   )
 }

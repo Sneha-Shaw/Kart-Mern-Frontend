@@ -91,6 +91,9 @@ export default makeStyles((theme) => ({
         fontSize:"1.8rem !important",
         background:"#395B64",
         color:"white",
+        "&:hover":{
+            backgroundColor: '#2f4a51',
+        },
         [theme.breakpoints.down("md")]: {
             width: "60%",
             fontSize: "1.5rem !important",

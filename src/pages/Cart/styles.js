@@ -102,8 +102,8 @@ export default makeStyles((theme) => ({
             backgroundColor: '#395B64',
             width: '50%',
             color: '#fff',
-            "&:hover": {
-                backgroundColor: '#395B64',
+            "&:hover":{
+                backgroundColor: '#2f4a51',
             }
         },
         [theme.breakpoints.down('md')]: {
@@ -153,6 +153,9 @@ export default makeStyles((theme) => ({
             backgroundColor: '#395B64',
             width: '10%',
             color: '#fff',
+            "&:hover":{
+                backgroundColor: '#2f4a51',
+            }
         }
 
     }

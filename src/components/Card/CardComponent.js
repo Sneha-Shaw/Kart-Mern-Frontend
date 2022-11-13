@@ -35,7 +35,10 @@ const CardComponent = ({ product }) => {
                     onClick={redirectHandler}
                 />
                 <CardContent className={classes.details}
-                    onClick={redirectHandler}
+
+                    onClick={path !== "/wishlist"
+                        ? redirectHandler
+                        : null}
                 >
                     {
                         path === "/wishlist"

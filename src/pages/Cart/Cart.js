@@ -113,7 +113,7 @@ const Cart = () => {
           </div>
           :
           <div className={classes.emptyCart}>
-            <h1>Your cart is empty</h1>
+            <h1>Your cart is empty!</h1>
             <Button variant="contained" color="primary" className={classes.button} onClick={() => navigate('/')} >
               Shop Now
             </Button>

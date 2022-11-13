@@ -98,8 +98,8 @@ export default makeStyles((theme) => ({
             backgroundColor: '#395B64',
             width: '30%',
             color: '#fff',
-            "&:hover": {
-                backgroundColor: '#395B64',
+            "&:hover":{
+                backgroundColor: '#2f4a51',
             }
 
         },

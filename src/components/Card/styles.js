@@ -11,23 +11,12 @@ export default makeStyles((theme) => ({
         textAlign: "left",
         padding: "1rem 0",
         background: "#A5C9CA",
-        lineHeight: "2",
-        "&>Button": {
-            padding: "2rem"
-
-        }
-
+        lineHeight: "2"
     },
     priceContainer: {
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
-        "&>Button": {
-            marginRight: "5rem",
-            fontSize: "1.1rem",
-            background: "#395B64"
-        }
-
+        justifyContent: "space-between"
     },
     title: {
         fontSize: "2rem",
