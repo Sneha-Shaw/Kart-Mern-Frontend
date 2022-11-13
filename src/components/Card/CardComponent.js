@@ -34,8 +34,17 @@ const CardComponent = ({ product }) => {
                     image={product?.featureimg[0]}
                     onClick={redirectHandler}
                 />
-                <CardContent className={classes.details} >
-                    <h3 className={classes.title} onClick={redirectHandler} >{(product?.title).length>25?(product?.title.substring(0,22)+ "..."):(product?.title)}</h3>
+                <CardContent className={classes.details}
+                    onClick={redirectHandler}
+                >
+                    {
+                        path === "/wishlist"
+                            ?
+                            < h3 className={classes.title} onClick={redirectHandler} >{(product?.title).length > 20 ? (product?.title.substring(0, 16) + "...") : (product?.title)}</h3>
+                            :
+                            <h3 className={classes.title} onClick={redirectHandler} >{(product?.title).length > 25 ? (product?.title.substring(0, 22) + "...") : (product?.title)}</h3>
+
+                    }
                     <div className={classes.priceContainer}>
                         <p className={classes.price} onClick={redirectHandler}>₹{product?.price}</p>
                     </div>
@@ -46,14 +55,14 @@ const CardComponent = ({ product }) => {
                     {
                         path === "/wishlist" && show &&
                         <div className={classes.dropdown}>
-                            <p onClick={() => { dispatch(deleteFromWishlist(userInfo?._id,product?._id)) }}>Delete</p>
+                            <p onClick={() => { dispatch(deleteFromWishlist(userInfo?._id, product?._id)) }}>Delete</p>
                         </div>
                     }
                 </CardContent>
 
 
             </Card>
-        </div>
+        </div >
     )
 }
 

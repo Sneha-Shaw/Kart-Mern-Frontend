@@ -112,7 +112,7 @@ export const CheckoutLogic = () => {
                             })
                             dispatch(createOrder(userInfo?._id, cartProduct && cartProduct.body[0]?.productId._id, quantity, total, showAddress))
                             setTimeout(() => {
-                                navigate('/')
+                                navigate('/cart')
                             }, 2000)
                         }
                     },

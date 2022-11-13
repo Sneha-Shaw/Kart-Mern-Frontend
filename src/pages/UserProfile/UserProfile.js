@@ -4,6 +4,7 @@ import SideBar from '../../components/SideBar/SideBar';
 import { Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import {ProfileLogic} from './ProfileLogic'
+import Avatar from '@mui/material/Avatar';
 
 const UserProfile = () => {
   const classes = useStyles();
@@ -18,9 +19,10 @@ const UserProfile = () => {
       <div className={classes.settingsContainer}>
         {/* <h1>My Profile</h1> */}
           <div className={classes.profilePicture}>
-            <img src="https://faces-img.xcdn.link/image-lorem-face-5919.jpg" alt="profile" />
+            {/* <img src="https://faces-img.xcdn.link/image-lorem-face-5919.jpg" alt="profile" /> */}
+            <Avatar sx={{width: "100%",height: "100%"}} />
             <div className={classes.profilePictureButton}>
-              <EditIcon fontSize="large"/>
+              <EditIcon fontSize="medium"/>
             </div>
           </div>
 

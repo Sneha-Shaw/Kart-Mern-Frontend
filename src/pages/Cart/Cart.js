@@ -20,17 +20,17 @@ const Cart = () => {
   const { userInfo } = useSelector(state => state.signInUser)
   const { data: deleteProduct, error } = useSelector(state => state.deleteProductFromCart)
 
-const checkoutHandler = () => {
-  if(cartProduct && cartProduct.body.length!==0){
-    navigate('/checkout')
-  }else{
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Add product to your cart to checkout',
-    })
+  const checkoutHandler = () => {
+    if (cartProduct && cartProduct.body.length !== 0) {
+      navigate('/checkout')
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Add product to your cart to checkout',
+      })
+    }
   }
-}
   useEffect(() => {
     if (!error) {
       setTimeout(() => {
@@ -51,61 +51,74 @@ const checkoutHandler = () => {
   }
 
   return (
-    <div className={classes.container}>
-      {/* cart */}
-      <div className={classes.cart}>
-        <h1 className={classes.cartTitle}>My Shopping Cart</h1>
-        {/* <div className={classes.cartItem}> */}
-        {cartProduct &&
-          cartProduct.body.map(
-            (product, index) => {
-              return (
+    <div className={classes.root}>
+      {
+        cartProduct && cartProduct.body.length !== 0 ?
+          <div className={classes.container}>
+            {/* cart */}
+            <div className={classes.cart}>
+              <h1 className={classes.cartTitle}>My Shopping Cart</h1>
+              {/* <div className={classes.cartItem}> */}
+              {cartProduct &&
+                cartProduct.body.map(
+                  (product, index) => {
+                    return (
 
-                <div className={classes.cartContainer}>
+                      <div className={classes.cartContainer}>
 
-                  <Card className={classes.card} >
-                    {/* <input 
-                    type="checkbox"
-                     className={classes.checkbox}
-                    /> */}
-                    <CardMedia
-                      className={classes.media}
-                      component="img"
-                      image={product.productId.featureimg[0]}
-                      sx={{ width: "20rem" }}
-                      onClick={() => redirectHandler(product.productId._id)}
+                        <Card className={classes.card} >
+                          {/* <input 
+                      type="checkbox"
+                       className={classes.checkbox}
+                      /> */}
+                          <CardMedia
+                            className={classes.media}
+                            component="img"
+                            image={product.productId.featureimg[0]}
+                            sx={{ width: "20rem" }}
+                            onClick={() => redirectHandler(product.productId._id)}
 
-                    />
-                    <CardContent className={classes.cardContent}
-                      onClick={() => redirectHandler(product.productId._id)}
-                    >
+                          />
+                          <CardContent className={classes.cardContent}
+                            onClick={() => redirectHandler(product.productId._id)}
+                          >
 
-                      <h3>{product.productId.title}</h3>
-                      <h3>₹{product.productId.price}</h3>
-                    </CardContent>
-                    <CardActions className={classes.cardActions}>
-                      <IconButton onClick={() => { dispatch(deleteProductFromCart(userInfo?._id, product.productId._id)) }} >
-                        <HighlightOffIcon fontSize='large' />
-                      </IconButton>
-                    </CardActions>
-                  </Card>
-                </div>
+                            <h3>{product.productId.title}</h3>
+                            <h3>₹{product.productId.price}</h3>
+                          </CardContent>
+                          <CardActions className={classes.cardActions}>
+                            <IconButton onClick={() => { dispatch(deleteProductFromCart(userInfo?._id, product.productId._id)) }} >
+                              <HighlightOffIcon fontSize='large' />
+                            </IconButton>
+                          </CardActions>
+                        </Card>
+                      </div>
 
-              );
-            })}
-        {/* </div> */}
+                    );
+                  })}
+              {/* </div> */}
 
-      </div>
+            </div>
 
-      <Card className={classes.cardTotal}>
-        <div className={classes.content}>
-          <h1>Subtotal</h1>
-          <h1>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h1>
-        </div>
-        <Button variant="contained" color="primary" className={classes.button} onClick={checkoutHandler} >
-          Checkout
-        </Button>
-      </Card>
+            <Card className={classes.cardTotal}>
+              <div className={classes.content}>
+                <h1>Subtotal</h1>
+                <h1>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h1>
+              </div>
+              <Button variant="contained" color="primary" className={classes.button} onClick={checkoutHandler} >
+                Checkout
+              </Button>
+            </Card>
+
+          </div>
+          :
+          <div className={classes.emptyCart}>
+            <h1>Your cart is empty</h1>
+            <Button variant="contained" color="primary" className={classes.button} onClick={() => navigate('/')} >
+              Shop Now
+            </Button>
+          </div>
+      }
 
     </div>
   )

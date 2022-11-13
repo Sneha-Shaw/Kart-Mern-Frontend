@@ -128,6 +128,33 @@ export default makeStyles((theme) => ({
             top: "0",
             right: "0"
         }
+    },
+    emptyCart:{
+        display: 'flex',
+        width: '100%',
+        height: '90vh',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+        },
+        "&>h1":{
+            fontSize: "4rem",
+            fontWeight: "bold",
+            color: "#395B64"
+        },
+        "&>Button":{
+            margin: '2rem auto',
+            padding: '1rem',
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            backgroundColor: '#395B64',
+            width: '10%',
+            color: '#fff',
+        }
+
     }
 
 }))
