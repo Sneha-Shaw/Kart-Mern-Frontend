@@ -125,17 +125,18 @@ export const logoutUser = () => (dispatch) => {
 
 // update user
 export const updateUser = (
-  name,
+  // name,
   email,
-  password,
+  // password,
   mobile,
   address,
   pincode,
   city,
   state,
-  Landmark,
-  altMobile,
-  AddressType,id) => async (dispatch) => {
+  // Landmark,
+  // altMobile,
+  // AddressType,
+  id) => async (dispatch) => {
     try {
       dispatch({
         type: UPDATE_USER_REQUEST
@@ -144,17 +145,17 @@ export const updateUser = (
         'Content-Type': 'application/json'
       }
       const body = {
-        name,
-        email,
-        password,
-        mobile,
-        address,
-        pincode,
-        city,
-        state,
-        Landmark,
-        altMobile,
-        AddressType
+        // name: name,
+        email: email,
+        // password: password,
+        mobile: mobile,
+        address: address,
+        pincode: pincode,
+        city: city,
+        state: state,
+        // Landmark: Landmark,
+        // altMobile: altMobile,
+        // AddressType: AddressType
       }
       const { data } = await axios.put(`${API}/public/auth/update/${id}`, body, config)
       dispatch({
