@@ -16,6 +16,7 @@ import OrderPage from "./pages/OrderPage/OrderPage";
 // import OrderFinal from "./pages/orderFinal/orderFinal";
 import Checkout from "./pages/Checkout/Checkout";
 import ProductPage from './pages/ProductPage/ProductPage'
+import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 
 const Router = () => {
 
@@ -35,6 +36,7 @@ const Router = () => {
                     <Route exact path="/orders" element={<OrderPage />} />
                     <Route exact path="/product/:id" element={<SingleProduct />} />
                     <Route exact path="/see-products" element={<ProductPage />} /> 
+                    <Route exact path="/search" element={<SearchResultPage />} />
                 </Routes>
                 <Footer />
             </BrowserRouter>

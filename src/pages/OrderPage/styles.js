@@ -77,12 +77,16 @@ export default makeStyles((theme) => ({
         width: "100% !important",
         background: "#395B64",
         color: "white",
+        position: "relative",
         [theme.breakpoints.down('md')]: {
             margin: "2rem 0rem !important",
             flexDirection: "column",
             padding: "2rem"
 
         }
+    },
+    title:{
+        cursor:"pointer"
     },
     details: {
         width: "100%",
@@ -110,6 +114,14 @@ export default makeStyles((theme) => ({
         width: "20rem !important",
         [theme.breakpoints.down('md')]:{
             width: "30rem !important"
+        }
+    },
+    
+    cardActions: {
+        [theme.breakpoints.down('md')]: {
+            position: "absolute",
+            top: "-1rem",
+            right: "-1rem"
         }
     }
 

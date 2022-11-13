@@ -5,7 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import 'react-dropdown/style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllProducts } from '../../redux/actions/productAction'
@@ -16,13 +16,12 @@ import {searchProduct} from '../../redux/actions/productAction'
 const Navbar = () => {
     const classes = useStyles();
     const { userInfo } = useSelector((state) => state.signInUser)
-    const {data: searchResult} = useSelector((state)=> state.searchProduct)
     const categoryList = [
         { value: 'Men', label: 'Men' },
         { value: 'Women', label: 'Women' }
     ]
     const dispatch = useDispatch()
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const redirectHandler = (category) => {
         dispatch(getAllProducts(category))
 
@@ -33,10 +32,10 @@ const Navbar = () => {
     const searchHandler = (e) => {
         //filter from all products
         setSearch(e.target.value)
+        navigate(`/search?q=${e.target.value}`)
         dispatch(searchProduct(e.target.value))
 
     }
-    console.log(searchResult,"rsult");
     const [show, setShow] = useState(false)
     return (
         <div className={classes.MainContainer}>

@@ -79,7 +79,7 @@ export const cancelOrder = (orderId) => async (dispatch) => {
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.put(`${API}/private/orders/cancel/${orderId}`, config)
+        const { data } = await axios.delete(`${API}/private/orders/cancel/${orderId}`, config)
         dispatch({
             type: CANCEL_ORDER_SUCCESS,
             payload: data
