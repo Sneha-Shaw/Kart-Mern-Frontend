@@ -83,7 +83,7 @@ const UserProfile = () => {
             <h3 className={classes.inputLabel}>Password</h3>
             <input type="text" placeholder="Password" />
           </div> */}
-          <Button variant='contained' className={classes.button}>Save</Button>
+          <Button variant='contained' className={classes.button}>Update</Button>
         
       </div>
     </div>

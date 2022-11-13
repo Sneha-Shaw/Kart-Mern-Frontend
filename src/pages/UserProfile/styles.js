@@ -93,6 +93,12 @@ export default makeStyles((theme) => ({
             cursor: "pointer",
     },
     button:{
-        fontSize: "1.8rem !important"
+        fontSize: "1.8rem !important",
+        padding: "1rem 2rem !important",
+        width: "20%",
+        backgroundColor: '#395B64 !important',
+        "&:hover":{
+            backgroundColor: '#2f4a51 !important',
+        }
     }
 }))
