@@ -27,7 +27,7 @@ const OrderPage = () => {
             <SearchIcon fontSize='large' />
             <input type="search"
               className={classes.searchInput}
-              placeholder="Search from your orders"
+              placeholder="Search in your orders"
               value={search}
               onChange={(e) => searchProductsInOrderHandler(e)}
               // onKeyPress={(e) => e.key === 'Enter' ? searchProductsInOrderHandler() : null}
