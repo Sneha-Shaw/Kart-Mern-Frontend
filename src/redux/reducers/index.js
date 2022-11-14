@@ -15,7 +15,8 @@ import { userSigninReducer, userSignupReducer, getSingleUserReducer } from './us
 import {
     createOrderReducer,
     getAllOrderReducer,
-    cancelOrderReducer
+    cancelOrderReducer,
+    searchProductsInOrderReducer
 } from './orderReducer'
 
 
@@ -35,7 +36,8 @@ const rootReducer = combineReducers({
     createOrder: createOrderReducer,
     getAllOrder: getAllOrderReducer,
     cancelOrder: cancelOrderReducer,
-    searchProduct:searchProductReducer
+    searchProduct:searchProductReducer,
+    searchProductsInOrder:searchProductsInOrderReducer
 })
 
 export default rootReducer

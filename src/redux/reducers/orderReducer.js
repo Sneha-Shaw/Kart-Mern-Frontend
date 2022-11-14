@@ -7,7 +7,10 @@ import {
     GET_ALL_ORDER_FAILED,
     CANCEL_ORDER_REQUEST,
     CANCEL_ORDER_SUCCESS,
-    CANCEL_ORDER_FAILED
+    CANCEL_ORDER_FAILED,
+    SEARCH_PRODUCTS_IN_ORDER_REQUEST,
+    SEARCH_PRODUCTS_IN_ORDER_SUCCESS,
+    SEARCH_PRODUCTS_IN_ORDER_FAILED
 } from '../constants/orderConstants'
 
 const createOrderState = {
@@ -90,6 +93,36 @@ export const cancelOrderReducer = (state = cancelOrderState, action) => {
                 data: action.payload
             }
         case CANCEL_ORDER_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+const searchProductsInOrderState = {
+    loading: false,
+    error: null,
+    isAuthenticated: false, 
+    products: null
+}
+export const searchProductsInOrderReducer = (state = searchProductsInOrderState, action) => {
+    switch (action.type) {
+        case SEARCH_PRODUCTS_IN_ORDER_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case SEARCH_PRODUCTS_IN_ORDER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                products: action.payload
+            }
+        case SEARCH_PRODUCTS_IN_ORDER_FAILED:
             return {
                 ...state,
                 loading: false,

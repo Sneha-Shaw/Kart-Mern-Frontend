@@ -7,7 +7,10 @@ import {
     GET_ALL_ORDER_FAILED,
     CANCEL_ORDER_REQUEST,
     CANCEL_ORDER_SUCCESS,
-    CANCEL_ORDER_FAILED
+    CANCEL_ORDER_FAILED,
+    SEARCH_PRODUCTS_IN_ORDER_REQUEST,
+    SEARCH_PRODUCTS_IN_ORDER_SUCCESS,
+    SEARCH_PRODUCTS_IN_ORDER_FAILED
 } from '../constants/orderConstants'
 import axios from 'axios'
 
@@ -87,6 +90,31 @@ export const cancelOrder = (orderId) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: CANCEL_ORDER_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message :
+                error.message
+        })
+    }
+}
+
+// SEARCH PRODUCTS IN ORDER OF A ASINGLE USER
+export const searchProductsInOrder = (userId, q) => async (dispatch) => {
+    try {
+        dispatch({
+            type: SEARCH_PRODUCTS_IN_ORDER_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const { data } = await axios.get(`${API}/private/orders/${userId}/search?keyword=${q}`, config)
+        dispatch({
+            type: SEARCH_PRODUCTS_IN_ORDER_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: SEARCH_PRODUCTS_IN_ORDER_FAILED,
             payload: error.response &&
                 error.response.data.message ?
                 error.response.data.message :
