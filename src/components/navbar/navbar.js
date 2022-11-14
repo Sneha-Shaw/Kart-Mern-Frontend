@@ -59,8 +59,8 @@ const Navbar = () => {
                                 </div>
                             </li>
                             {
-                                categoryList.map((category) => (
-                                    <li>
+                                categoryList.map((category,index) => (
+                                    <li key={index}>
                                         <Link to={`/see-products?category=${category.value}`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler(category.value) }} >
                                             <h4>{category.label}</h4>
                                         </Link>
@@ -109,8 +109,8 @@ const Navbar = () => {
                     </div>
                     <div className={classes.categories}>
                         {
-                            categoryList.map((category) => (
-                                <Link to={`/see-products?category=${category.value}`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler(category.value) }} >
+                            categoryList.map((category,index) => (
+                                <Link key={index} to={`/see-products?category=${category.value}`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler(category.value) }} >
                                     <h4>{category.label}</h4>
                                 </Link>
                             ))
