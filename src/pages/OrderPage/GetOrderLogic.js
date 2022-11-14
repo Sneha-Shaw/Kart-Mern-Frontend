@@ -50,6 +50,7 @@ export const GetOrderLogic = () => {
         redirectHandler,
         searchProductsInOrderHandler,
         search,
-        products
+        products,
+        userInfo
     }
 }
