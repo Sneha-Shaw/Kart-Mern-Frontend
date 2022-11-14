@@ -5,13 +5,13 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'react-dropdown/style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllProducts } from '../../redux/actions/productAction'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import {searchProduct} from '../../redux/actions/productAction'
+import { searchProduct } from '../../redux/actions/productAction'
 
 const Navbar = () => {
     const classes = useStyles();
@@ -31,10 +31,10 @@ const Navbar = () => {
     //search handler
     const searchHandler = (e) => {
         //filter from all products
-        setSearch(e.target.value)
+        
         navigate(`/search?q=${e.target.value}`)
         dispatch(searchProduct(e.target.value))
-
+      
     }
     const [show, setShow] = useState(false)
     return (
@@ -123,7 +123,9 @@ const Navbar = () => {
                         <SearchIcon fontSize="large" />
                         <input type="text" placeholder="Search"
                             value={search}
-                            onChange={(e)=>searchHandler(e)}
+                            onChange={(e)=>{setSearch(e.target.value)}}
+                            // call searchHandler when enter key is pressed
+                            onKeyPress={(e) => e.key === 'Enter' ? searchHandler(e) : null}
                         />
                     </div>
 
