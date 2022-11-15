@@ -75,8 +75,10 @@ export default makeStyles((theme) => ({
         display: "flex !important",
         alignItems: "center",
         width: "100% !important",
-        background: "#395B64",
-        color: "white",
+        height: "25rem !important",
+        // background: "#395B64 !important",
+        background: "white !important",
+        // color: "white !important",
         position: "relative",
         [theme.breakpoints.down('md')]: {
             margin: "2rem 0rem !important",
@@ -85,21 +87,25 @@ export default makeStyles((theme) => ({
 
         }
     },
-    title:{
-        cursor:"pointer"
+    title: {
+        cursor: "pointer",
+        paddingTop: "2rem",
+        color: "#395B64"
     },
     details: {
-        width: "100%",
+        width: "60%",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',
         // padding: '3rem !important',
+        // background: "#395B64 !important",
+        height: "100% !important",
         '& h3': {
             fontSize: '2rem',
             fontWeight: '800',
         },
         [theme.breakpoints.down('md')]: {
-           
+
         }
     },
     price: {
@@ -110,16 +116,22 @@ export default makeStyles((theme) => ({
         fontSize: '1.5rem',
         padding: "0 0 2rem 0"
     },
-    cardImg:{
-        width: "20rem !important",
-        [theme.breakpoints.down('md')]:{
+    cardImg: {
+        width: "25rem !important",
+        height: "100% !important",
+        [theme.breakpoints.down('md')]: {
             width: "30rem !important"
         }
     },
-    
+
     cardActions: {
+        // background: "#395B64 !important",
+        // width: "10rem !important",
+        // height: "100% !important",
+        position: "absolute",
+        top: "0",
+        right: "0",
         [theme.breakpoints.down('md')]: {
-            position: "absolute",
             top: "-1rem",
             right: "-1rem"
         }

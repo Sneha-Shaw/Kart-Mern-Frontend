@@ -16,7 +16,7 @@ const OrderPage = () => {
     search,
     products,
     userInfo } = GetOrderLogic()
-  var [filtered,setFiltered] = useState([]);
+  var [filtered, setFiltered] = useState([]);
   const [filter, setFilter] = useState('')
   const orderFilter = ["All orders", "Pending", "Delivered"]
   // function to filter order based on status
@@ -48,14 +48,20 @@ const OrderPage = () => {
     // map filtered data to display on screen
     // filtered?.map(
     //   (order) => {
-      if(filter !== ''){
-        console.log(filtered)
+    if (filter !== '') {
+      console.log(filtered)
 
-      }
-      // }
+    }
+    // }
     // )
   }, [filter])
 
+  // capitalize first letter of a string
+  const capitalizeFirstLetter = () => {
+    const string = "sneha"
+    // return string.charAt(0).toUpperCase() + string.slice(1);
+    console.log(string.charAt(0).toUpperCase() + string.slice(1));
+  }
   return (
     <div className={classes.container}>
       <SideBar />
@@ -114,8 +120,8 @@ const OrderPage = () => {
                         <p className={classes.price}>₹{product?.productId?.price}</p>
                         <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                         <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
-                        <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status} </strong></p>
-                        <h2 style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Total: ₹{product.amount}</h2>
+                        <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                        <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                       </CardContent>
                       <CardActions className={classes.cardActions}>
                         <IconButton onClick={() => { cancelOrderHandler(product._id) }} >
@@ -151,8 +157,8 @@ const OrderPage = () => {
                           <p className={classes.price}>₹{product?.productId?.price}</p>
                           <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
-                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status} </strong></p>
-                          <h2 style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Total: ₹{product.amount}</h2>
+                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                          <h2 style={{ fontSize: '2rem', margin: '.5rem 0',paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                         </CardContent>
                         <CardActions className={classes.cardActions}>
                           <IconButton onClick={() => { cancelOrderHandler(product._id) }} >
@@ -190,8 +196,8 @@ const OrderPage = () => {
                           <p className={classes.price}>₹{product?.productId?.price}</p>
                           <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
-                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status} </strong></p>
-                          <h2 style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Total: ₹{product.amount}</h2>
+                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                          <h2 style={{ fontSize: '2rem', margin: '.5rem 0',paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                         </CardContent>
                         <CardActions className={classes.cardActions}>
                           <IconButton onClick={() => { cancelOrderHandler(product._id) }} >
