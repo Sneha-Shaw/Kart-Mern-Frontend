@@ -2,7 +2,7 @@ import React from 'react'
 import useStyles from './styles'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import ListAltIcon from '@mui/icons-material/ListAlt';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+// import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logoutUser } from '../../redux/actions/userAction';
 import { useDispatch } from 'react-redux';

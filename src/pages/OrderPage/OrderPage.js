@@ -6,7 +6,6 @@ import { Card, CardMedia, CardContent, CardActions, IconButton } from '@mui/mate
 import { GetOrderLogic } from './GetOrderLogic';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import axios from 'axios';
-import { CircularProgress } from '@mui/material';
 
 const OrderPage = () => {
   const classes = useStyles()
@@ -16,9 +15,7 @@ const OrderPage = () => {
     searchProductsInOrderHandler,
     search,
     products,
-    userInfo,
-    loadingOrders,
-    loadingProducts } = GetOrderLogic()
+    userInfo } = GetOrderLogic()
   var [filtered, setFiltered] = useState([]);
   const [filter, setFilter] = useState('')
   const orderFilter = ["All orders", "Pending", "Delivered"]
