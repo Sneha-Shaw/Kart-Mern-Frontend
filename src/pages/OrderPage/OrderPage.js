@@ -6,6 +6,7 @@ import { Card, CardMedia, CardContent, CardActions, IconButton } from '@mui/mate
 import { GetOrderLogic } from './GetOrderLogic';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import axios from 'axios';
+import { CircularProgress } from '@mui/material';
 
 const OrderPage = () => {
   const classes = useStyles()
@@ -15,7 +16,9 @@ const OrderPage = () => {
     searchProductsInOrderHandler,
     search,
     products,
-    userInfo } = GetOrderLogic()
+    userInfo,
+    loadingOrders,
+    loadingProducts } = GetOrderLogic()
   var [filtered, setFiltered] = useState([]);
   const [filter, setFilter] = useState('')
   const orderFilter = ["All orders", "Pending", "Delivered"]
@@ -57,11 +60,11 @@ const OrderPage = () => {
   }, [filter])
 
   // capitalize first letter of a string
-  const capitalizeFirstLetter = () => {
-    const string = "sneha"
-    // return string.charAt(0).toUpperCase() + string.slice(1);
-    console.log(string.charAt(0).toUpperCase() + string.slice(1));
-  }
+  // const capitalizeFirstLetter = () => {
+  //   const string = "sneha"
+  //   // return string.charAt(0).toUpperCase() + string.slice(1);
+  //   console.log(string.charAt(0).toUpperCase() + string.slice(1));
+  // }
   return (
     <div className={classes.container}>
       <SideBar />

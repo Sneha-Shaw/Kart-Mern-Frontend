@@ -9,14 +9,14 @@ import {
   deleteProductFromCart
 } from '../../redux/actions/productAction';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { CircularProgress } from '@mui/material';
 
 const Cart = () => {
 
   const classes = useStyles()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { cartProduct } = useSelector(state => state.getCart)
+  const { cartProduct, loading } = useSelector(state => state.getCart)
   const { userInfo } = useSelector(state => state.signInUser)
   const { data: deleteProduct, error } = useSelector(state => state.deleteProductFromCart)
 
@@ -64,34 +64,44 @@ const Cart = () => {
                   (product, index) => {
                     return (
 
-                      <div className={classes.cartContainer}>
-
-                        <Card className={classes.card} >
-                          {/* <input 
+                      <div className={classes.cartContainer} key={index}>
+                        {
+                          loading ? <CircularProgress size={50}
+                            sx={{
+                              color: "green",
+                              position: 'absolute',
+                              top: "1rem",
+                              left: "2rem",
+                              zIndex: 1,
+                            }} /> :
+                            <Card className={classes.card} >
+                              {/* <input 
                       type="checkbox"
                        className={classes.checkbox}
                       /> */}
-                          <CardMedia
-                            className={classes.media}
-                            component="img"
-                            image={product.productId.featureimg[0]}
-                            sx={{ width: "20rem" }}
-                            onClick={() => redirectHandler(product.productId._id)}
+                              <CardMedia
+                                className={classes.media}
+                                component="img"
+                                image={product.productId.featureimg[0]}
+                                sx={{ width: "20rem" }}
+                                onClick={() => redirectHandler(product.productId._id)}
 
-                          />
-                          <CardContent className={classes.cardContent}
-                            onClick={() => redirectHandler(product.productId._id)}
-                          >
+                              />
+                              <CardContent className={classes.cardContent}
+                                onClick={() => redirectHandler(product.productId._id)}
+                              >
 
-                            <h3>{product.productId.title}</h3>
-                            <h3>₹{product.productId.price}</h3>
-                          </CardContent>
-                          <CardActions className={classes.cardActions}>
-                            <IconButton onClick={() => { dispatch(deleteProductFromCart(userInfo?._id, product.productId._id)) }} >
-                              <HighlightOffIcon fontSize='large' />
-                            </IconButton>
-                          </CardActions>
-                        </Card>
+                                <h3>{product.productId.title}</h3>
+                                <h3>₹{product.productId.price}</h3>
+                              </CardContent>
+                              <CardActions className={classes.cardActions}>
+                                <IconButton onClick={() => { dispatch(deleteProductFromCart(userInfo?._id, product.productId._id)) }} >
+                                  <HighlightOffIcon fontSize='large' />
+                                </IconButton>
+                              </CardActions>
+                            </Card>
+                        }
+
                       </div>
 
                     );

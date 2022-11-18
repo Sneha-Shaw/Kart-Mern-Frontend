@@ -25,6 +25,7 @@ export default makeStyles((theme) => ({
         height: "100%", 
         padding: "1rem",
         borderRadius: "1rem",
+        position: "relative"
       
     },
     cards: {

@@ -31,6 +31,7 @@ export default makeStyles((theme) => ({
         width: '100%',
         alignItems: 'center',
         textAlign: 'center',
+        position: 'relative'
     },
     card: {
         display: 'flex',
