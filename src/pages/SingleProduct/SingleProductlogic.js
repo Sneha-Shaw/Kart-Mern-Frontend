@@ -18,37 +18,39 @@ export const SingleProductLogic = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(() => {
-       
-            dispatch(getSingleProduct(id))
-      
-    }, [dispatch])
 
+        dispatch(getSingleProduct(id))
+
+    }, [dispatch])
+    
     const [show, setShow] = useState()
 
     useEffect(() => {
-        setShow(product?.featureimg[0])
-    }, [product?.featureimg])
+        setShow(product?.product?.featureimg[0])
+    }, [product?.product?.featureimg])
 
     useEffect(() => {
-        setTimeout(() => {
-            dispatch(checkIfWishlist(userInfo?._id, product?._id))
-        }, 1500);
-    }, [dispatch, product?._id, userInfo?._id])
+
+        if (product?.product?._id !== undefined) {
+            dispatch(checkIfWishlist(userInfo?._id, product?.product?._id))
+        }
+
+    }, [dispatch, product?.product?._id, userInfo?._id])
 
     const addToWishHandler = () => {
         if (userInfo) {
             if (isWishlist?.isWishlist === false) {
                 setTimeout(() => {
 
-                    dispatch(addToWishlist(userInfo?._id, product?._id))
+                    dispatch(addToWishlist(userInfo?._id, product?.product?._id))
                 }, 1500);
-                    Swal.fire({
+                Swal.fire({
 
-                        icon: 'success',
-                        text: 'Added to wishlist',
+                    icon: 'success',
+                    text: 'Added to wishlist',
 
-                    })
-                }
+                })
+            }
             else {
                 Swal.fire({
                     icon: 'info',
@@ -62,18 +64,18 @@ export const SingleProductLogic = () => {
 
     const addToCartHandler = () => {
 
-        if (userInfo ) {
-            if(product){
-                dispatch(addToCart(userInfo?._id, product?._id))
+        if (userInfo) {
+            if (product) {
+                dispatch(addToCart(userInfo?._id, product?.product?._id))
                 Swal.fire({
-    
+
                     icon: 'success',
                     text: 'Added to cart',
-    
+
                 })
                 navigate('/cart')
             }
-        
+
         } else {
             navigate('/login')
         }

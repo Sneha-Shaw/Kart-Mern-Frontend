@@ -10,7 +10,6 @@ import 'reactjs-popup/dist/index.css';
 const Checkout = () => {
     const classes = useStyles()
     const {
-        placeOrderHandler,
         cartProduct,
         name,
         addressShow,
@@ -25,6 +24,7 @@ const Checkout = () => {
         quantity,
         increaseQuantity,
         decreaseQuantity,
+        placeOrderHandler,
         setName,
         setAddress,
         setCity,
@@ -58,17 +58,17 @@ const Checkout = () => {
                                     <h4>Your Addresses</h4>
                                     <div className={classes.divider} style={{ margin: "0 1rem", width: "98%" }}></div>
                                     {
-                                        user?.address ?
+                                        user?.user?.address ?
 
 
                                             <div className={classes.Address}>
                                                 {/* <input type="radio" name="address" id="address" /> */}
                                                 <div className={classes.AddressDetails}>
-                                                    <p> <strong>{user?.name}</strong>
-                                                        {", " + (user && user.address)} {", " + (user && user.city)}{"- " + (user && user.Pincode)} {", " + (user && user.State)}
+                                                    <p> <strong>{user?.user?.name}</strong>
+                                                        {", " + (user && user.user.address)} {", " + (user && user.user.city)}{"- " + (user && user.user.pincode)} {", " + (user && user.user.state)}
                                                         <br />
                                                         {
-                                                            user?.Landmark ? "Landmark: " + user?.Landmark : ""
+                                                            user?.user?.landmark ? "Landmark: " + user?.user?.landmark : ""
                                                         }
                                                         <Button>Edit Address</Button></p>
 
@@ -175,11 +175,11 @@ const Checkout = () => {
                             <div className={classes.noneditbox}>
                                 <h2>1. Delivery address</h2>
                                 <div className={classes.AddressDetails}>
-                                    <p> <strong>{user?.name}</strong>
-                                        {", " + (user && user.address)} {", " + (user && user.city)}{"- " + (user && user.Pincode)} {", " + (user && user.State)}
+                                    <p> <strong>{user?.user?.name}</strong>
+                                        {", " + (user && user.user.address)} {", " + (user && user.user.city)}{"- " + (user && user.user.pincode)} {", " + (user && user.user.state)}
                                         <br />
                                         {
-                                            user?.Landmark ? "Landmark: " + user?.Landmark : ""
+                                            user?.user?.landmark ? "Landmark: " + user?.user?.landmark : ""
                                         }
                                     </p>
                                 </div>
@@ -228,7 +228,7 @@ const Checkout = () => {
                             <div className={classes.boxContainer}>
                                 <h2>3. Review your order</h2>
                                 {cartProduct &&
-                                    cartProduct.body.map(
+                                    cartProduct.cart.map(
                                         (product, index) => {
                                             return (
 
@@ -238,12 +238,12 @@ const Checkout = () => {
                                                         <CardMedia
                                                             className={classes.media}
                                                             component="img"
-                                                            image={product.productId.featureimg[0]}
+                                                            image={product.product.featureimg[0]}
                                                             sx={{ width: "20rem" }}
                                                         />
                                                         <CardContent className={classes.cardContent}>
                                                             <div>
-                                                                <h3>{product.productId.title}</h3>
+                                                                <h3>{product.product.title}</h3>
                                                                 <div className={classes.quantity}>
                                                                     <RemoveIcon fontSize="large" className={classes.margin} onClick={decreaseQuantity} />
                                                                     <p>{quantity}</p>
@@ -252,7 +252,7 @@ const Checkout = () => {
                                                                 </div>
                                                                 <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                                                             </div>
-                                                            <h3>₹{product.productId.price}</h3>
+                                                            <h3>₹{product.product.price}</h3>
                                                         </CardContent>
 
                                                     </Card>

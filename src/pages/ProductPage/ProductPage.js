@@ -27,7 +27,7 @@ const ProductPage = () => {
 
             <div className={classes.cards}>
               {products &&
-                products.data.map(
+                products.products.map(
                   (product, index) => {
                     return (
 

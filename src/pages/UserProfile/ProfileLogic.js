@@ -12,7 +12,7 @@ export const ProfileLogic = () => {
         dispatch(getSingleUser(userInfo._id))
     }, [])
     //state variables to update name,email,address,city,zipcode
-    // const [name, setName] = useState(user && user.name)
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [mobile, setMobile] = useState('')
     const [address, setAddress] = useState('')
@@ -23,6 +23,7 @@ export const ProfileLogic = () => {
     const id = userInfo?._id
     const updateUserHandler = () => {
         dispatch(updateUser(
+            name,
             email,
             mobile,
             address,
@@ -38,13 +39,10 @@ export const ProfileLogic = () => {
             })
         }, 3000);
     }
-    const fullName = user?.name.split(" ");
-    const firstName = fullName && fullName[0];
-    const lastName = fullName && fullName[1];
     return {
         user,
-        firstName,
-        lastName,
+        name,
+        setName,
         email,
         mobile,
         address,

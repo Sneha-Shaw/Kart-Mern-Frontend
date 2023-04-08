@@ -21,7 +21,6 @@ const CardComponent = ({ product }) => {
     }
     const [show, setShow] = React.useState(false);
 
-
     return (
         <div>
             <Card

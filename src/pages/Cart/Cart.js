@@ -20,8 +20,9 @@ const Cart = () => {
   const { userInfo } = useSelector(state => state.signInUser)
   const { data: deleteProduct, error } = useSelector(state => state.deleteProductFromCart)
 
+  console.log(cartProduct);
   const checkoutHandler = () => {
-    if (cartProduct && cartProduct.body.length !== 0) {
+    if (cartProduct && cartProduct.cart.length !== 0) {
       navigate('/checkout')
     } else {
       Swal.fire({
@@ -53,14 +54,14 @@ const Cart = () => {
   return (
     <div className={classes.root}>
       {
-        cartProduct && cartProduct.body.length !== 0 ?
+        cartProduct && cartProduct.cart.length !== 0 ?
           <div className={classes.container}>
             {/* cart */}
             <div className={classes.cart}>
               <h1 className={classes.cartTitle}>My Shopping Cart</h1>
               {/* <div className={classes.cartItem}> */}
               {cartProduct &&
-                cartProduct.body.map(
+                cartProduct.cart.map(
                   (product, index) => {
                     return (
 
@@ -82,20 +83,20 @@ const Cart = () => {
                               <CardMedia
                                 className={classes.media}
                                 component="img"
-                                image={product.productId.featureimg[0]}
+                                image={product.product.featureimg[0]}
                                 sx={{ width: "20rem" }}
-                                onClick={() => redirectHandler(product.productId._id)}
+                                onClick={() => redirectHandler(product.product._id)}
 
                               />
                               <CardContent className={classes.cardContent}
-                                onClick={() => redirectHandler(product.productId._id)}
+                                onClick={() => redirectHandler(product.product._id)}
                               >
 
-                                <h3>{product.productId.title}</h3>
-                                <h3>₹{product.productId.price}</h3>
+                                <h3>{product.product.title}</h3>
+                                <h3>₹{product.product.price}</h3>
                               </CardContent>
                               <CardActions className={classes.cardActions}>
-                                <IconButton onClick={() => { dispatch(deleteProductFromCart(userInfo?._id, product.productId._id)) }} >
+                                <IconButton onClick={() => { dispatch(deleteProductFromCart(userInfo?._id, product.product._id)) }} >
                                   <HighlightOffIcon fontSize='large' />
                                 </IconButton>
                               </CardActions>
@@ -113,7 +114,7 @@ const Cart = () => {
             <Card className={classes.cardTotal}>
               <div className={classes.content}>
                 <h1>Subtotal</h1>
-                <h1>₹{cartProduct && cartProduct.body.reduce((acc, item) => acc + Number(item.productId.price), 0)}</h1>
+                <h1>₹{cartProduct && cartProduct.cart.reduce((acc, item) => acc + Number(item.product.price), 0)}</h1>
               </div>
               <Button variant="contained" color="primary" className={classes.button} onClick={checkoutHandler} >
                 Checkout

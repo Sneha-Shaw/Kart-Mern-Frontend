@@ -18,9 +18,11 @@ export const CheckoutLogic = () => {
     const { cartProduct } = useSelector(state => state.getCart)
     const { userInfo } = useSelector(state => state.signInUser)
     const { user } = useSelector((state) => state.getSingleUser)
+
     useEffect(() => {
         dispatch(getSingleUser(userInfo._id))
     }, [dispatch, userInfo._id])
+
     const [addressShow, setAddressShow] = useState(true)
     const [showPayment, setShowPayment] = useState(false)
     const [showReview, setShowReview] = useState(false)
@@ -41,10 +43,10 @@ export const CheckoutLogic = () => {
                 name: name,
                 address: address,
                 city: city,
-                State: state,
-                Pincode: pincode,
+                state: state,
+                pincode: pincode,
                 altMobile: altMobile,
-                Landmark: landmark,
+                landmark: landmark,
                 AddressType: addressType
             }
             axios.post(`http://localhost:5000/public/auth/add-address/${userInfo?._id}`, body)
@@ -55,11 +57,19 @@ export const CheckoutLogic = () => {
         }
 
     }
+    var showAddress = ""
 
-    var showAddress = `${user?.name}, ${user && user.address}, ${user && user.city} - ${(user?.Pincode)}, ${user?.State}, Mobile: ${user?.mobile}, Alt. Mobile - ${user?.altMobile}, Landmark: ${user?.Landmark}, AddressType: ${user?.AddressType}`
+    useEffect(() => {
+        if (userInfo) {
 
+            showAddress = `${user?.user?.name}, ${user && user?.user?.address}, ${user && user?.user?.city} - ${(user?.user?.pincode)}, ${user?.user?.state}, Mobile: ${user?.user?.mobile}, Alt. Mobile - ${user?.user?.altMobile}, Landmark: ${user?.user?.landmark}, AddressType: ${user?.user?.AddressType}`
+
+        }
+    }, [user])
+
+    console.log(user);
     const [quantity, setQuantity] = useState(1)
-    const subtotal = (cartProduct && cartProduct.body[0]?.productId.price) * quantity
+    const subtotal = (cartProduct && cartProduct.cart[0]?.product.price) * quantity
 
     const shipping = 40
     const total = subtotal + shipping
@@ -91,7 +101,7 @@ export const CheckoutLogic = () => {
                     return
                 }
                 // create order of Razorpay from backend and get orderId and amount
-                const data = await makePaymentRazorpayHelper(cartProduct && cartProduct.body[0]?.productId._id)
+                const data = await makePaymentRazorpayHelper(cartProduct && cartProduct.cart[0]?.product._id)
                 const options = {
                     key: REACT_APP_RAZORPAY_ID,
                     currency: data.currency,
@@ -102,7 +112,7 @@ export const CheckoutLogic = () => {
                         // Payment Success Helper
                         const res = await successPaymentRazorpayHelper(
                             data.orderId,
-                            cartProduct && cartProduct.body[0]?.productId._id,
+                            cartProduct && cartProduct.cart[0]?.product._id,
                             userInfo && userInfo._id
                         )
                         if (res) {
@@ -110,15 +120,15 @@ export const CheckoutLogic = () => {
                                 icon: 'success',
                                 title: `Transaction completed and Order is Placed`,
                             })
-                            dispatch(createOrder(userInfo?._id, cartProduct && cartProduct.body[0]?.productId._id, quantity, total, showAddress))
+                            dispatch(createOrder(userInfo?._id, cartProduct && cartProduct.cart[0]?.product._id, quantity, total, showAddress))
                             setTimeout(() => {
                                 navigate('/cart')
                             }, 2000)
                         }
                     },
                     prefill: {
-                        email: (user) && (user.email),
-                        phone_number: (user) && (user.mobile)
+                        email: (user) && (user?.user?.email),
+                        phone_number: (user) && (user?.user?.mobile)
                     }
                 }
                 const paymentObject = new window.Razorpay(options)
@@ -134,7 +144,6 @@ export const CheckoutLogic = () => {
 
     return {
         cartProduct,
-        showAddress,
         name,
         addressShow,
         setAddressShow,

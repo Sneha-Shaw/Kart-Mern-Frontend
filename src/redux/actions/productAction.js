@@ -44,7 +44,7 @@ export const getAllProducts = (category) => async (dispatch) => {
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.get(`${API}/private/products/all?category=${category}`, config)
+        const { data } = await axios.get(`${API}/public/products/all?category=${category}`, config)
         dispatch({
             type: GET_ALL_PRODUCT_SUCCESS,
             payload: data
@@ -70,7 +70,7 @@ export const getSingleProduct = (id) => async (dispatch) => {
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.get(`${API}/private/products/get-single-product/${id}`, config)
+        const { data } = await axios.get(`${API}/public/products/get-single-product/${id}`, config)
         dispatch({
             type: GET_SINGLE_PRODUCT_SUCCESS,
             payload: data
@@ -96,7 +96,7 @@ export const addToWishlist = (userId, productId) => async (dispatch) => {
             'Content-Type': 'application/json',
 
         }
-        const { data } = await axios.post(`${API}/private/products/add-product-to-wishlist/${userId}/${productId}`, config)
+        const { data } = await axios.post(`${API}/public/products/add-product-to-wishlist/${userId}/${productId}`, config)
         dispatch({
             type: ADD_TO_WISHLIST_SUCCESS,
             payload: data
@@ -121,7 +121,7 @@ export const getWishlist = (userId) => async (dispatch) => {
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.get(`${API}/private/products/wishlist-products/${userId}`, config)
+        const { data } = await axios.get(`${API}/public/products/wishlist-products/${userId}`, config)
         dispatch({
             type: GET_WISHLIST_SUCCESS,
             payload: data
@@ -140,13 +140,14 @@ export const getWishlist = (userId) => async (dispatch) => {
 // CHECK IF PRODUCT IS IN WISHLIST
 export const checkIfWishlist = (userId, productId) => async (dispatch) => {
     try {
+        console.log(userId);
         dispatch({
             type: CHECK_IF_WISHLIST_REQUEST
         })
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.get(`${API}/private/products/check-product-in-wishlist/${userId}/${productId}`, config)
+        const { data } = await axios.get(`${API}/public/products/check-product-in-wishlist/${userId}/${productId}`, config)
         dispatch({
             type: CHECK_IF_WISHLIST_SUCCESS,
             payload: data
@@ -170,7 +171,7 @@ export const deleteFromWishlist = (userId, productId) => async (dispatch) => {
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.delete(`${API}/private/products/remove-from-wishlist/${userId}/${productId}`, config)
+        const { data } = await axios.post(`${API}/public/products/remove-from-wishlist/${userId}/${productId}`, config)
         dispatch({
             type: DELETE_FROM_WISHLIST_SUCCESS,
             payload: data
@@ -195,7 +196,7 @@ export const addToCart = (userId, productId) => async (dispatch) => {
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.post(`${API}/private/products/add-to-cart/${userId}/${productId}`, config)
+        const { data } = await axios.post(`${API}/public/products/add-to-cart/${userId}/${productId}`, config)
         dispatch({
             type: ADD_TO_CART_SUCCESS,
             payload: data
@@ -220,7 +221,7 @@ export const getCart = (userId) => async (dispatch) => {
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.get(`${API}/private/products/cart-products/${userId}`, config)
+        const { data } = await axios.get(`${API}/public/products/cart-products/${userId}`, config)
         dispatch({
             type: GET_CART_SUCCESS,
             payload: data
@@ -245,7 +246,7 @@ export const deleteProductFromCart = (userId, productId) => async (dispatch) => 
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.delete(`${API}/private/products/remove-from-cart/${userId}/${productId}`, config)
+        const { data } = await axios.delete(`${API}/public/products/remove-from-cart/${userId}/${productId}`, config)
         dispatch({
             type: DELETE_PRODUCT_FROM_CART_SUCCESS,
             payload: data
@@ -262,21 +263,21 @@ export const deleteProductFromCart = (userId, productId) => async (dispatch) => 
 }
 
 //search product using keyword
-export const searchProduct = (keyword)=> async (dispatch)=>{
-    try{
+export const searchProduct = (keyword) => async (dispatch) => {
+    try {
         dispatch({
             type: SEARCH_PRODUCT_REQUEST
         })
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.get(`${API}/private/products/search?keyword=${keyword}`, config)
+        const { data } = await axios.get(`${API}/public/products/search?keyword=${keyword}`, config)
         dispatch({
             type: SEARCH_PRODUCT_SUCCESS,
             payload: data
         })
     }
-    catch(error){
+    catch (error) {
         dispatch({
             type: SEARCH_PRODUCT_FAILED,
             payload: error.response &&

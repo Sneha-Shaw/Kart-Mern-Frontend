@@ -55,7 +55,7 @@ export const signInUser = (email, password) => async (dispatch) => {
     })
   }
 }
-export const signUpUser = (username, email, password, mobile) => async (dispatch) => {
+export const signUpUser = ( email, password, mobile) => async (dispatch) => {
   try {
     dispatch({
       type: USER_SIGNUP_REQUEST
@@ -65,12 +65,11 @@ export const signUpUser = (username, email, password, mobile) => async (dispatch
       'Content-Type': 'application/json'
     }
     const body = {
-      username,
       email,
       password,
       mobile
     }
-    const { data } = await axios.post(`${API}/public/auth/signup`, body, config)
+    const { data } = await axios.post(`${API}/public/auth/register`, body, config)
     dispatch({
       type: USER_SIGNUP_SUCCESS,
       payload: data
@@ -96,7 +95,7 @@ export const getSingleUser = (id) => async (dispatch) => {
     const config = {
       'Content-Type': 'application/json'
     }
-    const { data } = await axios.get(`${API}/public/auth/get-single-user/${id}`, config)
+    const { data } = await axios.get(`${API}/public/auth/profile/${id}`, config)
     dispatch({
       type: GET_SINGLE_USER_SUCCESS,
       payload: data
@@ -125,7 +124,7 @@ export const logoutUser = () => (dispatch) => {
 
 // update user
 export const updateUser = (
-  // name,
+  name,
   email,
   // password,
   mobile,
@@ -145,7 +144,7 @@ export const updateUser = (
         'Content-Type': 'application/json'
       }
       const body = {
-        // name: name,
+        name: name,
         email: email,
         // password: password,
         mobile: mobile,

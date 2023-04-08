@@ -17,7 +17,7 @@ const SearchResultPage = () => {
       <div className={classes.right}>
         <div className={classes.cards}>
           {searchResult &&
-            searchResult.data.map(
+            searchResult.products.map(
               (product, index) => {
                 return (
 

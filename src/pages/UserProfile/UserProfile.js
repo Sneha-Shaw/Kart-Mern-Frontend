@@ -10,8 +10,8 @@ const UserProfile = () => {
   const classes = useStyles();
   const {
     user,
-    firstName,
-    lastName,
+    name,
+    setName,
     email,
     mobile,
     address,
@@ -40,36 +40,30 @@ const UserProfile = () => {
         </div>
 
         <div className={classes.inputContainer}>
-          <h3 className={classes.inputLabel}>First Name</h3>
-          <input type="text" placeholder="First Name"
-            value={firstName}
+          <h3 className={classes.inputLabel}> Name</h3>
+          <input type="text" placeholder=" Name"
+            value={name === '' ? user && user.user.name : name}
+            onChange={(e) => setName(e.target.value)}
           />
-        </div>
-        <div className={classes.inputContainer}>
-          <h3 className={classes.inputLabel}>Last Name</h3>
-          <input type="text" placeholder="Last Name"
-            value={lastName}
-          />
-
         </div>
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}>Email</h3>
           <input type="text" placeholder="Email"
-            value={email === '' ? user && user.email : email}
+            value={email === '' ? user && user.user.email : email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}>Mobile</h3>
           <input type="text" placeholder="Mobile"
-            value={mobile === '' ? user && user.mobile : mobile}
+            value={mobile === '' ? user && user.user.mobile : mobile}
             onChange={(e) => setMobile(e.target.value)}
           />
         </div>
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}>Address</h3>
           <input type="text" placeholder="Address"
-            value={address === '' ? user && user.address : address}
+            value={address === '' ? user && user.user.address : address}
             onChange={(e) => setAddress(e.target.value)}
           />
         </div>
@@ -77,14 +71,14 @@ const UserProfile = () => {
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}>City</h3>
           <input type="text" placeholder="City"
-            value={city === '' ? user && user.city : city}
+            value={city === '' ? user && user.user.city : city}
             onChange={(e) => setCity(e.target.value)}
           />
         </div>
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}>State</h3>
           <input type="text" placeholder="State"
-            value={state === '' ? user && user.State : state}
+            value={state === '' ? user && user.user.State : state}
             onChange={(e) => setState(e.target.value)}
           />
         </div>
@@ -93,7 +87,7 @@ const UserProfile = () => {
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}>Zip Code</h3>
           <input type="text" placeholder="Zip Code"
-            value={pincode === '' ? user && user.Pincode : pincode}
+            value={pincode === '' ? user && user.user.Pincode : pincode}
             onChange={(e) => setPincode(e.target.value)}
           />
         </div>

@@ -16,6 +16,7 @@ const Wishlist = () => {
   const { wishlistProduct, loading } = useSelector(state => state.getWishlist)
   const { userInfo } = useSelector(state => state.signInUser)
   const { data: deleteProduct, error } = useSelector(state => state.deleteFromWishlist)
+
   useEffect(() => {
     if (!error) {
 
@@ -24,6 +25,7 @@ const Wishlist = () => {
       }, 1000)
     }
   }, [deleteProduct, dispatch, error])
+
   useEffect(() => {
     if (userInfo) {
       dispatch(getWishlist(userInfo?._id))
@@ -35,7 +37,7 @@ const Wishlist = () => {
   return (
     <div className={classes.root}>
       {
-        wishlistProduct && wishlistProduct.body.length !== 0 ?
+        wishlistProduct && wishlistProduct.wishlist.length !== 0 ?
           <div className={classes.container}>
             {
               loading ? <CircularProgress size={50}
@@ -48,10 +50,10 @@ const Wishlist = () => {
                 }} /> :
                 <div className={classes.products}>
                   {wishlistProduct &&
-                    wishlistProduct.body.map(
+                    wishlistProduct.wishlist.map(
                       (product, index) => {
                         return (
-                          <CardComponent product={product.productId} key={index} />
+                          <CardComponent product={product?.product} key={index} />
 
                         );
                       })}

@@ -10,8 +10,6 @@ const Register = () => {
         setEmail,
         password,
         setPassword,
-        name,
-        setName,
         mobile,
         setMobile,
         signupHandler
@@ -21,15 +19,7 @@ const Register = () => {
             <div className={classes.formContainer}>
                 <div className={classes.form}>
                     <h1 className={classes.heading}>Create an account</h1>
-                    <div className={classes.inputContainer}>
-                        <label className={classes.label}>Name</label>
-                        <input
-                            type="text"
-                            className={classes.input}
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
+                  
                     <div className={classes.inputContainer}>
                         <label className={classes.label}>Email</label>
                         <input

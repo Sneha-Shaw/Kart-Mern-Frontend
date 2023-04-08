@@ -27,7 +27,7 @@ const SingleProduct = () => {
           <div className={classes.imageOption}>
 
             {
-              product?.featureimg.map((currentImg) => (
+              product?.product?.featureimg.map((currentImg) => (
                 <div className={classes.imageContainer}>
                   <img src={currentImg} alt="" className={classes.img} onMouseOver={() => changeImage(currentImg)} />
                 </div>
@@ -38,16 +38,16 @@ const SingleProduct = () => {
         </div>
         <div className={classes.right}>
           <div className={classes.details}>
-            <h1 className={classes.title}>{product?.title}</h1>
+            <h1 className={classes.title}>{product?.product?.title}</h1>
             <div className={classes.divider}></div>
-            <p className={classes.price}><span style={{ color: "black" }}>Price: </span>₹{product?.price}</p>
+            <p className={classes.price}><span style={{ color: "black" }}>Price: </span>₹{product?.product?.price}</p>
 
             {/* <div className={classes.sizes}>
               <h3>Size:</h3>
               <select className={classes.select}>
                 <option value="not selected" >Select</option>
                 {
-                  product?.size.map((currentSize, index) => (
+                  product?.product?.size.map((currentSize, index) => (
                     <option value={currentSize} key={index}>{currentSize}</option>
                   ))
                 }
@@ -81,15 +81,15 @@ const SingleProduct = () => {
       </div>
       <div className={classes.productDescription}>
         <h1>Product Details</h1>
-        <p><span style={{ fontWeight: "bold" }}>Manufacturer:</span>{product?.manufacturer}</p>
-        <p><span style={{ fontWeight: "bold" }}>ASIN:</span>{product?.asin}</p>
-        <p><span style={{ fontWeight: "bold" }}>Item model number:</span>{product?.itemModelNumber}</p>
-        <p><span style={{ fontWeight: "bold" }}>Country of Origin:</span>{product?.countryOfOrigin}</p>
-        <p><span style={{ fontWeight: "bold" }}>Manufacturer:</span>{product?.manufacturer}</p>
-        <p><span style={{ fontWeight: "bold" }}>Packer:</span>{product?.packer}</p>
-        <p><span style={{ fontWeight: "bold" }}>Item Weight:</span>{product?.itemWeight}</p>
-        <p><span style={{ fontWeight: "bold" }}>Item Dimensions LxWxH:</span>{product?.itemDimensions}</p>
-        <p><span style={{ fontWeight: "bold" }}>Generic Name:</span>{product?.genericName}</p>
+        <p><span style={{ fontWeight: "bold" }}>Manufacturer:</span>{product?.product?.manufacturer}</p>
+        <p><span style={{ fontWeight: "bold" }}>ASIN:</span>{product?.product?.asin}</p>
+        <p><span style={{ fontWeight: "bold" }}>Item model number:</span>{product?.product?.itemModelNumber}</p>
+        <p><span style={{ fontWeight: "bold" }}>Country of Origin:</span>{product?.product?.countryOfOrigin}</p>
+        <p><span style={{ fontWeight: "bold" }}>Manufacturer:</span>{product?.product?.manufacturer}</p>
+        <p><span style={{ fontWeight: "bold" }}>Packer:</span>{product?.product?.packer}</p>
+        <p><span style={{ fontWeight: "bold" }}>Item Weight:</span>{product?.product?.itemWeight}</p>
+        <p><span style={{ fontWeight: "bold" }}>Item Dimensions LxWxH:</span>{product?.product?.itemDimensions}</p>
+        <p><span style={{ fontWeight: "bold" }}>Generic Name:</span>{product?.product?.genericName}</p>
       </div>
       <div className={classes.reviewSection}>
         <div className={classes.starContainer}>
