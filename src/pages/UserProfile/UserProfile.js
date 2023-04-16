@@ -4,7 +4,7 @@ import SideBar from '../../components/SideBar/SideBar';
 import { Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import { ProfileLogic } from './ProfileLogic'
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 
 const UserProfile = () => {
   const classes = useStyles();
@@ -26,18 +26,23 @@ const UserProfile = () => {
     setState,
     updateUserHandler
   } = ProfileLogic()
+
+  console.log(user?.user);
   return (
     <div className={classes.container}>
       <SideBar />
       <div className={classes.settingsContainer}>
-        {/* <h1>My Profile</h1> */}
         <div className={classes.profilePicture}>
-          {/* <img src="https://faces-img.xcdn.link/image-lorem-face-5919.jpg" alt="profile" /> */}
-          <Avatar sx={{ width: "100%", height: "100%" }} />
+          <img src={user?.user?.avatar} alt={user?.user?.name} />
           <div className={classes.profilePictureButton}>
             <EditIcon fontSize="medium" />
+            {/* <input file */}
+            {/* <input type="file" /> */}
           </div>
         </div>
+
+{/* popup for drag and drop profile pic */}
+
 
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}> Name</h3>

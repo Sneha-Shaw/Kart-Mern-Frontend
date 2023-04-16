@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
         justifyContent: "space-between",
         background: "black",
         color: "white",
-        
+
     },
     textPart: {
         width: "50%",
@@ -37,7 +37,7 @@ export default makeStyles((theme) => ({
         width: "40%",
         padding: "2.1rem",
         [theme.breakpoints.down("md")]: {
-          display: "none"
+            display: "none"
         }
     },
     rectangle: {
@@ -47,7 +47,7 @@ export default makeStyles((theme) => ({
         borderRadius: "10%",
         // display: "none",
         [theme.breakpoints.down("md")]: {
-           display: "none"
+            display: "none"
         }
 
 
@@ -73,10 +73,66 @@ export default makeStyles((theme) => ({
         // display: "none",
         [theme.breakpoints.down("md")]: {
             width: "130%",
-            top:"-1rem",
+            top: "-1rem",
             left: "-2rem",
         }
 
+    },
+    cardsContainer: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "2rem 0",
+        flexDirection: "column",
+        '& h3': {
+            fontSize: "3rem",
+        }
+    },
+    cards: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        padding: "2rem 0",
+
+        [theme.breakpoints.down("md")]: {
+            flexDirection: "column",
+            alignItems: "center",
+        }
+    },
+    card: {
+        width: "25%",
+        height: "70rem",
+        margin: "0 2rem",
+        [theme.breakpoints.down("md")]: {
+            width: "100%",
+            margin: "1rem 0",
+        }
+    },
+    details: {
+        width: "90%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "center",
+        '& h4': {
+            fontSize: "2rem",
+        }
+
+    },
+    shop: {
+        width: "90%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "2rem 0",
+        fontSize: "1.6rem",
+        '& svg': {
+            fontSize: "2.4rem",
+            cursor: "pointer",
+            color: "black",
+        }
     }
 }
 )
