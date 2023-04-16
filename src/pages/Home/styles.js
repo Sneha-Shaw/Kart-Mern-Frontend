@@ -98,7 +98,7 @@ export default makeStyles((theme) => ({
 
         [theme.breakpoints.down("md")]: {
             flexDirection: "column",
-            alignItems: "center",
+            width:"90%"
         }
     },
     card: {
@@ -107,7 +107,7 @@ export default makeStyles((theme) => ({
         margin: "0 2rem",
         [theme.breakpoints.down("md")]: {
             width: "100%",
-            margin: "1rem 0",
+            margin: "2rem 0",
         }
     },
     details: {
