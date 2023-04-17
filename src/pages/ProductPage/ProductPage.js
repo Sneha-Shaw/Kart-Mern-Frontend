@@ -35,6 +35,10 @@ const ProductPage = () => {
 
                     );
                   })}
+              {
+                products && products.products.length === 0 &&
+                <h1 className={classes.notFound}>No products found</h1>
+              }
             </div>
         }
       </div>

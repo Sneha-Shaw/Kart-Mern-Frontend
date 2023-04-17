@@ -36,5 +36,14 @@ export default makeStyles((theme) => ({
 
         }
     },
+    notFound:{
+        textAlign: "center",
+        fontSize: "4rem",
+        color: "red",
+        marginTop: "2rem",
+        position:"absolute",
+        top:"50%",
+        left:"50%",
+    }
 
 }));

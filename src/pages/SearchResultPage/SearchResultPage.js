@@ -2,7 +2,7 @@ import React from 'react'
 import Filter from '../../components/Filter/Filter'
 import CardComponent from '../../components/Card/CardComponent'
 import useStyles from "./styles";
-import {SearchResultPageLogic } from './SearchResultPageLogic';
+import { SearchResultPageLogic } from './SearchResultPageLogic';
 
 
 const SearchResultPage = () => {
@@ -24,7 +24,11 @@ const SearchResultPage = () => {
                   <CardComponent product={product} key={index} />
 
                 );
-              })}
+              })
+          }{
+            searchResult && searchResult.products.length === 0 &&
+            <h1 className={classes.notFound}>No products found</h1>
+          }
         </div>
       </div>
 

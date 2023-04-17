@@ -39,7 +39,7 @@ export const SingleProductLogic = () => {
 
     const addToWishHandler = () => {
         if (userInfo) {
-            if (isWishlist?.isWishlist === false) {
+            if (isWishlist?.isPresent === false) {
                 setTimeout(() => {
 
                     dispatch(addToWishlist(userInfo?._id, product?.product?._id))

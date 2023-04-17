@@ -12,6 +12,7 @@ const SingleProduct = () => {
     setShow,
     addToWishHandler,
     addToCartHandler,
+    isWishlist
   } = SingleProductLogic();
 
   const changeImage = (featureimg) => {
@@ -70,10 +71,16 @@ const SingleProduct = () => {
               Add to Cart
             </Button>
 
-            <Button variant="contained" color="primary" className={classes.button} onClick={addToWishHandler}>
-              Add to Wishlist
-            </Button>
-
+            {
+              isWishlist && isWishlist.isPresent ?
+                <Button variant="contained" color="success" className={classes.button} onClick={addToWishHandler} style={{ background: "green" }}>
+                  Added to Wishlist
+                </Button>
+                :
+                <Button variant="contained" color="primary" className={classes.button} onClick={addToWishHandler}>
+                  Add to Wishlist
+                </Button>
+            }
 
           </div>
 
