@@ -12,7 +12,9 @@ const SingleProduct = () => {
     setShow,
     addToWishHandler,
     addToCartHandler,
-    isWishlist
+    isWishlist,
+    selectSize,
+    size
   } = SingleProductLogic();
 
   const changeImage = (featureimg) => {
@@ -28,9 +30,9 @@ const SingleProduct = () => {
           <div className={classes.imageOption}>
 
             {
-              product?.product?.featureimg.map((currentImg) => (
-                <div className={classes.imageContainer}>
-                  <img src={currentImg} alt="" className={classes.img} onMouseOver={() => changeImage(currentImg)} />
+              product?.product?.featureimg.map((currentImg,index) => (
+                <div className={classes.imageContainer} key={index}>
+                  <img src={currentImg} alt={product?.product?.title} className={classes.img} onMouseOver={() => changeImage(currentImg)} />
                 </div>
               ))
             }
@@ -43,17 +45,24 @@ const SingleProduct = () => {
             <div className={classes.divider}></div>
             <p className={classes.price}><span style={{ color: "black" }}>Price: </span>₹{product?.product?.price}</p>
 
-            {/* <div className={classes.sizes}>
+            <div className={classes.sizes}>
               <h3>Size:</h3>
-              <select className={classes.select}>
-                <option value="not selected" >Select</option>
+              <div className={classes.sizeOption}>
                 {
-                  product?.product?.size.map((currentSize, index) => (
-                    <option value={currentSize} key={index}>{currentSize}</option>
+                  product?.product?.size.map((item,index) => (
+                    <button className={
+                      size === item ? classes.activeBtn : classes.sizeButton
+                    }
+                      onClick={selectSize}
+                      value={item}
+                      key={index}
+                    >
+                      {item}
+                    </button>
                   ))
                 }
-              </select>
-            </div> */}
+              </div>
+            </div>
             <div className={classes.productInstruction}>
               <ul>
                 <li>100% Cotton</li>
@@ -83,9 +92,9 @@ const SingleProduct = () => {
             }
 
           </div>
-
         </div>
       </div>
+
       <div className={classes.productDescription}>
         <h1>Product Details</h1>
         <p><span style={{ fontWeight: "bold" }}>Manufacturer:</span>{product?.product?.manufacturer}</p>
@@ -106,10 +115,6 @@ const SingleProduct = () => {
               name="simple-controlled"
               style={{ color: '#185694', fontSize: "1.8rem" }}
               precision={0.5}
-            // value={courses && courses.rating}
-            // onChange={(newValue) => {
-            //   setRating(newValue);
-            // }}
             />
             <div className={classes.reviewCount}>
               <p>4.5 &nbsp;</p>

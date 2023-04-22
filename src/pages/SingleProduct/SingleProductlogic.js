@@ -21,9 +21,10 @@ export const SingleProductLogic = () => {
 
         dispatch(getSingleProduct(id))
 
-    }, [dispatch])
-    
+    }, [dispatch, id])
+
     const [show, setShow] = useState()
+    const [size, setSize] = useState("")
 
     useEffect(() => {
         setShow(product?.product?.featureimg[0])
@@ -62,6 +63,11 @@ export const SingleProductLogic = () => {
         }
     }
 
+    // select size
+    const selectSize = (e) => {
+        setSize(e.target.value)
+    }
+
     const addToCartHandler = () => {
 
         if (userInfo) {
@@ -87,6 +93,8 @@ export const SingleProductLogic = () => {
         setShow,
         addToWishHandler,
         addToCartHandler,
-        isWishlist
+        isWishlist,
+        selectSize,
+        size
     }
 }

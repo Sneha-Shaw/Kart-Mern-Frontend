@@ -140,7 +140,6 @@ export const getWishlist = (userId) => async (dispatch) => {
 // CHECK IF PRODUCT IS IN WISHLIST
 export const checkIfWishlist = (userId, productId) => async (dispatch) => {
     try {
-        console.log(userId);
         dispatch({
             type: CHECK_IF_WISHLIST_REQUEST
         })

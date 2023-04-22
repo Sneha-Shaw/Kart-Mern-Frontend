@@ -76,24 +76,24 @@ export default makeStyles((theme) => ({
             fontWeight: "800",
             marginBottom: "1rem",
         },
-        
+
     },
 
     icons: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            "& a": {
-                color: "#fff",
-                fontSize: "2rem",
-                margin: "0 1rem",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                    color: "#000",
-                }
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        "& a": {
+            color: "#fff",
+            fontSize: "2rem",
+            margin: "0 1rem",
+            transition: "all 0.3s ease",
+            "&:hover": {
+                color: "#000",
             }
-        },
- 
+        }
+    },
+
     links: {
         display: "flex",
         justifyContent: "space-between",
@@ -101,6 +101,7 @@ export default makeStyles((theme) => ({
         maxWidth: "1200px",
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
+            justifyContent: "center"
         },
     },
     link: {
@@ -146,7 +147,7 @@ export default makeStyles((theme) => ({
         color: "#fff",
         margin: "0 1rem",
     },
-    cards:{
+    cards: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

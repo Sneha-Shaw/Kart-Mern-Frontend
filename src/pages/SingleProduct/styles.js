@@ -2,9 +2,7 @@ import { makeStyles } from "@mui/styles";
 export default makeStyles((theme) => ({
     container: {
         display: "flex",
-        // height: "100vh",
         justifyContent: "space-around",
-        // alignItems: "center",
         [theme.breakpoints.down("md")]: {
             flexDirection: "column",
         },
@@ -14,7 +12,6 @@ export default makeStyles((theme) => ({
         display: "flex",
         height: "90vh",
         flexDirection: "row-reverse",
-        // alignItems: "center",
         justifyContent: "center",
         padding: "1rem",
         [theme.breakpoints.down("md")]: {
@@ -27,9 +24,7 @@ export default makeStyles((theme) => ({
     imgContainer: {
         width: "80%",
         height: "100%",
-        // borderRadius: "3rem",
         margin: "1rem",
-        // overflow: "hidden",
         border: "1px solid rgb(0,0,0,0.2)",
         [theme.breakpoints.down("md")]: {
         width: "95%",
@@ -52,11 +47,9 @@ export default makeStyles((theme) => ({
     },
     imageContainer: {
         width: "100%",
-        // height: "100%",
         flex: 1,
         margin: "1rem 0rem",
         border: "1px solid rgb(0,0,0,0.2)",
-        // borderRadius: "2rem",
         cursor: "pointer",
         overflow: "hidden",
        
@@ -75,18 +68,15 @@ export default makeStyles((theme) => ({
     title: {
         fontSize: "2.5rem",
         fontWeight: "bold",
-        // marginBottom: "1rem",
     },
     price: {
         fontSize: "2rem",
         fontWeight: "bold",
-        // marginBottom: "1rem",
         color: "#395B64"
     },
     Actions: {
         display: "flex",
         alignItems: "center",
-        // justifyContent: "space-between",
         marginBottom: "1rem",
         flexDirection: "column",
         width: "70%",
@@ -129,15 +119,36 @@ export default makeStyles((theme) => ({
             fontWeight: "bold",
             paddingRight: "1rem",
         },
-        "& select": {
-            padding: "0.5rem 1rem",
-            fontSize: "1.5rem",
-            border: "1px solid rgb(0,0,0,0.2)",
-            borderRadius: "0.5rem",
-            outline: "none",
-            marginTop: "1rem",
-
+        '&>div':{
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            "&>button": {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "2.5rem",
+                height: "2.5rem",
+               
+                borderRadius: "50%",
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+                border: "1px solid #000",
+                cursor: "pointer",
+                margin: "0.5rem",
+                "&:hover": {
+                    backgroundColor: "#000",
+                    color: "#fff",
+                }
+            }
         }
+    },
+    sizeButton:{
+        background:"transparent",
+    },
+    activeBtn:{
+        backgroundColor: "#000",
+        color: "#fff",
     },
     divider: {
         margin: "1rem 0rem",
@@ -187,7 +198,6 @@ export default makeStyles((theme) => ({
     starContainer: {
         display: "flex",
         flexDirection: "column",
-        // alignItems: "center",
         width: "35%",
         fontSize: "1.5rem",
         "&>h3": {
@@ -224,10 +234,8 @@ export default makeStyles((theme) => ({
         border: "1px solid rgb(0,0,0,0.2)",
     },
     progressFill: {
-        // width: "100%",
         height: "100%",
         backgroundColor: "#395B64",
-        // borderRadius: "0.5rem",
     },
     WriteReview: {
         display: "flex",
@@ -255,7 +263,6 @@ export default makeStyles((theme) => ({
     reviewHeader: {
         display: "flex",
         justifyContent: "space-between",
-        // alignItems: "center",
         flexDirection: "column",
     },
     reviewUser: {
