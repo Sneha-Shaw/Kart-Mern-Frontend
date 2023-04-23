@@ -232,7 +232,7 @@ const Checkout = () => {
                                         (product, index) => {
                                             return (
 
-                                                <div className={classes.cartContainer}>
+                                                <div className={classes.cartContainer} key={index}>
 
                                                     <Card className={classes.card}>
                                                         <CardMedia

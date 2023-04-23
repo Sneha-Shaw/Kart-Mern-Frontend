@@ -41,7 +41,7 @@ const UserProfile = () => {
           </div>
         </div>
 
-{/* popup for drag and drop profile pic */}
+        {/* popup for drag and drop profile pic */}
 
 
         <div className={classes.inputContainer}>

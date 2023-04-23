@@ -6,6 +6,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logoutUser } from '../../redux/actions/userAction';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 const SideBar = () => {
   const classes = useStyles()
@@ -15,13 +16,32 @@ const SideBar = () => {
     // my details, my orders, account settings> logout
     <div className={classes.container}>
       <ul className={classes.list}>
-      <li className={classes.listItem}><a href='/profile'>
-        <ManageAccountsIcon fontSize='large' sx={{paddingRight:{"md": "2rem","sm": "0"}}} /><p>Account Settings</p></a>
+        <li className={classes.listItem}>
+          <NavLink to='/profile'
+            style={({ isActive }) => ({
+              color: isActive ? '#f0c14b' : '#fff',
+            })}
+          >
+            <ManageAccountsIcon fontSize='large' sx={{ paddingRight: { "md": "2rem", "sm": "0" } }} />
+            <p>Account Settings</p>
+          </NavLink>
         </li>
-        <li className={classes.listItem}><a href='/orders'><ListAltIcon fontSize='large'  sx={{paddingRight:{"md": "2rem","sm": "0"}}}  /><p>My Orders</p></a></li>
-        {/* <li className={classes.listItem}><a href='/notifications'><NotificationsActiveIcon fontSize='large'  sx={{paddingRight:{"md": "2rem","sm": "0"}}}  />Notifications</a></li> */}
-        <li className={classes.listItem}><a href='/' onClick={()=>dispatch(logoutUser())}><LogoutIcon fontSize='large'  sx={{paddingRight:{"md": "2rem","sm": "0"}}}  /><p>Logout</p></a></li>
-        </ul>
+        <li className={classes.listItem}>
+          <NavLink to='/orders'
+            style={({ isActive }) => ({
+              color: isActive ? '#f0c14b' : '#fff',
+            })}>
+            <ListAltIcon fontSize='large' sx={{ paddingRight: { "md": "2rem", "sm": "0" } }} />
+            <p>My Orders</p>
+          </NavLink>
+        </li>
+        <li className={classes.listItem}>
+          <NavLink to='/' onClick={() => dispatch(logoutUser())}>
+            <LogoutIcon fontSize='large' sx={{ paddingRight: { "md": "2rem", "sm": "0" } }} />
+            <p>Logout</p>
+          </NavLink>
+        </li>
+      </ul>
     </div>
   )
 }

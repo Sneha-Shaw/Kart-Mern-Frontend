@@ -6,15 +6,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 const Filter = () => {
     const classes = useStyles();
     const {
-        // filter,
-        // setFilter,
-        // color,
         colorOptions,
-        // setColor,
-        // size,
-        // setSize,
-        // type,
-        // setType,
         sizeOptions,
         typeOptions,
     } = FilterLogic();

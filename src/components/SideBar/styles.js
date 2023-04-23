@@ -3,12 +3,9 @@ export default makeStyles((theme) => ({
     container: {
         display: 'flex',
         flexDirection: 'column',
-        // justifyContent: 'center',
-        // alignItems: 'center',
         width: '20%',
         minHeight: '95vh',
         backgroundColor: '#2C3333',
-        // padding: '1rem',
         "&>ul": {
             width: "100%",
             listStyle: 'none',
@@ -18,7 +15,6 @@ export default makeStyles((theme) => ({
             "&>li": {
                 padding: '1rem 3rem',
                 margin: "1rem 0",
-                // width: "100%",
                 cursor: 'pointer',
                 "&:hover": {
                     backgroundColor: '#395B64',
@@ -37,10 +33,8 @@ export default makeStyles((theme) => ({
             }
         },
         [theme.breakpoints.down('md')]: {
-            // display: "none"
             width: '100%',
             minHeight: 'unset',
-            // height: "10%",
             "& ul": {
 
                 display: "flex",

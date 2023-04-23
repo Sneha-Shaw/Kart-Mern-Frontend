@@ -5,7 +5,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Card, CardMedia, CardContent, CardActions, IconButton } from '@mui/material';
 import { GetOrderLogic } from './GetOrderLogic';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import axios from 'axios';
 
 const OrderPage = () => {
   const classes = useStyles()
@@ -16,37 +15,11 @@ const OrderPage = () => {
     searchProductsInOrderHandler,
     search,
     products,
-    userInfo 
+    setFilter,
+    filter,
+    orderFilter,
+    filtered
   } = GetOrderLogic()
-  var [filtered, setFiltered] = useState([]);
-  const [filter, setFilter] = useState('')
-  const orderFilter = ["All orders", "Pending", "Delivered"]
-  // function to filter order based on status
-  const filterOrder = (status) => {
-    // filter orders based on status using backend api
-
-    axios.get(`http://localhost:5000/private/orders/${userInfo?._id}/filter?status=${status}`)
-      .then(res => {
-        setFiltered(res.data.data)
-      })
-      .catch(err => console.log(err))
-
-  }
-
-  useEffect(() => {
-    if (filter === "All orders") {
-      setFiltered(orders.data)
-    }
-    else if (filter === "Pending") {
-      filterOrder("pending")
-    }
-    else if (filter === "Delivered") {
-      filterOrder("delivered")
-    }
-  }, [filter])
-
-  console.log(filtered);
-
 
   return (
     <div className={classes.container}>

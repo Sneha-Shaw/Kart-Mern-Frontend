@@ -62,6 +62,7 @@ export default makeStyles((theme) => ({
             height: "4rem",
             padding: "0 1rem",
             fontSize: "1.8rem",
+            backgroundColor:"#f0c14b",
             [theme.breakpoints.down("sm")]: {
                 marginLeft: "0.5rem",
             },
@@ -89,7 +90,7 @@ export default makeStyles((theme) => ({
             margin: "0 1rem",
             transition: "all 0.3s ease",
             "&:hover": {
-                color: "#000",
+                color: "#f0c14b",
             }
         }
     },
@@ -126,7 +127,7 @@ export default makeStyles((theme) => ({
                     textDecoration: "none",
                     transition: "all 0.3s ease",
                     "&:hover": {
-                        color: "#000",
+                        color: "#f0c14b",
                     },
                 },
             },
@@ -157,7 +158,7 @@ export default makeStyles((theme) => ({
             color: "#fff",
             transition: "all 0.3s ease",
             "&:hover": {
-                color: "#000",
+                color: "#f0c14b",
             }
         }
     }

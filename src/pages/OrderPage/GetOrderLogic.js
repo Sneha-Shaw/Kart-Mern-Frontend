@@ -1,6 +1,7 @@
 import { getAllOrder, cancelOrder, searchProductsInOrder } from '../../redux/actions/orderAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export const GetOrderLogic = () => {
@@ -10,6 +11,9 @@ export const GetOrderLogic = () => {
     const { data: cancelled, error } = useSelector(state => state.cancelOrder)
 
     const [search, setSearch] = useState('')
+    var [filtered, setFiltered] = useState([]);
+    const [filter, setFilter] = useState('')
+    const orderFilter = ["All orders", "Pending", "Delivered"]
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -43,6 +47,29 @@ export const GetOrderLogic = () => {
         setSearch(e.target.value)
         dispatch(searchProductsInOrder(userInfo?._id,e.target.value))
     }
+    
+    // function to filter order based on status
+    const filterOrder = (status) => {
+      // filter orders based on status using backend api
+  
+      axios.get(`http://localhost:5000/private/orders/${userInfo?._id}/filter?status=${status}`)
+        .then(res => {
+          setFiltered(res.data.data)
+        })
+        .catch(err => console.log(err))
+    }
+  
+    useEffect(() => {
+      if (filter === "All orders") {
+        setFiltered(orders && orders?.data)
+      }
+      else if (filter === "Pending") {
+        filterOrder("pending")
+      }
+      else if (filter === "Delivered") {
+        filterOrder("delivered")
+      }
+    }, [filter])
 
     return {
         orders,
@@ -51,6 +78,10 @@ export const GetOrderLogic = () => {
         searchProductsInOrderHandler,
         search,
         products,
-        userInfo
+        setFilter,
+        filter,
+        orderFilter,
+        filtered
+
     }
 }
