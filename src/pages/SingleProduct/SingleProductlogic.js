@@ -44,6 +44,7 @@ export const SingleProductLogic = () => {
                 setTimeout(() => {
 
                     dispatch(addToWishlist(userInfo?._id, product?.product?._id))
+                    
                 }, 1500);
                 Swal.fire({
 

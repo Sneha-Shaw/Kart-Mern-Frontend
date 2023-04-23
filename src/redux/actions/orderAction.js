@@ -29,7 +29,6 @@ export const createOrder = (userId, productId, quantity, amount, address) => asy
             userId,
             productId,
             quantity,
-            
             amount,
             address
         }
@@ -75,7 +74,7 @@ export const getAllOrder = (userId) => async (dispatch) => {
 }
 
 // CANCEL ORDER
-export const cancelOrder = (orderId) => async (dispatch) => {
+export const cancelOrder = (id) => async (dispatch) => {
     try {
         dispatch({
             type: CANCEL_ORDER_REQUEST
@@ -83,7 +82,7 @@ export const cancelOrder = (orderId) => async (dispatch) => {
         const config = {
             'Content-Type': 'application/json'
         }
-        const { data } = await axios.delete(`${API}/private/orders/cancel/${orderId}`, config)
+        const { data } = await axios.delete(`${API}/private/orders/cancel/${id}`, config)
         dispatch({
             type: CANCEL_ORDER_SUCCESS,
             payload: data
@@ -102,6 +101,7 @@ export const cancelOrder = (orderId) => async (dispatch) => {
 // SEARCH PRODUCTS IN ORDER OF A ASINGLE USER
 export const searchProductsInOrder = (userId, q) => async (dispatch) => {
     try {
+        console.log(q);
         dispatch({
             type: SEARCH_PRODUCTS_IN_ORDER_REQUEST
         })

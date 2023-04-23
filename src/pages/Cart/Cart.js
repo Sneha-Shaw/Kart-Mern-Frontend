@@ -20,7 +20,6 @@ const Cart = () => {
   const { userInfo } = useSelector(state => state.signInUser)
   const { data: deleteProduct, error } = useSelector(state => state.deleteProductFromCart)
 
-  console.log(cartProduct);
   const checkoutHandler = () => {
     if (cartProduct && cartProduct.cart.length !== 0) {
       navigate('/checkout')

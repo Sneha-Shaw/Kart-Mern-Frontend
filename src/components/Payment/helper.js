@@ -3,14 +3,15 @@ const API = process.env.REACT_APP_NODE_API
 
 
 // Make Payment with Razorpay (Create Order)
-export const makePaymentRazorpayHelper = async (productId) => {
+export const makePaymentRazorpayHelper = async (userId,amount) => {
     const config = {
         headers: {
             'Content-Type': 'application/json',
         }
     }
     const body = {
-        productId: productId,
+        userId: userId,
+        amount: amount
     }
 
     const { data } = await axios.post(`${API}/private/payment/razorpay/init`, body, config)

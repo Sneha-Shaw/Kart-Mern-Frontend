@@ -9,13 +9,15 @@ import axios from 'axios';
 
 const OrderPage = () => {
   const classes = useStyles()
-  const { orders,
+  const { 
+    orders,
     cancelOrderHandler,
     redirectHandler,
     searchProductsInOrderHandler,
     search,
     products,
-    userInfo } = GetOrderLogic()
+    userInfo 
+  } = GetOrderLogic()
   var [filtered, setFiltered] = useState([]);
   const [filter, setFilter] = useState('')
   const orderFilter = ["All orders", "Pending", "Delivered"]
@@ -25,7 +27,7 @@ const OrderPage = () => {
 
     axios.get(`http://localhost:5000/private/orders/${userInfo?._id}/filter?status=${status}`)
       .then(res => {
-        setFiltered(res.data)
+        setFiltered(res.data.data)
       })
       .catch(err => console.log(err))
 
@@ -33,7 +35,7 @@ const OrderPage = () => {
 
   useEffect(() => {
     if (filter === "All orders") {
-      setFiltered(orders)
+      setFiltered(orders.data)
     }
     else if (filter === "Pending") {
       filterOrder("pending")
@@ -43,25 +45,9 @@ const OrderPage = () => {
     }
   }, [filter])
 
-  //log filtered data on filter value change
-  useEffect(() => {
-    // map filtered data to display on screen
-    // filtered?.map(
-    //   (order) => {
-    if (filter !== '') {
-      console.log(filtered)
+  console.log(filtered);
 
-    }
-    // }
-    // )
-  }, [filter])
 
-  // capitalize first letter of a string
-  // const capitalizeFirstLetter = () => {
-  //   const string = "sneha"
-  //   // return string.charAt(0).toUpperCase() + string.slice(1);
-  //   console.log(string.charAt(0).toUpperCase() + string.slice(1));
-  // }
   return (
     <div className={classes.container}>
       <SideBar />
@@ -101,7 +87,7 @@ const OrderPage = () => {
         {search ? (
           <div className={classes.orderBody}>
             {products &&
-              products.map(
+              products?.data.map(
                 (product, index) => {
                   return (
                     <Card key={index}
@@ -109,15 +95,14 @@ const OrderPage = () => {
 
                       <CardMedia
                         component="img"
-                        // height="194"
                         className={classes.cardImg}
-                        image={product?.productId?.featureimg[0]}
+                        image={product?.product?.featureimg[0]}
                       />
                       <CardContent className={classes.details}>
                         <h3 className={classes.title}
-                          onClick={() => redirectHandler(product?.productId?._id)}
-                        >{product?.productId?.title}</h3>
-                        <p className={classes.price}>₹{product?.productId?.price}</p>
+                          onClick={() => redirectHandler(product?.product?._id)}
+                        >{product?.product?.title}</h3>
+                        <p className={classes.price}>₹{product?.product?.price}</p>
                         <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                         <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
                         <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
@@ -148,13 +133,13 @@ const OrderPage = () => {
                           component="img"
                           // height="194"
                           className={classes.cardImg}
-                          image={product?.productId?.featureimg[0]}
+                          image={product?.product?.featureimg[0]}
                         />
                         <CardContent className={classes.details}>
                           <h3 className={classes.title}
-                            onClick={() => redirectHandler(product?.productId?._id)}
-                          >{product?.productId?.title}</h3>
-                          <p className={classes.price}>₹{product?.productId?.price}</p>
+                            onClick={() => redirectHandler(product?.product?._id)}
+                          >{product?.product?.title}</h3>
+                          <p className={classes.price}>₹{product?.product?.price}</p>
                           <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
@@ -176,7 +161,7 @@ const OrderPage = () => {
 
             <div className={classes.orderBody}>
               {orders &&
-                orders.map(
+                orders.data.map(
                   (product, index) => {
                     return (
 
@@ -187,13 +172,13 @@ const OrderPage = () => {
                           component="img"
                           // height="194"
                           className={classes.cardImg}
-                          image={product?.productId?.featureimg[0]}
+                          image={product?.product?.featureimg[0]}
                         />
                         <CardContent className={classes.details}>
                           <h3 className={classes.title}
-                            onClick={() => redirectHandler(product?.productId?._id)}
-                          >{product?.productId?.title}</h3>
-                          <p className={classes.price}>₹{product?.productId?.price}</p>
+                            onClick={() => redirectHandler(product?.product?._id)}
+                          >{product?.product?.title}</h3>
+                          <p className={classes.price}>₹{product?.product?.price}</p>
                           <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
