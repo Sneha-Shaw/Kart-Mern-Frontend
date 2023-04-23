@@ -7,7 +7,6 @@ export default makeStyles((theme) => ({
         zIndex: '1000',
         backgroundColor: '#f0c14b !important',
         color: '#000 !important',
-        // borderRadius: '3rem !important',
         padding: '1rem !important',
         boxShadow: '0 0 10px rgba(0,0,0,0.3)',
         cursor: 'pointer',

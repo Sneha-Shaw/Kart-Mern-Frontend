@@ -6,8 +6,6 @@ export default makeStyles((theme) => ({
         background: "#395B64",
         display: "flex",
         color: "white",
-        // padding: "1rem 0",
-        // fontSize: "2rem",
         alignItems: "center",
 
 
@@ -52,6 +50,13 @@ export default makeStyles((theme) => ({
                     }
                 }
             }
+        }
+    },
+    link:{
+        textDecoration:"none",
+        color:"white",
+        "&:hover":{
+            color:"#f0c14b"
         }
     },
     listItem:{

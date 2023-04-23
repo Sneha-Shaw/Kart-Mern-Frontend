@@ -53,7 +53,7 @@ const Navbar = () => {
                         <ul>
                             <li>
                                 <div className={classes.logo}>
-                                    <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+                                    <Link to="/" className={classes.link}>
                                         <h1>KART</h1>
                                     </Link>
                                 </div>
@@ -61,7 +61,7 @@ const Navbar = () => {
                             {
                                 categoryList.map((category,index) => (
                                     <li key={index}>
-                                        <Link to={`/see-products?category=${category.value}`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler(category.value) }} >
+                                        <Link to={`/see-products?category=${category.value}`} className={classes.link} onClick={() => { redirectHandler(category.value) }} >
                                             <h4>{category.label}</h4>
                                         </Link>
                                     </li>
@@ -103,14 +103,14 @@ const Navbar = () => {
             <div className={classes.container}>
                 <div className={classes.left}>
                     <div className={classes.logo}>
-                        <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+                        <Link to="/" className={classes.link}>
                             <h1>KART</h1>
                         </Link>
                     </div>
                     <div className={classes.categories}>
                         {
                             categoryList.map((category,index) => (
-                                <Link key={index} to={`/see-products?category=${category.value}`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => { redirectHandler(category.value) }} >
+                                <Link key={index} to={`/see-products?category=${category.value}`} className={classes.link} onClick={() => { redirectHandler(category.value) }} >
                                     <h4>{category.label}</h4>
                                 </Link>
                             ))
@@ -125,7 +125,7 @@ const Navbar = () => {
                             value={search}
                             onChange={(e)=>{setSearch(e.target.value)}}
                             // call searchHandler when enter key is pressed
-                            onKeyPress={(e) => e.key === 'Enter' ? searchHandler(e) : null}
+                            onKeyUp={(e) => e.key === 'Enter' ? searchHandler(e) : null}
                         />
                     </div>
 
