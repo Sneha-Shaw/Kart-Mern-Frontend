@@ -16,6 +16,7 @@ import Checkout from "./pages/Checkout/Checkout";
 import ProductPage from './pages/ProductPage/ProductPage'
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import NotFound from './pages/NotFound/NotFound'
+import GoToTop from "./components/GoToTop/GoToTop";
 
 const Router = () => {
 
@@ -37,6 +38,7 @@ const Router = () => {
                     <Route exact path="/search" element={<SearchResultPage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+                <GoToTop/>
                 <Footer />
             </BrowserRouter>
         </ThemeProvider>
