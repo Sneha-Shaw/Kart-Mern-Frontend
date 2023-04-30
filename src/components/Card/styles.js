@@ -16,7 +16,8 @@ export default makeStyles((theme) => ({
     priceContainer: {
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        paddingRight: "2rem",
     },
     title: {
         fontSize: "2rem",

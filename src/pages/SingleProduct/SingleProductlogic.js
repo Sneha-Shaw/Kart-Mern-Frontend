@@ -26,7 +26,7 @@ export const SingleProductLogic = () => {
     const [show, setShow] = useState()
     const [size, setSize] = useState("")
     const [qty, setQty] = useState(1)
-    const [color,setColor] = useState("")
+    const [color, setColor] = useState("")
 
 
     useEffect(() => {
@@ -47,7 +47,7 @@ export const SingleProductLogic = () => {
                 setTimeout(() => {
 
                     dispatch(addToWishlist(userInfo?._id, product?.product?._id))
-                    
+
                 }, 1500);
                 Swal.fire({
 
@@ -76,14 +76,22 @@ export const SingleProductLogic = () => {
 
         if (userInfo) {
             if (product) {
-                dispatch(addToCart(userInfo?._id, product?.product?._id))
-                Swal.fire({
+                if (size && color && qty) {
+                    dispatch(addToCart(userInfo?._id, product?.product?._id))
+                    Swal.fire({
 
-                    icon: 'success',
-                    text: 'Added to cart',
+                        icon: 'success',
+                        text: 'Added to cart',
 
-                })
-                navigate('/cart')
+                    })
+                    navigate('/cart')
+                }
+                else {
+                    Swal.fire({
+                        icon: 'error',
+                        text: 'Please select size, color and quantity',
+                    })
+                }
             }
 
         } else {

@@ -336,6 +336,19 @@ export default makeStyles((theme) => ({
     },
     colorButton: {
         border: "1px solid #000",
+    },
+    quantity:{
+        display: "flex",
+        alignItems: "center",
+        paddingTop: "2rem",
+        '& p':{
+            fontSize: "1.8rem",
+            margin:"0 1rem"
+        },
+        '& svg':{
+            fontSize: "2rem",
+            cursor: "pointer",
+        }
     }
 
 }))

@@ -2,7 +2,8 @@ import React from 'react'
 import { SingleProductLogic } from './SingleProductlogic'
 import { Button, Rating } from '@mui/material';
 import useStyles from "./styles";
-
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const SingleProduct = () => {
   const classes = useStyles();
@@ -18,7 +19,9 @@ const SingleProduct = () => {
     qty,
     setQty,
     color,
-    setColor
+    setColor,
+    decreaseQuantity,
+    increaseQuantity
   } = SingleProductLogic();
 
   const changeImage = (featureimg) => {
@@ -83,6 +86,24 @@ const SingleProduct = () => {
                     ></button>
                   ))
                 }
+              </div>
+            </div>
+            {/* quantity */}
+            <div className={classes.colors}>
+              <h3>Quantity:</h3>
+              <div className={classes.quantity}>
+                <RemoveIcon fontSize="large" className={classes.margin} onClick={() => {
+                  if (qty > 1) {
+                    setQty(qty - 1)
+                  }
+                }} />
+                <p>{qty}</p>
+                <AddIcon fontSize="large" className={classes.margin} onClick={()=>{
+                  if(qty<10){
+                    setQty(qty+1)
+                  }
+                }} />
+
               </div>
             </div>
             <div className={classes.productInstruction}>
