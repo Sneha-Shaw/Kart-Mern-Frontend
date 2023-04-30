@@ -26,6 +26,10 @@ export default makeStyles((theme) => ({
         fontSize: "1.5rem",
         fontWeight: "bold",
         color: "#000",
+        background:"transparent",
+        border: "none",
+        outline: "none",
+        
     },
     filterColor: {
         display: "flex",

@@ -16,15 +16,15 @@ const ProductPage = () => {
       </div>
       <div className={classes.right}>
         {
-          loading ? <CircularProgress size={50}
-            sx={{
-              color: "green",
-              position: 'absolute',
-              top: "1rem",
-              left: "2rem",
-              zIndex: 1,
-            }} /> :
-
+          loading ?
+            <div className={classes.loading}>
+              <CircularProgress size={70}
+                sx={{
+                  color: "green",
+                  zIndex: 1,
+                }} />
+            </div>
+            :
             <div className={classes.cards}>
               {products &&
                 products.products.map(
@@ -37,7 +37,9 @@ const ProductPage = () => {
                   })}
               {
                 products && products.products.length === 0 &&
-                <h1 className={classes.notFound}>No products found</h1>
+                <div className={classes.loading}>
+                  <h1 className={classes.notFound}>No products found</h1>
+                </div>
               }
             </div>
         }

@@ -14,7 +14,11 @@ const SingleProduct = () => {
     addToCartHandler,
     isWishlist,
     selectSize,
-    size
+    size,
+    qty,
+    setQty,
+    color,
+    setColor
   } = SingleProductLogic();
 
   const changeImage = (featureimg) => {
@@ -30,7 +34,7 @@ const SingleProduct = () => {
           <div className={classes.imageOption}>
 
             {
-              product?.product?.featureimg.map((currentImg,index) => (
+              product?.product?.featureimg.map((currentImg, index) => (
                 <div className={classes.imageContainer} key={index}>
                   <img src={currentImg} alt={product?.product?.title} className={classes.img} onMouseOver={() => changeImage(currentImg)} />
                 </div>
@@ -49,7 +53,7 @@ const SingleProduct = () => {
               <h3>Size:</h3>
               <div className={classes.sizeOption}>
                 {
-                  product?.product?.size.map((item,index) => (
+                  product?.product?.size.map((item, index) => (
                     <button className={
                       size === item ? classes.activeBtn : classes.sizeButton
                     }
@@ -59,6 +63,24 @@ const SingleProduct = () => {
                     >
                       {item}
                     </button>
+                  ))
+                }
+              </div>
+            </div>
+            {/* colors */}
+            <div className={classes.colors}>
+              <h3>Color:</h3>
+              <div className={classes.sizeOption}>
+                {
+                  product?.product?.color.map((item, index) => (
+                    <button
+                      key={index}
+                      style={{ background: item }}
+                      onClick={() => setColor(item)}
+                      className={
+                        color === item ? classes.activeColorBtn : classes.colorButton
+                      }
+                    ></button>
                   ))
                 }
               </div>
@@ -97,15 +119,8 @@ const SingleProduct = () => {
 
       <div className={classes.productDescription}>
         <h1>Product Details</h1>
-        <p><span style={{ fontWeight: "bold" }}>Manufacturer:</span>{product?.product?.manufacturer}</p>
-        <p><span style={{ fontWeight: "bold" }}>ASIN:</span>{product?.product?.asin}</p>
-        <p><span style={{ fontWeight: "bold" }}>Item model number:</span>{product?.product?.itemModelNumber}</p>
-        <p><span style={{ fontWeight: "bold" }}>Country of Origin:</span>{product?.product?.countryOfOrigin}</p>
-        <p><span style={{ fontWeight: "bold" }}>Manufacturer:</span>{product?.product?.manufacturer}</p>
-        <p><span style={{ fontWeight: "bold" }}>Packer:</span>{product?.product?.packer}</p>
-        <p><span style={{ fontWeight: "bold" }}>Item Weight:</span>{product?.product?.itemWeight}</p>
-        <p><span style={{ fontWeight: "bold" }}>Item Dimensions LxWxH:</span>{product?.product?.itemDimensions}</p>
-        <p><span style={{ fontWeight: "bold" }}>Generic Name:</span>{product?.product?.genericName}</p>
+        <p><span style={{ fontWeight: "bold" }}>Description:</span>{product?.product?.description}</p>
+
       </div>
       <div className={classes.reviewSection}>
         <div className={classes.starContainer}>

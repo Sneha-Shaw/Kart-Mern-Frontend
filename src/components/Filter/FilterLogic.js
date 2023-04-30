@@ -27,9 +27,17 @@ export const FilterLogic = () => {
         "Dresses",
         "Jackets"
     ]
-    const [color, setColor] = useState(colorOptions[0])
-    const [size, setSize] = useState(sizeOptions[0])
-    const [type, setType] = useState(typeOptions[0])
+    const [color, setColor] = useState([])
+    const [size, setSize] = useState([])
+    const [type, setType] = useState([])
+
+    // clear all filters
+    const clearAll = () => {
+        setColor([])
+        setSize([])
+        setType([])
+    }
+
     return{
         colorOptions,
         sizeOptions,
@@ -39,6 +47,7 @@ export const FilterLogic = () => {
         size,
         setSize,
         type,
-        setType
+        setType,
+        clearAll
     }
 }

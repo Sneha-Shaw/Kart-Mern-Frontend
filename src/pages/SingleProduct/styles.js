@@ -27,7 +27,7 @@ export default makeStyles((theme) => ({
         margin: "1rem",
         border: "1px solid rgb(0,0,0,0.2)",
         [theme.breakpoints.down("md")]: {
-        width: "95%",
+            width: "95%",
         }
 
     },
@@ -52,7 +52,7 @@ export default makeStyles((theme) => ({
         border: "1px solid rgb(0,0,0,0.2)",
         cursor: "pointer",
         overflow: "hidden",
-       
+
     },
 
     right: {
@@ -88,14 +88,14 @@ export default makeStyles((theme) => ({
             backgroundColor: '#395B64',
             width: '30%',
             color: '#fff',
-            "&:hover":{
+            "&:hover": {
                 backgroundColor: '#2f4a51',
             }
 
         },
         [theme.breakpoints.down("md")]: {
             width: "100%",
-            "&>Button":{
+            "&>Button": {
                 width: "80%"
             }
         }
@@ -119,19 +119,19 @@ export default makeStyles((theme) => ({
             fontWeight: "bold",
             paddingRight: "1rem",
         },
-        '&>div':{
+        '&>div': {
             display: "flex",
             alignItems: "center",
             width: "100%",
-            "&>button": {
+            "& button": {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "2.5rem",
-                height: "2.5rem",
-               
+                width: "4rem",
+                height: "4rem",
+
                 borderRadius: "50%",
-                fontSize: "1.5rem",
+                fontSize: "1.8rem",
                 fontWeight: "bold",
                 border: "1px solid #000",
                 cursor: "pointer",
@@ -143,10 +143,10 @@ export default makeStyles((theme) => ({
             }
         }
     },
-    sizeButton:{
-        background:"transparent",
+    sizeButton: {
+        background: "transparent",
     },
-    activeBtn:{
+    activeBtn: {
         backgroundColor: "#000",
         color: "#fff",
     },
@@ -168,7 +168,7 @@ export default makeStyles((theme) => ({
 
             }
         },
-      
+
     },
     productDescription: {
         padding: "3rem",
@@ -191,7 +191,7 @@ export default makeStyles((theme) => ({
             fontWeight: "bold",
             paddingRight: "1rem",
         },
-        [theme.breakpoints.down('md')]:{
+        [theme.breakpoints.down('md')]: {
             display: "none"
         }
     },
@@ -297,5 +297,45 @@ export default makeStyles((theme) => ({
         padding: "1rem 0rem",
 
     },
+    colors: {
+        // display: "flex",
+        alignItems: "center",
+        paddingTop: "2rem",
+
+        "&>h3": {
+            fontSize: "1.8rem",
+            fontWeight: "bold",
+            paddingRight: "1rem",
+        },
+        '&>div': {
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            "& button": {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "4rem",
+                height: "4rem",
+
+                borderRadius: "50%",
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+
+                cursor: "pointer",
+                margin: "0.5rem",
+                "&:hover": {
+                    backgroundColor: "#000",
+                    color: "#fff",
+                }
+            }
+        }
+    },
+    activeColorBtn: {
+        border: "3px solid green"
+    },
+    colorButton: {
+        border: "1px solid #000",
+    }
 
 }))

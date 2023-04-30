@@ -25,6 +25,9 @@ export const SingleProductLogic = () => {
 
     const [show, setShow] = useState()
     const [size, setSize] = useState("")
+    const [qty, setQty] = useState(1)
+    const [color,setColor] = useState("")
+
 
     useEffect(() => {
         setShow(product?.product?.featureimg[0])
@@ -96,6 +99,10 @@ export const SingleProductLogic = () => {
         addToCartHandler,
         isWishlist,
         selectSize,
-        size
+        size,
+        qty,
+        setQty,
+        color,
+        setColor
     }
 }

@@ -9,21 +9,40 @@ const Filter = () => {
         colorOptions,
         sizeOptions,
         typeOptions,
+        color,
+        setColor,
+        size,
+        setSize,
+        type,
+        setType,
+        clearAll
     } = FilterLogic();
+    console.log(color);
     return (
         <div className={classes.filterContainer}>
             <div className={classes.filter}>
                 <div className={classes.filterTitle}>
                     <span className={classes.filterTitle}>Filter</span>
-                    <span className={classes.filterTitle} style={{cursor: "pointer"}}>Clear<RestartAltIcon fontSize="large" /></span>
+                    <button className={classes.filterTitle} style={{ cursor: "pointer" }}
+                        onClick={clearAll}
+                    >Clear<RestartAltIcon fontSize="large" /></button>
                 </div>
                 <div className={classes.filterColor}>
                     <span className={classes.filterColorTitle}>Color</span>
                     <div className={classes.filterColorOptions}>
-                        {colorOptions.map((color, index) => (
-                            <div key={index} className={classes.filterColorOption}>
-                                <input type="checkbox" name="color" className={classes.checkbox} />
-                                <label htmlFor="color">{color}</label>
+                        {colorOptions.map((colorItem, index) => (
+                            <div key={index} className={classes.filterColorOption}
+                                onClick={() =>
+                                    color.includes(colorItem)
+                                        ? setColor(color.filter((item) => item !== colorItem))
+                                        : setColor([...color, colorItem])
+                                }
+                            >
+                                <input type="checkbox" name="color" className={classes.checkbox}
+                                    checked={color.includes(colorItem) ? true : false}
+                                    readOnly
+                                />
+                                <label htmlFor="color">{colorItem}</label>
                             </div>
                         ))}
                     </div>
@@ -31,10 +50,19 @@ const Filter = () => {
                 <div className={classes.filterColor}>
                     <span className={classes.filterColorTitle}>Size</span>
                     <div className={classes.filterColorOptions}>
-                        {sizeOptions.map((size, index) => (
-                            <div key={index} className={classes.filterColorOption}>
-                                <input type="checkbox" name="size" className={classes.checkbox} />
-                                <label htmlFor="size">{size}</label>
+                        {sizeOptions.map((sizeItem, index) => (
+                            <div key={index} className={classes.filterColorOption}
+                                onClick={() =>
+                                    size.includes(sizeItem)
+                                        ? setSize(size.filter((item) => item !== sizeItem))
+                                        : setSize([...size, sizeItem])
+                                }
+                            >
+                                <input type="checkbox" name="size" className={classes.checkbox}
+                                    checked={size.includes(sizeItem) ? true : false}
+                                    readOnly
+                                />
+                                <label htmlFor="size">{sizeItem}</label>
 
                             </div>
                         ))}
@@ -43,10 +71,19 @@ const Filter = () => {
                 <div className={classes.filterColor}>
                     <span className={classes.filterColorTitle}>Type</span>
                     <div className={classes.filterColorOptions}>
-                        {typeOptions.map((type, index) => (
-                            <div key={index} className={classes.filterColorOption}>
-                                <input type="checkbox" name="type" className={classes.checkbox} />
-                                <label htmlFor="type">{type}</label>
+                        {typeOptions.map((typeItem, index) => (
+                            <div key={index} className={classes.filterColorOption}
+                                onClick={() =>
+                                    type.includes(typeItem)
+                                        ? setType(type.filter((item) => item !== typeItem))
+                                        : setType([...type, typeItem])
+                                }
+                            >
+                                <input type="checkbox" name="type" className={classes.checkbox}
+                                    checked={type.includes(typeItem) ? true : false}
+                                    readOnly
+                                />
+                                <label htmlFor="type">{typeItem}</label>
                             </div>
                         ))}
                     </div>

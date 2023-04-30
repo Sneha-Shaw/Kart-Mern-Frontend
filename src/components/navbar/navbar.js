@@ -123,9 +123,7 @@ const Navbar = () => {
                         <SearchIcon fontSize="large" />
                         <input type="text" placeholder="Search"
                             value={search}
-                            onChange={(e)=>{setSearch(e.target.value)}}
-                            // call searchHandler when enter key is pressed
-                            onKeyUp={(e) => e.key === 'Enter' ? searchHandler(e) : null}
+                            onChange={(e)=>{setSearch(e.target.value);searchHandler(e)}}
                         />
                     </div>
 
