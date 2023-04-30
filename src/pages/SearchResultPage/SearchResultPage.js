@@ -7,24 +7,41 @@ import { SearchResultPageLogic } from './SearchResultPageLogic';
 
 const SearchResultPage = () => {
   const classes = useStyles();
-  const { searchResult } = SearchResultPageLogic();
+  const {
+    searchResult,
+    setTrueFilters,
+    productsFiltered
+  } = SearchResultPageLogic();
 
   return (
     <div className={classes.container}>
       <div className={classes.left}>
-        <Filter />
+        <Filter
+          setTrueFilters={setTrueFilters}
+        />
       </div>
       <div className={classes.right}>
         <div className={classes.cards}>
-          {searchResult &&
-            searchResult.products.map(
-              (product, index) => {
-                return (
+          {
+            productsFiltered ?
+              productsFiltered.map(
+                (product, index) => {
+                  return (
 
-                  <CardComponent product={product} key={index} />
+                    <CardComponent product={product} key={index} />
 
-                );
-              })
+                  );
+                }
+              ) :
+              searchResult &&
+              searchResult.products.map(
+                (product, index) => {
+                  return (
+
+                    <CardComponent product={product} key={index} />
+
+                  );
+                })
           }{
             searchResult && searchResult.products.length === 0 &&
             <h1 className={classes.notFound}>No products found</h1>
