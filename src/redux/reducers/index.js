@@ -11,7 +11,7 @@ import {
     deleteCartProductReducer,
     searchProductReducer
 } from './productReducer'
-import { userSigninReducer, userSignupReducer, getSingleUserReducer } from './userReducer'
+import { userSigninReducer, userSignupReducer, getSingleUserReducer,resetPasswordReducer } from './userReducer'
 import {
     createOrderReducer,
     getAllOrderReducer,
@@ -24,6 +24,9 @@ const rootReducer = combineReducers({
     signUpUser: userSignupReducer,
     signInUser: userSigninReducer,
     getSingleUser: getSingleUserReducer,
+    resetPassword:resetPasswordReducer,
+
+
     getAllProducts: getAllProductsReducer,
     getSingleProduct: getSingleProductReducer,
     addToWishlist: addToWishlistReducer,
@@ -33,6 +36,8 @@ const rootReducer = combineReducers({
     addToCart: addToCartReducer,
     getCart: getCartReducer,
     deleteProductFromCart: deleteCartProductReducer,
+
+
     createOrder: createOrderReducer,
     getAllOrder: getAllOrderReducer,
     cancelOrder: cancelOrderReducer,

@@ -12,7 +12,10 @@ import {
   GET_SINGLE_USER_FAILED,
   UPDATE_USER_REQUEST,
   UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAILED
+  UPDATE_USER_FAILED,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
+  RESET_PASSWORD_FAILED
 
 } from '../constants/userConstants'
 
@@ -55,7 +58,7 @@ export const signInUser = (email, password) => async (dispatch) => {
     })
   }
 }
-export const signUpUser = ( email, password, mobile) => async (dispatch) => {
+export const signUpUser = (email, password, mobile) => async (dispatch) => {
   try {
     dispatch({
       type: USER_SIGNUP_REQUEST
@@ -171,3 +174,31 @@ export const updateUser = (
       })
     }
   }
+
+// reset password
+export const resetPassword = (id,password) => async (dispatch) => {
+  try {
+    dispatch({
+      type: RESET_PASSWORD_REQUEST
+    })
+    const config = {
+      'Content-Type': 'application/json'
+    }
+    const body = {
+      password: password,
+    }
+    const { data } = await axios.put(`${API}/public/auth/reset-password/${id}`, body, config)
+    dispatch({
+      type: RESET_PASSWORD_SUCCESS,
+      payload: data
+    })
+  } catch (error) {
+    dispatch({
+      type: RESET_PASSWORD_FAILED,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+    })
+  }
+}

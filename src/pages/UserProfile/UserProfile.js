@@ -36,8 +36,6 @@ const UserProfile = () => {
           <img src={user?.user?.avatar} alt={user?.user?.name} />
           <div className={classes.profilePictureButton}>
             <EditIcon fontSize="medium" />
-            {/* <input file */}
-            {/* <input type="file" /> */}
           </div>
         </div>
 
@@ -96,11 +94,6 @@ const UserProfile = () => {
             onChange={(e) => setPincode(e.target.value)}
           />
         </div>
-
-        {/* <div className={classes.inputContainer}>
-            <h3 className={classes.inputLabel}>Password</h3>
-            <input type="text" placeholder="Password" />
-          </div> */}
         <Button variant='contained' className={classes.button}
           onClick={updateUserHandler}
         >Update</Button>

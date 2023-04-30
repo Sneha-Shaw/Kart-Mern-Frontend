@@ -27,6 +27,8 @@ export const SingleProductLogic = () => {
     const [size, setSize] = useState("")
     const [qty, setQty] = useState(1)
     const [color, setColor] = useState("")
+    const [outOfStock, setOutOfStock] = useState(false)
+    const [itemLeft, setItemLeft] = useState()
 
 
     useEffect(() => {
@@ -40,6 +42,30 @@ export const SingleProductLogic = () => {
         }
 
     }, [dispatch, product?.product?._id, userInfo?._id])
+
+    useEffect(() => {
+        if (product) {
+            if (product?.product?.countInStock === 0) {
+                setOutOfStock(true)
+            }
+            else {
+                setOutOfStock(false)
+            }
+        }
+
+
+    }, [product])
+
+    useEffect(() => {
+        if (product) {
+            if (product?.product?.countInStock < 5 && product?.product?.countInStock > 0) {
+                setItemLeft(true)
+            }
+            else {
+                setItemLeft(false)
+            }
+        }
+    }, [product])
 
     const addToWishHandler = () => {
         if (userInfo) {
@@ -111,6 +137,8 @@ export const SingleProductLogic = () => {
         qty,
         setQty,
         color,
-        setColor
+        setColor,
+        outOfStock,
+        itemLeft
     }
 }

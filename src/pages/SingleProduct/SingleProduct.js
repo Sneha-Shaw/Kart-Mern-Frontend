@@ -19,7 +19,9 @@ const SingleProduct = () => {
     qty,
     setQty,
     color,
-    setColor
+    setColor,
+    outOfStock,
+    itemLeft
   } = SingleProductLogic();
 
   const changeImage = (featureimg) => {
@@ -96,9 +98,9 @@ const SingleProduct = () => {
                   }
                 }} />
                 <p>{qty}</p>
-                <AddIcon fontSize="large" className={classes.margin} onClick={()=>{
-                  if(qty<10){
-                    setQty(qty+1)
+                <AddIcon fontSize="large" className={classes.margin} onClick={() => {
+                  if (qty < 10) {
+                    setQty(qty + 1)
                   }
                 }} />
 
@@ -116,10 +118,21 @@ const SingleProduct = () => {
 
           <div className={classes.Actions}>
 
+            {
+              outOfStock ? <Button variant="contained" color="primary" className={classes.button} disabled>
+                Out of Stock
+              </Button>
+                :
+                <Button variant="contained" color="primary" className={classes.button} onClick={addToCartHandler}>
+                  Add to Cart
+                </Button>
 
-            <Button variant="contained" color="primary" className={classes.button} onClick={addToCartHandler}>
-              Add to Cart
-            </Button>
+            }
+
+            {
+              itemLeft &&
+              <p style={{ color: "red", fontSize: "1.5rem" }}>Only {product?.product?.countInStock} left in stock</p>
+            }
 
             {
               isWishlist && isWishlist.isPresent ?

@@ -36,6 +36,15 @@ const SideBar = () => {
           </NavLink>
         </li>
         <li className={classes.listItem}>
+          <NavLink to='/reset-password'
+            style={({ isActive }) => ({
+              color: isActive ? '#f0c14b' : '#fff',
+            })}>
+            <ListAltIcon fontSize='large' sx={{ paddingRight: { "md": "2rem", "sm": "0" } }} />
+            <p>Reset Password</p>
+          </NavLink>
+        </li>
+        <li className={classes.listItem}>
           <NavLink to='/' onClick={() => dispatch(logoutUser())}>
             <LogoutIcon fontSize='large' sx={{ paddingRight: { "md": "2rem", "sm": "0" } }} />
             <p>Logout</p>

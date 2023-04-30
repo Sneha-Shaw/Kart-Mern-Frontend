@@ -8,7 +8,10 @@ import {
   USER_LOGOUT,
   GET_SINGLE_USER_REQUEST,
   GET_SINGLE_USER_SUCCESS,
-  GET_SINGLE_USER_FAILED
+  GET_SINGLE_USER_FAILED,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
+  RESET_PASSWORD_FAILED
 } from '../constants/userConstants'
 
 
@@ -129,6 +132,48 @@ export const getSingleUserReducer = (
 
       }
     case GET_SINGLE_USER_FAILED:
+      return {
+        ...state,
+        loading: false,
+        user: null,
+        isAuthenticated: false,
+        error: action.payload
+      }
+
+    default:
+      return state
+  }
+}
+
+///reset password
+export const resetPasswordReducer = (
+  state = {
+    loading: false,
+    user: null,
+    error: null,
+    isAuthenticated: false
+  },
+  action
+) => {
+  switch (action.type) {
+    case RESET_PASSWORD_REQUEST:
+      return {
+        ...state,
+        user: null,
+        error: null,
+        isAuthenticated: false,
+        loading: true
+      }
+    case RESET_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isAuthenticated: true,
+        error: null,
+        user: action.payload
+
+      }
+    case RESET_PASSWORD_FAILED:
       return {
         ...state,
         loading: false,
