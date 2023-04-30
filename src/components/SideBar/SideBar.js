@@ -2,7 +2,7 @@ import React from 'react'
 import useStyles from './styles'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import ListAltIcon from '@mui/icons-material/ListAlt';
-// import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import LockResetIcon from '@mui/icons-material/LockReset';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logoutUser } from '../../redux/actions/userAction';
 import { useDispatch } from 'react-redux';
@@ -40,7 +40,7 @@ const SideBar = () => {
             style={({ isActive }) => ({
               color: isActive ? '#f0c14b' : '#fff',
             })}>
-            <ListAltIcon fontSize='large' sx={{ paddingRight: { "md": "2rem", "sm": "0" } }} />
+            <LockResetIcon fontSize='large' sx={{ paddingRight: { "md": "2rem", "sm": "0" } }} />
             <p>Reset Password</p>
           </NavLink>
         </li>

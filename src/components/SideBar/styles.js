@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
             margin: 0,
             fontSize: "2rem",
             "&>li": {
-                padding: '1rem 3rem',
+              
                 margin: "1rem 0",
                 cursor: 'pointer',
                 "&:hover": {
@@ -21,6 +21,7 @@ export default makeStyles((theme) => ({
                     color: "white",
                 },
                 "&>a": {
+                    padding: '1rem 3rem',
                     textDecoration: 'none',
                     width: "100%",
                     color: 'white',

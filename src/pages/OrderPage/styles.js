@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
         }
     },
     orderContainer: {
-        width: '100%',
+        width: '80%',
         padding: '2rem',
         display: 'flex',
         flexDirection: 'column',
@@ -47,7 +47,6 @@ export default makeStyles((theme) => ({
         border: '1px solid #ccc',
         width: "10rem",
         background: '#fff',
-        // borderRadius: '5px',
         padding: '0.5rem',
         '& select': {
             border: 'none',
@@ -76,9 +75,7 @@ export default makeStyles((theme) => ({
         alignItems: "center",
         width: "100% !important",
         height: "25rem !important",
-        // background: "#395B64 !important",
         background: "white !important",
-        // color: "white !important",
         position: "relative",
         [theme.breakpoints.down('md')]: {
             margin: "2rem 0rem !important",
@@ -97,8 +94,6 @@ export default makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',
-        // padding: '3rem !important',
-        // background: "#395B64 !important",
         height: "100% !important",
         '& h3': {
             fontSize: '2rem',
@@ -125,9 +120,6 @@ export default makeStyles((theme) => ({
     },
 
     cardActions: {
-        // background: "#395B64 !important",
-        // width: "10rem !important",
-        // height: "100% !important",
         position: "absolute",
         top: "0",
         right: "0",
