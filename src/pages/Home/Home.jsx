@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useStyles from "./styles";
 import girl from '../../assets/girl-with-bags.png'
 import { Button } from '@mui/material';
@@ -10,6 +10,39 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Home = () => {
     const classes = useStyles();
+
+    const [days,setDays] = useState("00")
+    const [hours,setHours] = useState("00")
+    const [minutes,setMinutes] = useState("00")
+    const [seconds,setSeconds] = useState("00")
+
+    const startTimer = () => {
+        const countdownDate = new Date("May 31, 2023 00:00:00").getTime();
+
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+            const minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+
+            const seconds = Math.floor(distance % (1000 * 60) / 1000);
+
+            if (distance < 0) {
+                clearInterval(interval.current);
+            } else {
+                setDays(days);
+                setHours(hours);
+                setMinutes(minutes);
+                setSeconds(seconds);
+            }
+        }, 1000);
+    }
+
+    startTimer();
+
 
     return (
         // mainContainer
@@ -35,6 +68,28 @@ const Home = () => {
 
                 </div>
 
+            </div>
+            {/* timer for sale */}
+            <div className={classes.timer}>
+                <h3>Offer Ends in</h3>
+                <div className={classes.timerContainer}>
+                    <div className={classes.timerBox}>
+                        <h1>{days}</h1>
+                        <p>Days</p>
+                    </div>
+                    <div className={classes.timerBox}>
+                        <h1>{hours}</h1>
+                        <p>Hours</p>
+                    </div>
+                    <div className={classes.timerBox}>
+                        <h1>{minutes}</h1>
+                        <p>Minutes</p>
+                    </div>
+                    <div className={classes.timerBox}>
+                        <h1>{seconds}</h1>
+                        <p>Seconds</p>
+                    </div>
+                </div>
             </div>
             {/* container with cards */}
             <div className={classes.cardsContainer}>

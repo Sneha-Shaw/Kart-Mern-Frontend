@@ -133,6 +133,37 @@ export default makeStyles((theme) => ({
             cursor: "pointer",
             color: "black",
         }
+    },
+    timer:{
+        width: "100%",
+        display: "flex",
+        flexDirection:"column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "2rem 0",
+        fontSize: "1.6rem",
+        color:"#395B64"
+    },
+    timerContainer:{
+        width: "25%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "2rem 0",
+       '&>div':{
+        margin:"0 1rem",
+        display: "flex",
+        flexDirection:"column",
+        justifyContent: "center",
+        alignItems: "center",
+        '& p':{
+            fontSize: "2rem",
+        }
+       },
+        [theme.breakpoints.down("md")]: {
+            flexDirection: "column",
+            width:"90%"
+        }
     }
 }
 )
