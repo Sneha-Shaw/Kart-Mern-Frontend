@@ -7,12 +7,19 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const ProductPage = () => {
   const classes = useStyles();
-  const { products, loading } = ProductLogic();
+  const {
+    products,
+    loading,
+    setTrueFilters,
+    productsFiltered
+  } = ProductLogic();
 
   return (
     <div className={classes.container}>
       <div className={classes.left}>
-        <Filter />
+        <Filter
+          setTrueFilters={setTrueFilters}
+        />
       </div>
       <div className={classes.right}>
         {
@@ -26,15 +33,25 @@ const ProductPage = () => {
             </div>
             :
             <div className={classes.cards}>
-              {products &&
-                products.products.map(
-                  (product, index) => {
-                    return (
+              {
+                productsFiltered ?
+                  productsFiltered.map(
+                    (product, index) => {
+                      return (
+                        <CardComponent product={product} key={index} />
+                      );
+                    }
+                  )
+                  :
+                  products &&
+                  products.products.map(
+                    (product, index) => {
+                      return (
 
-                      <CardComponent product={product} key={index} />
+                        <CardComponent product={product} key={index} />
 
-                    );
-                  })}
+                      );
+                    })}
               {
                 products && products.products.length === 0 &&
                 <div className={classes.loading}>

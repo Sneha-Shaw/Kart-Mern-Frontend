@@ -75,10 +75,7 @@ const Cart = () => {
                               zIndex: 1,
                             }} /> :
                             <Card className={classes.card} >
-                              {/* <input 
-                      type="checkbox"
-                       className={classes.checkbox}
-                      /> */}
+                             
                               <CardMedia
                                 className={classes.media}
                                 component="img"
@@ -106,7 +103,6 @@ const Cart = () => {
 
                     );
                   })}
-              {/* </div> */}
 
             </div>
 

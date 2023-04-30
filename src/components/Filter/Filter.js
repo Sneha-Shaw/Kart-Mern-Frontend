@@ -3,21 +3,19 @@ import useStyles from "./styles";
 import { FilterLogic } from './FilterLogic';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
-const Filter = () => {
+const Filter = ({ setTrueFilters }) => {
     const classes = useStyles();
+
     const {
         colorOptions,
         sizeOptions,
         typeOptions,
-        color,
-        setColor,
-        size,
-        setSize,
-        type,
-        setType,
+        allFilterClickListener,
+        filteredCollected,
         clearAll
-    } = FilterLogic();
-    console.log(color);
+    } = FilterLogic({ setTrueFilters });
+
+
     return (
         <div className={classes.filterContainer}>
             <div className={classes.filter}>
@@ -32,14 +30,13 @@ const Filter = () => {
                     <div className={classes.filterColorOptions}>
                         {colorOptions.map((colorItem, index) => (
                             <div key={index} className={classes.filterColorOption}
-                                onClick={() =>
-                                    color.includes(colorItem)
-                                        ? setColor(color.filter((item) => item !== colorItem))
-                                        : setColor([...color, colorItem])
-                                }
+                                data-name={colorItem}
+                                onClick={() => {
+                                    allFilterClickListener(colorItem, "color");
+                                }}
                             >
                                 <input type="checkbox" name="color" className={classes.checkbox}
-                                    checked={color.includes(colorItem) ? true : false}
+                                    checked={filteredCollected().color.includes(colorItem) ? true : false}
                                     readOnly
                                 />
                                 <label htmlFor="color">{colorItem}</label>
@@ -52,14 +49,12 @@ const Filter = () => {
                     <div className={classes.filterColorOptions}>
                         {sizeOptions.map((sizeItem, index) => (
                             <div key={index} className={classes.filterColorOption}
-                                onClick={() =>
-                                    size.includes(sizeItem)
-                                        ? setSize(size.filter((item) => item !== sizeItem))
-                                        : setSize([...size, sizeItem])
-                                }
+                                onClick={() => {
+                                    allFilterClickListener(sizeItem, "size");
+                                }}
                             >
                                 <input type="checkbox" name="size" className={classes.checkbox}
-                                    checked={size.includes(sizeItem) ? true : false}
+                                    checked={filteredCollected().size.includes(sizeItem) ? true : false}
                                     readOnly
                                 />
                                 <label htmlFor="size">{sizeItem}</label>
@@ -73,14 +68,12 @@ const Filter = () => {
                     <div className={classes.filterColorOptions}>
                         {typeOptions.map((typeItem, index) => (
                             <div key={index} className={classes.filterColorOption}
-                                onClick={() =>
-                                    type.includes(typeItem)
-                                        ? setType(type.filter((item) => item !== typeItem))
-                                        : setType([...type, typeItem])
-                                }
+                                onClick={() => {
+                                    allFilterClickListener(typeItem, "type");
+                                }}
                             >
                                 <input type="checkbox" name="type" className={classes.checkbox}
-                                    checked={type.includes(typeItem) ? true : false}
+                                    checked={filteredCollected().type.includes(typeItem) ? true : false}
                                     readOnly
                                 />
                                 <label htmlFor="type">{typeItem}</label>
@@ -94,3 +87,4 @@ const Filter = () => {
 }
 
 export default Filter
+

@@ -65,7 +65,7 @@ const Wishlist = () => {
           <div className={classes.empty}>
             <h1 className={classes.emptyTitle}>Your Wishlist is Empty!</h1>
             <Button variant="contained" color="primary" className={classes.button} onClick={() => navigate('/')} >
-              Browse Products
+              Browse
             </Button>
           </div>
       }

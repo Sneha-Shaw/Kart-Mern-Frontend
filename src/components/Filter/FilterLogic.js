@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useEffect } from "react"
+import { FilterUtils } from "../../utils/FilterUtils"
 
-export const FilterLogic = () => {
+export const FilterLogic = ({
+    setTrueFilters
+}) => {
+
+    const {
+        filterState,
+        allFilterClickListener,
+        filteredCollected,
+        setFilterState
+    } = FilterUtils()
+
+
+
     const colorOptions = [
         "Red",
-        "Orange",
+        "White",
         "Yellow",
         "Green",
+        "Black",
         "Blue",
-        "Indigo",
         "Purple",
         "Pink"
     ]
@@ -27,27 +40,47 @@ export const FilterLogic = () => {
         "Dresses",
         "Jackets"
     ]
-    const [color, setColor] = useState([])
-    const [size, setSize] = useState([])
-    const [type, setType] = useState([])
 
-    // clear all filters
+    useEffect(() => {
+        setTrueFilters(filteredCollected())
+    }, [filterState])
+
+
     const clearAll = () => {
-        setColor([])
-        setSize([])
-        setType([])
+
+        setFilterState(prevState => ({
+            ...prevState,
+            // set all keys of passingTags.colors to false by traversing throgh them
+            passingTags: {
+                ...prevState.passingTags,
+                color: Object.keys(prevState.passingTags.color).reduce((acc, key) => {
+                    acc[key] = false;
+                    return acc;
+                }
+                    , {}),
+                size: Object.keys(prevState.passingTags.size).reduce((acc, key) => {
+                    acc[key] = false;
+                    return acc;
+                }
+                    , {}),
+                type: Object.keys(prevState.passingTags.type).reduce((acc, key) => {
+                    acc[key] = false;
+                    return acc;
+                }
+                    , {})
+            }
+        }));
+
+
     }
 
-    return{
+
+    return {
         colorOptions,
         sizeOptions,
         typeOptions,
-        color,
-        setColor,
-        size,
-        setSize,
-        type,
-        setType,
+        allFilterClickListener,
+        filteredCollected,
         clearAll
     }
 }

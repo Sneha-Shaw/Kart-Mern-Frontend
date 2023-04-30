@@ -19,9 +19,7 @@ const SingleProduct = () => {
     qty,
     setQty,
     color,
-    setColor,
-    decreaseQuantity,
-    increaseQuantity
+    setColor
   } = SingleProductLogic();
 
   const changeImage = (featureimg) => {

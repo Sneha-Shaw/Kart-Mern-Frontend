@@ -78,7 +78,7 @@ const CardComponent = ({ product }) => {
                     {
                         path === "/wishlist" && show &&
                         <div className={classes.dropdown}>
-                            <p onClick={() => { dispatch(deleteFromWishlist(userInfo?._id, product?._id)) }}>Delete</p>
+                            <p onClick={() => { dispatch(deleteFromWishlist(userInfo?._id, product?._id)) }}>Remove From Wishlist</p>
                         </div>
                     }
                 </CardContent>
