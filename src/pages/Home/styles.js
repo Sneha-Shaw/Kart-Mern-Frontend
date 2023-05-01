@@ -1,7 +1,8 @@
 import { makeStyles } from "@mui/styles";
 export default makeStyles((theme) => ({
     container: {
-        width: "100%"
+        width: "100%",
+
     },
     introContainer: {
         width: "100%",
@@ -9,7 +10,11 @@ export default makeStyles((theme) => ({
         justifyContent: "space-between",
         background: "black",
         color: "white",
-
+        height: "93vh",
+        [theme.breakpoints.down("md")]: {
+            flexDirection:"column",
+            justifyContent:"center"
+        }
     },
     textPart: {
         width: "50%",
@@ -25,8 +30,10 @@ export default makeStyles((theme) => ({
         },
         [theme.breakpoints.down("md")]: {
             width: "100%",
-            fontSize: "2rem",
+            fontSize: "4rem",
             padding: "1rem 0",
+            textAlign:"center",
+            margin:"1rem 0",
             "&>Button": {
                 fontSize: "1.5rem",
                 margin: "1rem 0",
@@ -36,18 +43,25 @@ export default makeStyles((theme) => ({
     imgPart: {
         width: "40%",
         padding: "2.1rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         [theme.breakpoints.down("md")]: {
-            display: "none"
+          width:"100%",
+          padding:"0"
         }
     },
     rectangle: {
         background: "#E7F6F2",
-        width: "40rem",
-        height: "60rem",
-        borderRadius: "10%",
-        // display: "none",
+        width: "35rem",
+        height: "56rem",
+        borderRadius: "5rem",
+        position: "relative",
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "center",
         [theme.breakpoints.down("md")]: {
-            display: "none"
+            // display: "none"
         }
 
 
@@ -58,24 +72,17 @@ export default makeStyles((theme) => ({
         padding: "2rem",
         lineHeight: "1.5",
         fontSize: "2rem",
-        width: "15%",
+        width: "75%",
         color: "black",
         position: "absolute",
-        top: "10rem",
-        left: "66rem",
-
+        top: "5%",
+        right: "90%",
+        [theme.breakpoints.down("md")]: {
+            display: "none"
+        }
     },
     img: {
-        width: "91rem",
-        position: "absolute",
-        top: "8.1rem",
-        right: "0",
-        // display: "none",
-        [theme.breakpoints.down("md")]: {
-            width: "130%",
-            top: "-1rem",
-            left: "-2rem",
-        }
+        width:"80%"
 
     },
     cardsContainer: {
@@ -98,7 +105,7 @@ export default makeStyles((theme) => ({
 
         [theme.breakpoints.down("md")]: {
             flexDirection: "column",
-            width:"90%"
+            width: "90%"
         }
     },
     card: {
@@ -134,35 +141,35 @@ export default makeStyles((theme) => ({
             color: "black",
         }
     },
-    timer:{
+    timer: {
         width: "100%",
         display: "flex",
-        flexDirection:"column",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         padding: "2rem 0",
         fontSize: "1.6rem",
-        color:"#395B64"
+        color: "#395B64"
     },
-    timerContainer:{
+    timerContainer: {
         width: "25%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         padding: "2rem 0",
-       '&>div':{
-        margin:"0 1rem",
-        display: "flex",
-        flexDirection:"column",
-        justifyContent: "center",
-        alignItems: "center",
-        '& p':{
-            fontSize: "2rem",
-        }
-       },
-        [theme.breakpoints.down("md")]: {
+        '&>div': {
+            margin: "0 1rem",
+            display: "flex",
             flexDirection: "column",
-            width:"90%"
+            justifyContent: "center",
+            alignItems: "center",
+            '& p': {
+                fontSize: "2rem",
+            }
+        },
+        [theme.breakpoints.down("md")]: {
+            // flexDirection: "column",
+            width: "90%"
         }
     }
 }

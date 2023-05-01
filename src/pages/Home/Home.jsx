@@ -59,11 +59,15 @@ const Home = () => {
                 </div>
                 <div className={classes.imgPart}>
                     <div className={classes.rectangle}>
-
-                    </div>
+                        {/* <div className={classes.imgContainer}> */}
+                            
                     <img src={girl} alt="" className={classes.img} />
-
+                        {/* </div> */}
                     <div className={classes.offer}>40% Off <br />on orders above Rs 3999</div>
+                    </div>
+                   
+
+                  
 
                 </div>
 
