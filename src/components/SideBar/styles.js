@@ -21,7 +21,7 @@ export default makeStyles((theme) => ({
                     color: "white",
                 },
                 "&>a": {
-                    padding: '1rem 3rem',
+                    padding: '1rem 1.7rem',
                     textDecoration: 'none',
                     width: "100%",
                     color: 'white',

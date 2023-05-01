@@ -49,7 +49,7 @@ const Navbar = () => {
                 }
                 {
                     show &&
-                    <div className={classes.MenuListcontainer}>
+                    <div className={classes.MenuListcontainer} onClick={()=>setShow(false)}>
                         <ul>
                             <li>
                                 <div className={classes.logo}>

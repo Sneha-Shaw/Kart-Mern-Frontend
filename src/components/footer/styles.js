@@ -54,7 +54,7 @@ export default makeStyles((theme) => ({
             padding: "0 1rem",
             fontSize: "1.8rem",
             [theme.breakpoints.down("sm")]: {
-                width: "200px",
+                width: "260px",
             },
         },
         "& button": {
@@ -64,8 +64,12 @@ export default makeStyles((theme) => ({
             fontSize: "1.8rem",
             backgroundColor:"#f0c14b",
             [theme.breakpoints.down("sm")]: {
-                marginLeft: "0.5rem",
+                marginLeft: "0rem",
+                marginTop:"1.5rem"
             },
+        },
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
         },
     },
     social: {

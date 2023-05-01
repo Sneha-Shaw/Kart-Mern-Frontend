@@ -156,7 +156,10 @@ export default makeStyles((theme) => ({
             color: '#fff',
             "&:hover":{
                 backgroundColor: '#2f4a51',
-            }
+            },
+            [theme.breakpoints.down('md')]: {
+                width:"60%"
+            },
         }
 
     }

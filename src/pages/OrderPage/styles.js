@@ -15,7 +15,8 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         background: '#F5F5F5',
         [theme.breakpoints.down('md')]: {
-            padding: "2rem 0"
+            padding: "2rem 0",
+            width:"100%"
         }
     },
     orderHeader: {
@@ -80,7 +81,8 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
             margin: "2rem 0rem !important",
             flexDirection: "column",
-            padding: "2rem"
+            padding: "2rem",
+            height: "unset !important",
 
         }
     },
@@ -100,8 +102,9 @@ export default makeStyles((theme) => ({
             fontWeight: '800',
         },
         [theme.breakpoints.down('md')]: {
-
+            width: "100% !important"
         }
+        
     },
     price: {
         fontSize: '2.5rem',
@@ -115,7 +118,7 @@ export default makeStyles((theme) => ({
         width: "25rem !important",
         height: "100% !important",
         [theme.breakpoints.down('md')]: {
-            width: "30rem !important"
+            width: "100% !important"
         }
     },
 
@@ -123,6 +126,9 @@ export default makeStyles((theme) => ({
         width: "15%",
         '& button': {
             fontSize: "1.2rem !important"
+        },
+        [theme.breakpoints.down('md')]: {
+          width:"30%"
         }
     }
 
