@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import useStyles from './styles'
 import SideBar from '../../components/SideBar/SideBar'
 import SearchIcon from '@mui/icons-material/Search';
-import { Card, CardMedia, CardContent, CardActions, IconButton, Button } from '@mui/material';
+import { Card, CardMedia, CardContent, CardActions, Button } from '@mui/material';
 import { GetOrderLogic } from './GetOrderLogic';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 const OrderPage = () => {
   const classes = useStyles()
@@ -33,14 +32,12 @@ const OrderPage = () => {
               placeholder="Search in your orders"
               value={search}
               onChange={(e) => searchProductsInOrderHandler(e)}
-            // onKeyPress={(e) => e.key === 'Enter' ? searchProductsInOrderHandler() : null}
             />
           </div>
           <div className={classes.filter}>
             <select
               onChange={(e) => {
                 setFilter(e.target.value)
-                // filterOrder(e.target.value.toLowerCase())
               }}
             >
               {orderFilter.map((orderFilter) => (
@@ -122,7 +119,6 @@ const OrderPage = () => {
                         className={classes.card}>
                         <CardMedia
                           component="img"
-                          // height="194"
                           className={classes.cardImg}
                           image={product?.product?.featureimg[0]}
                         />
@@ -183,7 +179,6 @@ const OrderPage = () => {
 
                         <CardMedia
                           component="img"
-                          // height="194"
                           className={classes.cardImg}
                           image={product?.product?.featureimg[0]}
                         />
