@@ -120,12 +120,9 @@ export default makeStyles((theme) => ({
     },
 
     cardActions: {
-        position: "absolute",
-        top: "0",
-        right: "0",
-        [theme.breakpoints.down('md')]: {
-            top: "-1rem",
-            right: "-1rem"
+        width: "15%",
+        '& button': {
+            fontSize: "1.2rem !important"
         }
     }
 

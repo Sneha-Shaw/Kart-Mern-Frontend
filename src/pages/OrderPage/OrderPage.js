@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import useStyles from './styles'
 import SideBar from '../../components/SideBar/SideBar'
 import SearchIcon from '@mui/icons-material/Search';
-import { Card, CardMedia, CardContent, CardActions, IconButton } from '@mui/material';
+import { Card, CardMedia, CardContent, CardActions, IconButton, Button } from '@mui/material';
 import { GetOrderLogic } from './GetOrderLogic';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 const OrderPage = () => {
   const classes = useStyles()
-  const { 
+  const {
     orders,
     cancelOrderHandler,
     redirectHandler,
@@ -113,15 +113,19 @@ const OrderPage = () => {
                             onClick={() => redirectHandler(product?.product?._id)}
                           >{product?.product?.title}</h3>
                           <p className={classes.price}>₹{product?.product?.price}</p>
-                          <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                          <p className={classes.description}>
+                            {
+                              product?.product?.description.slice(0, 130)
+                            }
+                          </p>
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                          <h2 style={{ fontSize: '2rem', margin: '.5rem 0',paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
+                          <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                         </CardContent>
                         <CardActions className={classes.cardActions}>
-                          <IconButton onClick={() => { cancelOrderHandler(product._id) }} >
-                            <HighlightOffIcon fontSize='large' />
-                          </IconButton>
+                          <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
+                            Cancel Order
+                          </Button>
                         </CardActions>
 
                       </Card>
@@ -152,15 +156,38 @@ const OrderPage = () => {
                             onClick={() => redirectHandler(product?.product?._id)}
                           >{product?.product?.title}</h3>
                           <p className={classes.price}>₹{product?.product?.price}</p>
-                          <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
-                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                          <h2 style={{ fontSize: '2rem', margin: '.5rem 0',paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
+                          <p className={classes.description}>
+                            {
+                              product?.product?.description.slice(0, 130)
+                            }
+                          </p>
+                          {
+                            product?.status !== 'cancelled' &&
+                            <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
+                          }
+
+                          {
+                            product?.status === 'cancelled' ? (
+                              <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                            ) : (
+                              <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                            )
+                          }
+                          <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                         </CardContent>
                         <CardActions className={classes.cardActions}>
-                          <IconButton onClick={() => { cancelOrderHandler(product._id) }} >
-                            <HighlightOffIcon fontSize='large' />
-                          </IconButton>
+                          {
+                            product?.status === 'cancelled' ? (
+                              <Button variant="contained" color="error" disabled>
+                                Cancelled
+                              </Button>
+                            ) : (
+                              <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
+                                Cancel Order
+                              </Button>
+                            )
+                          }
+
                         </CardActions>
 
                       </Card>
