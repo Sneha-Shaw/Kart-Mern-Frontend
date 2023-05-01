@@ -75,16 +75,22 @@ const OrderPage = () => {
                         <p className={classes.price}>₹{product?.product?.price}</p>
                         <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
                         {
-                          product?.status !== 'cancelled' &&
+                          product?.status !== 'cancelled' && product?.status !== "delivered" &&
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
                         }
                         {
-                          product?.status === 'cancelled' ? (
-                            <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                          ) : (
-                            <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                          )
-                        }
+                            product?.status === 'cancelled' ? (
+                              <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                            ) :
+                              product?.status === "delivered" ?
+                                (
+                                  <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "green" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                                )
+                                :
+                                (
+                                  <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                                )
+                          }
                         <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                       </CardContent>
                       <CardActions className={classes.cardActions}>
@@ -93,11 +99,17 @@ const OrderPage = () => {
                             <Button variant="contained" color="error" disabled>
                               Cancelled
                             </Button>
-                          ) : (
-                            <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
-                              Cancel Order
-                            </Button>
-                          )
+                          ) :
+                            product?.status === "delivered" ? (
+                              <Button variant="contained" color="success" >
+                                Delivered
+                              </Button>
+                            ) :
+                              (
+                                <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
+                                  Cancel Order
+                                </Button>
+                              )
                         }
 
                       </CardActions>
@@ -133,15 +145,21 @@ const OrderPage = () => {
                             }
                           </p>
                           {
-                            product?.status !== 'cancelled' &&
+                            product?.status !== 'cancelled' && product?.status !== "delivered" &&
                             <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
                           }
                           {
                             product?.status === 'cancelled' ? (
                               <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                            ) : (
-                              <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                            )
+                            ) :
+                              product?.status === "delivered" ?
+                                (
+                                  <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "green" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                                )
+                                :
+                                (
+                                  <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                                )
                           }
                           <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                         </CardContent>
@@ -151,11 +169,17 @@ const OrderPage = () => {
                               <Button variant="contained" color="error" disabled>
                                 Cancelled
                               </Button>
-                            ) : (
-                              <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
-                                Cancel Order
-                              </Button>
-                            )
+                            ) :
+                              product?.status === "delivered" ? (
+                                <Button variant="contained" color="success" >
+                                  Delivered
+                                </Button>
+                              ) :
+                                (
+                                  <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
+                                    Cancel Order
+                                  </Button>
+                                )
                           }
 
                         </CardActions>
@@ -193,16 +217,22 @@ const OrderPage = () => {
                             }
                           </p>
                           {
-                            product?.status !== 'cancelled' &&
+                            product?.status !== 'cancelled' && product?.status !== "delivered" &&
                             <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
                           }
 
                           {
                             product?.status === 'cancelled' ? (
                               <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                            ) : (
-                              <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                            )
+                            ) :
+                              product?.status === "delivered" ?
+                                (
+                                  <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "green" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                                )
+                                :
+                                (
+                                  <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                                )
                           }
                           <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                         </CardContent>
@@ -212,13 +242,18 @@ const OrderPage = () => {
                               <Button variant="contained" color="error" disabled>
                                 Cancelled
                               </Button>
-                            ) : (
-                              <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
-                                Cancel Order
-                              </Button>
-                            )
+                            ) :
+                              product?.status === "delivered" ? (
+                                <Button variant="contained" color="success" >
+                                  Delivered
+                                </Button>
+                              ) :
+                                (
+                                  <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
+                                    Cancel Order
+                                  </Button>
+                                )
                           }
-
                         </CardActions>
 
                       </Card>
