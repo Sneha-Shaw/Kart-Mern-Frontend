@@ -29,7 +29,10 @@ import {
     SEARCH_PRODUCT_FAILED,
     DELETE_PRODUCT_FROM_CART_REQUEST,
     DELETE_PRODUCT_FROM_CART_SUCCESS,
-    DELETE_PRODUCT_FROM_CART_FAILED
+    DELETE_PRODUCT_FROM_CART_FAILED,
+    ADD_RATING_REQUEST,
+    ADD_RATING_SUCCESS,
+    ADD_RATING_FAILED
 } from '../constants/productConstants'
 import axios from 'axios'
 
@@ -287,3 +290,30 @@ export const searchProduct = (keyword) => async (dispatch) => {
     }
 }
 
+// add ratings
+export const addRatings = (id, userName, rating, comment) => async (dispatch) => {
+    try {
+        dispatch({
+            type: ADD_RATING_REQUEST
+        })
+        const config = {
+            'Content-Type': 'application/json'
+        }
+        const body = {
+            userName, rating, comment
+        }
+        const { data } = await axios.post(`${API}/public/products/add-review/${id}`,body, config)
+        dispatch({
+            type: ADD_RATING_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: ADD_RATING_FAILED,
+            payload: error.response &&
+                error.response.data.message ?
+                error.response.data.message
+                : error.message
+        })
+    }
+}

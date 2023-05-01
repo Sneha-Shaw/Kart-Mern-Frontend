@@ -240,10 +240,15 @@ export default makeStyles((theme) => ({
     WriteReview: {
         display: "flex",
         flexDirection: "column",
+        alignItems:"center",
         width: "100%",
+        '& span':{
+            margin:".5rem 0",
+            fontSize:"4rem"
+        },
         "&>input": {
             width: "80%",
-            padding: "0.5rem 1rem",
+            padding: "1rem 1rem",
             fontSize: "1.5rem",
             border: "1px solid rgb(0,0,0,0.2)",
             borderRadius: "0.5rem",
@@ -252,8 +257,16 @@ export default makeStyles((theme) => ({
         },
         "&>button": {
             fontSize: "1.2rem",
-            width: "20%",
             margin: "0 auto",
+            padding: '1rem',
+            fontWeight: 'bold',
+            backgroundColor: '#395B64',
+            width: '30%',
+            color: '#fff',
+            "&:hover": {
+                backgroundColor: '#2f4a51',
+            }
+
         }
 
     },
@@ -349,6 +362,37 @@ export default makeStyles((theme) => ({
             fontSize: "2rem",
             cursor: "pointer",
         }
-    }
+    },
+    add:{
+        width:"40%",
+        margin:"0 auto",
+        fontSize:"1.6rem",
+        display:"flex",
+        flexDirection:"column",
+        alignItems:"center",
+        justifyContent:"center",
+        padding:"2rem",
+        '& input':{
+            width:"50%",
+            padding:"1rem 1.4rem"
+        },
+        "& Button": {
+            margin: '0 auto',
+            padding: '1rem',
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            backgroundColor: '#395B64',
+            width: '30%',
+            color: '#fff',
+            "&:hover": {
+                backgroundColor: '#2f4a51',
+            }
+
+        },
+    },
+    not:{
+        fontWeight:"800",
+        color:"#395B64"
+    },
 
 }))

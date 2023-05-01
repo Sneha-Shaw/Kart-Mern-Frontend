@@ -29,7 +29,10 @@ import {
     SEARCH_PRODUCT_FAILED,
     DELETE_PRODUCT_FROM_CART_REQUEST,
     DELETE_PRODUCT_FROM_CART_SUCCESS,
-    DELETE_PRODUCT_FROM_CART_FAILED
+    DELETE_PRODUCT_FROM_CART_FAILED,
+    ADD_RATING_REQUEST,
+    ADD_RATING_SUCCESS,
+    ADD_RATING_FAILED
 } from '../constants/productConstants'
 
 
@@ -326,6 +329,37 @@ export const searchProductReducer = (state = searchProductState, action) => {
                 data: action.payload
             }
         case SEARCH_PRODUCT_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+const addRatingState = {
+    loading: false,
+    error: null,
+    isAuthenticated: false,
+    data: null
+}
+
+export const addRatingsReducer = (state = addRatingState, action) => {
+    switch (action.type) {
+        case ADD_RATING_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case ADD_RATING_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
+        case ADD_RATING_FAILED:
             return {
                 ...state,
                 loading: false,

@@ -5,18 +5,23 @@ import { useState, useEffect } from 'react';
 import {
     addToWishlist,
     checkIfWishlist,
-    addToCart
+    addToCart,
+    addRatings
 } from '../../redux/actions/productAction';
+import { getSingleUser } from "../../redux/actions/userAction";
 import Swal from 'sweetalert2';
 
 export const SingleProductLogic = () => {
     const { isWishlist } = useSelector(state => state.checkIfWishlist)
     const { userInfo } = useSelector(state => state.signInUser)
     const { product } = useSelector(state => state.getSingleProduct)
+    const { user } = useSelector((state) => state.getSingleUser);
+    const { data: ratingAdded } = useSelector((state) => state.addRatings)
 
     const { id } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     useEffect(() => {
 
         dispatch(getSingleProduct(id))
@@ -29,6 +34,37 @@ export const SingleProductLogic = () => {
     const [color, setColor] = useState("")
     const [outOfStock, setOutOfStock] = useState(false)
     const [itemLeft, setItemLeft] = useState()
+
+    const [rating, setRating] = useState(0)
+    const [comment, setComment] = useState("")
+
+
+    useEffect(() => {
+        dispatch(getSingleUser(userInfo._id));
+    }, [dispatch, userInfo._id]);
+
+    const addReview = () => {
+
+        if (user) {
+            if (rating) {
+                dispatch(addRatings(product?.product?._id, user?.user?.name, rating, comment))
+            }
+            else {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Please add rating',
+                })
+            }
+        }
+    }
+
+    useEffect(() => {
+        if (ratingAdded?.success) {
+            setRating(0)
+            setComment("")
+            dispatch(getSingleProduct(id))
+        }
+    }, [ratingAdded, id])
 
 
     useEffect(() => {
@@ -139,6 +175,11 @@ export const SingleProductLogic = () => {
         color,
         setColor,
         outOfStock,
-        itemLeft
+        itemLeft,
+        addReview,
+        rating,
+        setRating,
+        comment,
+        setComment
     }
 }
