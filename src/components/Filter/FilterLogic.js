@@ -34,11 +34,12 @@ export const FilterLogic = ({
     ]
     const typeOptions = [
         "Tops",
+        "Shirts",
         "Bottoms",
         "Shoes",
         "Accessories",
         "Dresses",
-        "Jackets"
+        "Hoodies"
     ]
 
     useEffect(() => {

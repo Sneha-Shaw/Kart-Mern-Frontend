@@ -139,7 +139,7 @@ const Home = () => {
                             <h4>Dresses</h4>
                             <div className={classes.shop}>
                                 <p>Shop Now!</p>
-                                <a href="/search?q=dresses"><ArrowForwardIcon /></a>
+                                <a href="/search?q=dress"><ArrowForwardIcon /></a>
                             </div>
                         </CardContent>
                     </Card>

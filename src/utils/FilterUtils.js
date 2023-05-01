@@ -18,13 +18,13 @@ export const FilterUtils = () => {
                 green: false
             },
             type: {
-                innerwear: false,
-                dress: false,
-                robe: false,
-                pajamas: false,
-                sweater: false,
-                pants: false,
-                tops: false
+                tops: false,
+                shirts: false,
+                bottoms: false,
+                shoes: false,
+                accessories: false,
+                dresses: false,
+                hoodies: false
             },
             size: {
                 xs: false,

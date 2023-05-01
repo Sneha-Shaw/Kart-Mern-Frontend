@@ -81,7 +81,7 @@ const UserProfile = () => {
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}>State</h3>
           <input type="text" placeholder="State"
-            value={state === '' ? user && user.user.State : state}
+            value={state === '' ? user && user.user.state : state}
             onChange={(e) => setState(e.target.value)}
           />
         </div>
@@ -90,7 +90,7 @@ const UserProfile = () => {
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}>Zip Code</h3>
           <input type="text" placeholder="Zip Code"
-            value={pincode === '' ? user && user.user.Pincode : pincode}
+            value={pincode === '' ? user && user.user.pincode : pincode}
             onChange={(e) => setPincode(e.target.value)}
           />
         </div>
