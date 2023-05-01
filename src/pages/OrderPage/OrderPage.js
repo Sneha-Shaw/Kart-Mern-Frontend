@@ -77,14 +77,32 @@ const OrderPage = () => {
                         >{product?.product?.title}</h3>
                         <p className={classes.price}>₹{product?.product?.price}</p>
                         <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                        <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
-                        <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                        {
+                          product?.status !== 'cancelled' &&
+                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
+                        }
+                        {
+                          product?.status === 'cancelled' ? (
+                            <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                          ) : (
+                            <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                          )
+                        }
                         <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                       </CardContent>
                       <CardActions className={classes.cardActions}>
-                        <IconButton onClick={() => { cancelOrderHandler(product._id) }} >
-                          <HighlightOffIcon fontSize='large' />
-                        </IconButton>
+                        {
+                          product?.status === 'cancelled' ? (
+                            <Button variant="contained" color="error" disabled>
+                              Cancelled
+                            </Button>
+                          ) : (
+                            <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
+                              Cancel Order
+                            </Button>
+                          )
+                        }
+
                       </CardActions>
 
                     </Card>
@@ -118,14 +136,32 @@ const OrderPage = () => {
                               product?.product?.description.slice(0, 130)
                             }
                           </p>
-                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
-                          <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                          {
+                            product?.status !== 'cancelled' &&
+                            <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
+                          }
+                          {
+                            product?.status === 'cancelled' ? (
+                              <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                            ) : (
+                              <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                            )
+                          }
                           <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                         </CardContent>
                         <CardActions className={classes.cardActions}>
-                          <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
-                            Cancel Order
-                          </Button>
+                          {
+                            product?.status === 'cancelled' ? (
+                              <Button variant="contained" color="error" disabled>
+                                Cancelled
+                              </Button>
+                            ) : (
+                              <Button variant="contained" color="error" onClick={() => { cancelOrderHandler(product._id) }} >
+                                Cancel Order
+                              </Button>
+                            )
+                          }
+
                         </CardActions>
 
                       </Card>

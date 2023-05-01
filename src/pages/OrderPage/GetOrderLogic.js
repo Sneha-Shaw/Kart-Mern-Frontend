@@ -13,7 +13,7 @@ export const GetOrderLogic = () => {
     const [search, setSearch] = useState('')
     var [filtered, setFiltered] = useState([]);
     const [filter, setFilter] = useState('')
-    const orderFilter = ["All orders", "Pending", "Delivered"]
+    const orderFilter = ["All orders", "Pending", "Delivered","Cancelled"]
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -68,6 +68,9 @@ export const GetOrderLogic = () => {
       }
       else if (filter === "Delivered") {
         filterOrder("delivered")
+      }
+      else if (filter === "Cancelled") {
+        filterOrder("cancelled")
       }
     }, [filter])
 
