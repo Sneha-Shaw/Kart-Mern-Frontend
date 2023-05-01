@@ -1,11 +1,11 @@
-import { useEffect,useState } from "react"
+import { useEffect, useState } from "react"
 import { searchProduct } from "../../redux/actions/productAction"
-import { useSelector,useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useSearchParams } from "react-router-dom"
 import { FilterUtils } from "../../utils/FilterUtils"
 
 export const SearchResultPageLogic = () => {
-    const {data: searchResult} = useSelector((state)=> state.searchProduct)
+    const { data: searchResult } = useSelector((state) => state.searchProduct)
     const {
         multiPropsFilter
     } = FilterUtils()
@@ -16,7 +16,7 @@ export const SearchResultPageLogic = () => {
     const [productsFiltered, setProductFilterd] = useState(null)
     useEffect(() => {
         dispatch(searchProduct(searchParams.get('q')))
-    }, [dispatch])
+    }, [dispatch, searchParams])
 
     useEffect(() => {
         if (searchResult) {
@@ -24,7 +24,7 @@ export const SearchResultPageLogic = () => {
         }
 
     }, [trueFilters, searchResult])
-    return{
+    return {
         searchResult,
         setTrueFilters,
         productsFiltered
