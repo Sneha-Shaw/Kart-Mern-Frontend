@@ -40,8 +40,8 @@ export const SingleProductLogic = () => {
 
 
     useEffect(() => {
-        dispatch(getSingleUser(userInfo._id));
-    }, [dispatch, userInfo._id]);
+        dispatch(getSingleUser(userInfo?._id));
+    }, [dispatch, userInfo]);
 
     const addReview = () => {
 
