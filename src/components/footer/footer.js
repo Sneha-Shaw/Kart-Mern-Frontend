@@ -67,13 +67,13 @@ const Footer = () => {
           <h3>About Us</h3>
           <ul>
             <li>
-              <Link to="/about">About Us</Link>
+              <Link to="/about-us">About Us</Link>
             </li>
             <li>
               <Link to="/contact">Contact Us</Link>
             </li>
             <li>
-              <Link to="/location">Store Location</Link>
+              <Link to="/store-location">Store Location</Link>
             </li>
             <li>
               <Link to="/orders">Orders Tracking</Link>

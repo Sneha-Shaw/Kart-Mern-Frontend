@@ -4,6 +4,8 @@ import SideBar from '../../components/SideBar/SideBar'
 import SearchIcon from '@mui/icons-material/Search';
 import { Card, CardMedia, CardContent, CardActions, Button } from '@mui/material';
 import { GetOrderLogic } from './GetOrderLogic';
+import { useNavigate } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
 
 const OrderPage = () => {
   const classes = useStyles()
@@ -17,8 +19,11 @@ const OrderPage = () => {
     setFilter,
     filter,
     orderFilter,
-    filtered
+    filtered,
+    loading
   } = GetOrderLogic()
+
+  const navigate = useNavigate()
 
   return (
     <div className={classes.container}>
@@ -51,6 +56,30 @@ const OrderPage = () => {
             </select>
           </div>
         </div>
+        {
+          loading && <CircularProgress size={50}
+            sx={{
+              color: "green",
+              zIndex: 1,
+            }} 
+            className={
+              classes.loading
+            }
+            />
+        }
+        {
+          // no orders to show
+          ((orders && orders?.data.length === 0)
+          ) &&
+          <div className={classes.empty}>
+            <h1 className={classes.emptyTitle}>
+              You have no orders!
+            </h1>
+            <Button variant="contained" color="primary" className={classes.button} onClick={() => navigate('/')} >
+              Shop Now
+            </Button>
+          </div>
+        }
         {/* start of order body */}
         {/* if search is enabled show search results else all orders */}
         {/* if orderfilter value is changed then filtered prodicts are shown else all orders */}
@@ -79,18 +108,18 @@ const OrderPage = () => {
                           <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Product will be Delivered by Next Week</p>
                         }
                         {
-                            product?.status === 'cancelled' ? (
-                              <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                            ) :
-                              product?.status === "delivered" ?
-                                (
-                                  <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "green" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                                )
-                                :
-                                (
-                                  <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
-                                )
-                          }
+                          product?.status === 'cancelled' ? (
+                            <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "red" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                          ) :
+                            product?.status === "delivered" ?
+                              (
+                                <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong style={{ color: "green" }}> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                              )
+                              :
+                              (
+                                <p style={{ fontSize: '1.5rem', margin: '.5rem 0' }}>Order Status:<strong> {product.status.charAt(0).toUpperCase() + product.status.slice(1)} </strong></p>
+                              )
+                        }
                         <h2 style={{ fontSize: '2rem', margin: '.5rem 0', paddingBottom: "2rem" }}>Order Total: ₹{product.amount}</h2>
                       </CardContent>
                       <CardActions className={classes.cardActions}>

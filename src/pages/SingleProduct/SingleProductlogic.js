@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export const SingleProductLogic = () => {
     const { isWishlist } = useSelector(state => state.checkIfWishlist)
     const { userInfo } = useSelector(state => state.signInUser)
-    const { product } = useSelector(state => state.getSingleProduct)
+    const { product,loading } = useSelector(state => state.getSingleProduct)
     const { user } = useSelector((state) => state.getSingleUser);
     const { data: ratingAdded } = useSelector((state) => state.addRatings)
 
@@ -180,6 +180,7 @@ export const SingleProductLogic = () => {
         rating,
         setRating,
         comment,
-        setComment
+        setComment,
+        loading
     }
 }

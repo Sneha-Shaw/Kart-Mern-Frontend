@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
         background: '#F5F5F5',
         [theme.breakpoints.down('md')]: {
             padding: "2rem 0",
-            width:"100%"
+            width: "100%"
         }
     },
     orderHeader: {
@@ -104,7 +104,7 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
             width: "100% !important"
         }
-        
+
     },
     price: {
         fontSize: '2.5rem',
@@ -128,8 +128,46 @@ export default makeStyles((theme) => ({
             fontSize: "1.2rem !important"
         },
         [theme.breakpoints.down('md')]: {
-          width:"30%"
+            width: "30%"
         }
+    },
+    empty: {
+        display: 'flex',
+        width: '100%',
+        height: '90vh',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+        },
+        "&>h1": {
+            fontSize: "4rem",
+            fontWeight: "bold",
+            color: "#395B64"
+        },
+        "&>Button": {
+            margin: '2rem auto',
+            padding: '1rem',
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            backgroundColor: '#395B64',
+            width: '20%',
+            color: '#fff',
+            "&:hover": {
+                backgroundColor: '#2f4a51',
+            }
+        }
+
+    },
+       loading:{
+        position:"absolute",
+        top:"50%",
+        left:"50%",
+        transform:"translate(-50%,-50%)",
+        fontSize:"4rem",
+        fontWeight:"bold",
     }
 
 

@@ -4,6 +4,7 @@ import { Button, Rating } from '@mui/material';
 import useStyles from "./styles";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { CircularProgress } from '@mui/material';
 
 const SingleProduct = () => {
   const classes = useStyles();
@@ -26,7 +27,8 @@ const SingleProduct = () => {
     rating,
     setRating,
     comment,
-    setComment
+    setComment,
+    loading
   } = SingleProductLogic();
 
   //calcyulate diff time
@@ -49,6 +51,17 @@ const SingleProduct = () => {
   return (
     <div className={classes.mainContainer}>
       <div className={classes.container}>
+        {
+          loading && <CircularProgress size={50}
+            sx={{
+              color: "green",
+              zIndex: 1,
+            }} 
+            className={
+              classes.loading
+            }
+            />
+        }
         <div className={classes.left}>
           <div className={classes.imgContainer}>
             <img src={show} alt="" className={classes.img} />
@@ -182,7 +195,7 @@ const SingleProduct = () => {
                 <Rating
                   name="simple-controlled"
                   style={{ color: '#185694', fontSize: "1.8rem" }}
-                  
+
                   value={Math.round(product?.product?.rating * 10) / 10}
                 />
                 <div className={classes.reviewCount}>
@@ -266,7 +279,7 @@ const SingleProduct = () => {
                   <Rating
                     name="simple-controlled"
                     style={{ color: '#185694', fontSize: "1.8rem" }}
-                    
+
                     value={rating}
                     onChange={(e) => {
                       setRating(e.target.value)
@@ -324,7 +337,7 @@ const SingleProduct = () => {
                         <Rating
                           name="simple-controlled"
                           style={{ color: '#185694', fontSize: "1.8rem" }}
-                          
+
                           value={review.rating}
                         />
                       </div>
@@ -349,7 +362,7 @@ const SingleProduct = () => {
               <Rating
                 name="simple-controlled"
                 style={{ color: '#185694', fontSize: "1.8rem" }}
-                
+
                 value={rating}
                 onChange={(e) => {
                   setRating(e.target.value)

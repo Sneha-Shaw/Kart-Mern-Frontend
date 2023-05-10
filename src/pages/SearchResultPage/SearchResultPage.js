@@ -3,6 +3,7 @@ import Filter from '../../components/Filter/Filter'
 import CardComponent from '../../components/Card/CardComponent'
 import useStyles from "./styles";
 import { SearchResultPageLogic } from './SearchResultPageLogic';
+import { CircularProgress } from '@mui/material';
 
 
 const SearchResultPage = () => {
@@ -10,7 +11,8 @@ const SearchResultPage = () => {
   const {
     searchResult,
     setTrueFilters,
-    productsFiltered
+    productsFiltered,
+    loading
   } = SearchResultPageLogic();
 
   return (
@@ -21,6 +23,16 @@ const SearchResultPage = () => {
         />
       </div>
       <div className={classes.right}>
+        {
+          loading && <CircularProgress size={50}
+            sx={{
+              color: "green",
+              position: 'absolute',
+              top: "1rem",
+              left: "2rem",
+              zIndex: 1,
+            }} />
+        }
         <div className={classes.cards}>
           {
             productsFiltered ?

@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom"
 import { FilterUtils } from "../../utils/FilterUtils"
 
 export const SearchResultPageLogic = () => {
-    const { data: searchResult } = useSelector((state) => state.searchProduct)
+    const { loading,data: searchResult } = useSelector((state) => state.searchProduct)
     const {
         multiPropsFilter
     } = FilterUtils()
@@ -27,6 +27,7 @@ export const SearchResultPageLogic = () => {
     return {
         searchResult,
         setTrueFilters,
-        productsFiltered
+        productsFiltered,
+        loading
     }
 }

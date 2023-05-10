@@ -18,7 +18,8 @@ import ProductPage from './pages/ProductPage/ProductPage'
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import NotFound from './pages/NotFound/NotFound'
 import GoToTop from "./components/GoToTop/GoToTop";
-
+import AboutUs from './pages/AboutUs/AboutUs'
+import StoreLocation from './pages/StoreLocation/StoreLocation'
 
 const Router = () => {
 
@@ -39,6 +40,8 @@ const Router = () => {
                     <Route exact path="/product/:id" element={<SingleProduct />} />
                     <Route exact path="/see-products" element={<ProductPage />} />
                     <Route exact path="/search" element={<SearchResultPage />} />
+                    <Route exact path="/about-us" element={<AboutUs />} />
+                    <Route exact path="/store-location" element={<StoreLocation />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
                 <GoToTop/>

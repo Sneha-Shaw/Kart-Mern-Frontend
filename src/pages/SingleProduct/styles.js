@@ -394,5 +394,13 @@ export default makeStyles((theme) => ({
         fontWeight:"800",
         color:"#395B64"
     },
+    loading:{
+        position:"absolute",
+        top:"50%",
+        left:"50%",
+        transform:"translate(-50%,-50%)",
+        fontSize:"4rem",
+        fontWeight:"bold",
+    }
 
 }))
