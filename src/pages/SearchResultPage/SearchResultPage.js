@@ -23,15 +23,16 @@ const SearchResultPage = () => {
         />
       </div>
       <div className={classes.right}>
-        {
+      {
           loading && <CircularProgress size={50}
             sx={{
               color: "green",
-              position: 'absolute',
-              top: "1rem",
-              left: "2rem",
               zIndex: 1,
-            }} />
+            }} 
+            className={
+              classes.loading
+            }
+            />
         }
         <div className={classes.cards}>
           {

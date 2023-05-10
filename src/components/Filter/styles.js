@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 export default makeStyles((theme) => ({
     filterContainer: {
         display: "flex",
+        minHeight:"100vh",
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
@@ -18,7 +19,6 @@ export default makeStyles((theme) => ({
     },
     filterTitle: {
         display: "flex",
-        // justifyContent: "space-between",
         alignItems: "center",
         width: "100%",
         height: "100%",
@@ -34,8 +34,6 @@ export default makeStyles((theme) => ({
     filterColor: {
         display: "flex",
         flexDirection: "column",
-        // justifyContent: "space-between",
-        // alignItems: "center",
         width: "100%",
         height: "100%",
         padding: "1rem",
@@ -46,7 +44,6 @@ export default makeStyles((theme) => ({
     filterColorTitle: {
         display: "flex",
         justifyContent: "space-between",
-        // alignItems: "center",
         width: "100%",
         height: "100%",
         padding: "1rem",
@@ -58,7 +55,6 @@ export default makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        // alignItems: "center",
         width: "100%",
         height: "100%",
         padding: "1rem",
@@ -71,7 +67,6 @@ export default makeStyles((theme) => ({
         width: "80%",
         padding: "0.5rem",
         display: "flex",
-        // justifyContent: "space-between",
     },
     checkbox: {
         width: "2rem",

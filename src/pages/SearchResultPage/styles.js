@@ -7,7 +7,6 @@ export default makeStyles((theme) => ({
         alignItems: "flex-start",
         width: "100%",
         height: "100%",
-        // padding: "1rem",
         
     },
     left: {
@@ -44,6 +43,15 @@ export default makeStyles((theme) => ({
         position:"absolute",
         top:"50%",
         left:"50%",
+    },
+    loading:{
+        position:"absolute",
+        top:"50%",
+        left:"50%",
+        transform:"translate(-50%,-50%)",
+        fontSize:"4rem",
+        fontWeight:"bold",
     }
+
 
 }));
