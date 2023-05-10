@@ -15,6 +15,8 @@ export const GetOrderLogic = () => {
   const [filter, setFilter] = useState('')
   const orderFilter = ["All orders", "Pending", "Delivered", "Cancelled"]
 
+  const API = process.env.REACT_APP_NODE_API
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -52,7 +54,7 @@ export const GetOrderLogic = () => {
   const filterOrder = (status) => {
     // filter orders based on status using backend api
 
-    axios.get(`http://localhost:5000/private/orders/${userInfo?._id}/filter?status=${status}`)
+    axios.get(`${API}/private/orders/${userInfo?._id}/filter?status=${status}`)
       .then(res => {
         setFiltered(res.data.data)
       })
