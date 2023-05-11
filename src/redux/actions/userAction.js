@@ -127,6 +127,7 @@ export const logoutUser = () => (dispatch) => {
 
 // update user
 export const updateUser = (
+  avatar,
   name,
   email,
   // password,
@@ -147,6 +148,7 @@ export const updateUser = (
         'Content-Type': 'application/json'
       }
       const body = {
+        avatar: avatar,
         name: name,
         email: email,
         // password: password,

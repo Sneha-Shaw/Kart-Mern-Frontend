@@ -47,8 +47,8 @@ export default makeStyles((theme) => ({
         color: 'rgba(0,0,0,0.6)',
     },
     profilePicture: {
-        width: '8rem',
-        height: '8rem',
+        width: '15rem',
+        height: '15rem',
         position: 'relative',
         fontSize: "2rem",
         "&>img": {
@@ -61,7 +61,7 @@ export default makeStyles((theme) => ({
     },
     profilePictureButton: {
         position: 'absolute',
-        bottom: '1rem',
+        bottom: '4rem',
         right: '1rem',
         transform: 'translate(50%,50%)',
         width: "3rem",
@@ -93,5 +93,7 @@ export default makeStyles((theme) => ({
         "&:hover": {
             backgroundColor: '#2f4a51 !important',
         }
-    }
+    },
+    
+
 }))

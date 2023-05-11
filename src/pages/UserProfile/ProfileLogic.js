@@ -19,10 +19,12 @@ export const ProfileLogic = () => {
     const [pincode, setPincode] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
+    const [dp,setDp] = useState('')
 
     const id = userInfo?._id
     const updateUserHandler = () => {
         dispatch(updateUser(
+            dp,
             name,
             email,
             mobile,
@@ -37,7 +39,23 @@ export const ProfileLogic = () => {
                 title: 'Profile Updated Successfully',
                 icon: 'success'
             })
+            setDp("")
+            dispatch(getSingleUser(userInfo._id))
+           
         }, 3000);
+    }
+    // convert to base 64
+    const convertToBase64 = (e) => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(e.target.files[0])
+            fileReader.onload = () => {
+                console.log(fileReader.result)
+                setDp(fileReader.result)
+            }
+            fileReader.onerror = (error) => {
+                console.log(error)
+            }
+        
     }
     return {
         user,
@@ -55,6 +73,8 @@ export const ProfileLogic = () => {
         setPincode,
         setCity,
         setState,
-        updateUserHandler
+        updateUserHandler,
+        dp,
+        convertToBase64
     }
 }

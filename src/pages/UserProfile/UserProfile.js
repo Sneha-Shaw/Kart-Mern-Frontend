@@ -4,7 +4,7 @@ import SideBar from '../../components/SideBar/SideBar';
 import { Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import { ProfileLogic } from './ProfileLogic'
-// import Avatar from '@mui/material/Avatar';
+import Avatar from '@mui/material/Avatar';
 
 const UserProfile = () => {
   const classes = useStyles();
@@ -24,23 +24,31 @@ const UserProfile = () => {
     setPincode,
     setCity,
     setState,
-    updateUserHandler
+    updateUserHandler,
+    dp,
+    convertToBase64
   } = ProfileLogic()
 
-  console.log(user?.user);
+
   return (
     <div className={classes.container}>
       <SideBar />
       <div className={classes.settingsContainer}>
         <div className={classes.profilePicture}>
-          <img src={user?.user?.avatar} alt={user?.user?.name} />
+       
+          {
+            user?.user?.avatar === '' ?
+              <Avatar sx={{ width: 150, height: 150 }} /> :
+              dp === '' ?
+                <img src={user?.user?.avatar} alt={user?.user?.name} /> :
+                <img src={dp} alt={user?.user?.name} />
+          }
+
           <div className={classes.profilePictureButton}>
             <EditIcon fontSize="medium" />
+            <input type="file" id="file" accept=".png,.jpg,.jpeg" onChange={convertToBase64} />
           </div>
         </div>
-
-        {/* popup for drag and drop profile pic */}
-
 
         <div className={classes.inputContainer}>
           <h3 className={classes.inputLabel}> Name</h3>
